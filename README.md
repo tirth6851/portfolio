@@ -1,61 +1,71 @@
-# Tirth Patel – Portfolio Website 🌐
+# Tirth Patel – Portfolio Website
 
-Personal portfolio website showcasing my projects, experience, and journey as a Computer Science student at Cleveland State University.
+This repository contains my personal portfolio website. It showcases my projects, experience, and skills as a Computer Science student at Cleveland State University.
 
-> **Status:** v1 live locally – actively improving design, content, and deployment.
+The site is a single-page, responsive layout built with HTML and CSS.
 
 ---
 
-## 🚀 Features
+## Features
 
 ### Core Sections
 
-- **Hero:** Name, headline, location, and quick links (GitHub, resume download, contact).
-- **About:** Background, current roles (STEM Peer Teacher, Operations Assistant), and career goals.
-- **Projects:** Featured work, including:
-  - **WatchNextAI** – ML-powered movie recommendation system (Python, ML, TMDB API).
-  - **Java CIS151** – Java fundamentals, OOP, data structures, and course projects.
-  - **Harvard CS50P** – Python problem sets and learning projects.
-- **Experience:** Roles at CSU (Operations Assistant, STEM Peer Teacher, OpSTEM, Billiards Club).
-- **Technical Skills:** Proficient tools / languages plus areas currently learning.
-- **Contact:** Email, LinkedIn, GitHub, and location.
+- **Hero**  
+  Name, headline, location, quick links to GitHub and resume download.
+
+- **About**  
+  Background, current roles, and technical interests.
+
+- **Projects**  
+  A curated set of projects, including:
+  - **WatchNextAI** – Machine learning based movie recommendation system.
+  - **Java CIS151** – Fundamentals of Java, OOP, and data structures.
+  - **Harvard CS50P** – Python programming and problem sets.
+
+- **Experience**  
+  Roles at Cleveland State University, including Operations Assistant, STEM Peer Teacher, and student leadership positions.
+
+- **Technical Skills**  
+  Languages, tools, technologies, and certifications.
+
+- **Contact**  
+  Email, LinkedIn, GitHub, and location.
 
 ---
 
-## 🎨 Design
+## Design
 
-- Dark “luxury” theme with:
-  - Charcoal background
-  - Deep green accents
-  - Gold highlights
-- Fully responsive layout for desktop, tablet, and mobile.
-- Smooth scrolling navigation and hover animations on cards, links, and buttons.
+- Dark theme with charcoal background and deep green accents.
+- Gold highlights for headings and key elements.
+- Responsive grid layout for projects, experience, and skills.
+- Smooth scrolling navigation and subtle hover effects.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 **Frontend**
 
 - HTML5
-- CSS3 (custom, no framework yet)
+- CSS3 (custom)
 
-**Planned Enhancements**
+**Future Enhancements**
 
-- Light JavaScript for animations and interactive elements.
-- Possible migration to **React** or **Next.js** in a future version.
-- Utility-first styling with **Tailwind CSS** for faster iteration (future).
+- Light JavaScript for animations and a mobile navigation menu.
+- Possible refactor to React or Next.js.
+- Utility-first styling with Tailwind CSS for faster iteration.
+- Deployment on GitHub Pages or Vercel with a custom domain.
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```text
 portfolio/
-├── index.html        # Main portfolio page
-├── styles.css        # Global styles
+├── index.html         # Main page
+├── styles.css         # Stylesheet
 ├── assets/
-│   ├── me-pic.jpeg   # Profile image
-│   ├── resume.pdf    # Current resume (for download)
+│   ├── me-pic.jpeg    # Profile image
+│   ├── resume.pdf     # Current resume (for download)
 │   └── tirth-patel-resume.docx
 └── README.md
