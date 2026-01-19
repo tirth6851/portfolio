@@ -3,227 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tirth Patel | CS Student & Developer</title>
+    <title>Tirth Patel | Computer Science Student & Developer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Tirth Patel</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">Tirth Patel</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <img src="assets/me.pic.jpeg" alt="Tirth Patel" class="profile-pic">
-                <h1 class="hero-title">Tirth Mitulbhai Patel</h1>
-                <p class="hero-subtitle">Computer Science Student @CSU | STEM Peer Teacher | Seeking Internships</p>
-                <p class="hero-description">Cleveland, Ohio | Actively Seeking Summer 2026 Software Engineering, AI/ML, or Cybersecurity Internships</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="https://github.com/tirth6851" target="_blank" class="btn btn-secondary">View GitHub</a>
-                    <a href="assets/resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <img src="assets/me-pic.jpeg" alt="Portrait of Tirth Patel" class="profile-pic">
+            <h1 class="hero-title">Tirth Mitulbhai Patel</h1>
+            <p class="hero-subtitle">
+                Computer Science Student · STEM Peer Teacher · Operations Assistant
+            </p>
+            <p class="hero-description">
+                Cleveland State University · Cleveland, Ohio · Actively seeking Summer 2026 internships in
+                Software Engineering, AI/ML, or Cybersecurity.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="https://github.com/tirth6851" target="_blank" rel="noreferrer" class="btn btn-secondary">
+                    View GitHub
+                </a>
+                <a href="assets/resume.pdf" class="btn btn-secondary" download>
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>
+                <strong>Computer Science undergraduate at Cleveland State University</strong> with a strong
+                interest in software engineering, artificial intelligence, and cybersecurity. I am currently a
+                STEM Peer Teacher for Precalculus I (MTH 167) and an Operations Assistant at CENTERS, LLC,
+                where I support students and members while building communication, leadership, and
+                problem-solving skills.
+            </p>
+            <p>
+                I enjoy working on projects that combine practical problem solving with clean, maintainable
+                code. Recent work includes building a movie recommendation system using machine learning,
+                completing Harvard’s CS50P course, and developing Java fundamentals projects through
+                coursework. I am continuously expanding my skills in Python, Java, data structures, and
+                security concepts.
+            </p>
+            <p>
+                I am actively looking for opportunities where I can contribute to real engineering work,
+                learn from experienced developers, and grow into a well-rounded, ethical, and adaptable
+                technologist.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3>WatchNextAI – Movie Recommendation System</h3>
+                <p class="project-status">Completed</p>
+                <ul class="project-details">
+                    <li>Built an intelligent movie recommendation system using Python and machine learning.</li>
+                    <li>Implemented content-based filtering with TF-IDF vectorization and cosine similarity.</li>
+                    <li>Integrated the TMDB API for real-time movie metadata and poster images.</li>
+                    <li>Developed an interactive UI using Streamlit to deliver personalized recommendations.</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">TMDB API</span>
+                </div>
+                <a href="https://github.com/tirth6851/watchnextai" target="_blank" rel="noreferrer" class="project-link">
+                    View on GitHub
+                </a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3>Java CIS151 – Computer Science Fundamentals</h3>
+                <p class="project-status project-status-in-progress">In Progress</p>
+                <ul class="project-details">
+                    <li>Repository of Java coursework demonstrating fundamentals and applied problem solving.</li>
+                    <li>Implemented OOP principles, arrays, ArrayLists, HashMaps, and algorithmic exercises.</li>
+                    <li>Used Java 21 and Maven for project management and structured builds.</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">OOP</span>
+                    <span class="tech-tag">Data Structures</span>
+                    <span class="tech-tag">Maven</span>
+                </div>
+                <a href="https://github.com/tirth6851/Java-CIS151" target="_blank" rel="noreferrer" class="project-link">
+                    View on GitHub
+                </a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <h3>Harvard CS50P – Python Problem Sets</h3>
+                <p class="project-status">Completed</p>
+                <ul class="project-details">
+                    <li>Completed Harvard’s CS50P course covering Python fundamentals and algorithmic thinking.</li>
+                    <li>Solved problems involving data structures, file I/O, APIs, and regular expressions.</li>
+                    <li>Wrote clean, documented code following PEP 8 and best practices.</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Algorithms</span>
+                    <span class="tech-tag">Problem Solving</span>
+                </div>
+                <a href="https://github.com/tirth6851/CS50P-Learning-Projects" target="_blank" rel="noreferrer" class="project-link">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="experience">
+    <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>Operations Assistant</h3>
+                <p class="company">CENTERS, LLC at Cleveland State University</p>
+                <p class="date">January 2026 – Present</p>
+                <ul>
+                    <li>Provide front-line customer service to members and guests at the recreation center.</li>
+                    <li>Enforce facility policies and support emergency procedures to maintain a safe environment.</li>
+                    <li>Monitor facility operations, assist with incident response, and maintain cleanliness standards.</li>
+                    <li>Collaborate with supervisors and student staff to coordinate daily operations.</li>
+                    <li>Develop skills in communication, conflict resolution, and time management.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>STEM Peer Teacher – Precalculus I (MTH 167)</h3>
+                <p class="company">Cleveland State University</p>
+                <p class="date">July 2025 – Present</p>
+                <ul>
+                    <li>Selected through competitive hiring to support student learning in Precalculus I.</li>
+                    <li>Guide students through algebra, trigonometry, and functions during class sessions.</li>
+                    <li>Collaborate with faculty to reinforce key concepts and structured problem solving.</li>
+                    <li>Provide individualized support and encourage active participation in class.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>OpSTEM Representative & Billiards Club Secretary</h3>
+                <p class="company">Cleveland State University</p>
+                <p class="date">2024 – Present</p>
+                <ul>
+                    <li>Promote STEM engagement and support events for underrepresented students in technology.</li>
+                    <li>Coordinate Billiards Club communication, meeting logistics, and event planning.</li>
+                    <li>Build leadership, organization, and teamwork skills through campus involvement.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills">
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Proficient</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Data Structures</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Learning and Exploring</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Cybersecurity</span>
+                    <span class="skill-tag">Data Analytics</span>
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">API Integration</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Certifications</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Deloitte Data Analytics (Forage)</span>
+                    <span class="skill-tag">Mastercard Cybersecurity (Forage)</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <p><strong>Computer Science undergrad at Cleveland State University with a fierce drive to explore, build, and grow in technology.</strong> Currently serving as a STEM Peer Teacher for Precalculus I (MTH 167) and Operations Assistant at CENTERS, LLC, I help students succeed while sharpening my communication, leadership, and problem-solving skills.</p>
-                <p>I'm diving deep into Python, AI, and Cybersecurity—building projects that solve real-world problems. With certifications in Deloitte Data Analytics and Mastercard Cybersecurity job simulations, I'm preparing for hands-on internship opportunities to accelerate my growth. My mission: become a well-rounded developer who thinks critically, acts ethically, and adapts rapidly in the ever-evolving tech world.</p>
-                <p><strong style="font-size: 1.1em;">🚀 Actively seeking summer 2026 internship opportunities in software engineering, AI/ML, or cybersecurity.</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>WatchNextAI - Movie Recommendation System</h3>
-                    <p class="project-status">Completed</p>
-                    <ul class="project-details">
-                        <li>Built an intelligent movie recommendation system using Python and machine learning algorithms</li>
-                        <li>Implemented content-based filtering with TF-IDF vectorization and cosine similarity for personalized recommendations</li>
-                        <li>Integrated TMDB API for real-time movie data and poster images using Streamlit for interactive UI</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Streamlit</span>
-                        <span class="tech-tag">TMDB API</span>
-                    </div>
-                    <a href="https://github.com/tirth6851/watchnextai" target="_blank" class="project-link">View on GitHub</a>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-content">
+            <p class="contact-description">
+                I am actively seeking Summer 2026 internship opportunities in software engineering, AI/ML,
+                or cybersecurity. I am also open to collaborating on projects related to education,
+                technology, and data-driven problem solving.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Location</strong>
+                    <span>Cleveland, Ohio, United States</span>
                 </div>
-
-                <div class="project-card">
-                    <h3>Java CIS151 - Computer Science Fundamentals</h3>
-                    <p class="project-status">In Progress</p>
-                    <ul class="project-details">
-                        <li>Comprehensive repository demonstrating Java programming fundamentals from CIS151 coursework</li>
-                        <li>Implemented OOP principles, data structures (arrays, ArrayLists, HashMaps), algorithms, and software design patterns</li>
-                        <li>Built with Java 21 and Maven for project management, including labs, exercises, and real-world projects</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">OOP</span>
-                        <span class="tech-tag">Data Structures</span>
-                        <span class="tech-tag">Maven</span>
-                    </div>
-                    <a href="https://github.com/tirth6851/Java-CIS151" target="_blank" class="project-link">View on GitHub</a>
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:t.m.patel73@vikes.csuohio.edu">t.m.patel73@vikes.csuohio.edu</a>
                 </div>
-
-                <div class="project-card">
-                    <h3>Harvard CS50P - Python Problem Sets</h3>
-                    <p class="project-status">Completed</p>
-                    <ul class="project-details">
-                        <li>Completed Harvard's CS50P course covering fundamental programming concepts and algorithmic thinking</li>
-                        <li>Solved complex problems involving string manipulation, file I/O, regular expressions, and API integration</li>
-                        <li>Developed clean, documented code following best practices and PEP 8 style guidelines</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Algorithms</span>
-                        <span class="tech-tag">Problem Solving</span>
-                    </div>
-                    <a href="https://github.com/tirth6851/CS50P-Learning-Projects" target="_blank" class="project-link">View on GitHub</a>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank" rel="noreferrer">
+                        linkedin.com/in/tirth-patel2093
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <strong>GitHub</strong>
+                    <a href="https://github.com/tirth6851" target="_blank" rel="noreferrer">
+                        github.com/tirth6851
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <h3>Operations Assistant</h3>
-                    <p class="company">CENTERS, LLC @ Cleveland State University</p>
-                    <p class="date">January 2026 - Present</p>
-                    <ul>
-                        <li>Deliver exceptional customer service by welcoming members and guests, addressing inquiries, and managing lost and found operations</li>
-                        <li>Enforce facility policies and safety procedures while supporting emergency action plan implementation</li>
-                        <li>Monitor facility operations and maintain cleanliness standards throughout public spaces</li>
-                        <li>Collaborate with operations supervisors to coordinate daily activities and support administrative tasks</li>
-                        <li>Develop transferable skills in customer service, conflict resolution, time management, and team collaboration</li>
-                    </ul>
-                </div>
-                
-                <div class="experience-item">
-                    <h3>STEM Peer Teacher – Precalculus I (MTH 167)</h3>
-                    <p class="company">Cleveland State University</p>
-                    <p class="date">July 2025 - Present</p>
-                    <ul>
-                        <li>Selected through competitive hiring to support student success in MTH 167</li>
-                        <li>Facilitate learning by answering questions and guiding students through challenging concepts during class sessions</li>
-                        <li>Collaborate directly with faculty to enhance course delivery and promote structured peer interaction</li>
-                        <li>Provide academic support tailored to student needs in algebra, trigonometry, and functions</li>
-                        <li>Build communication, leadership, and problem-solving skills in an academic setting</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <h3>OpSTEM Representative & Billiards Club Secretary</h3>
-                    <p class="company">Cleveland State University</p>
-                    <ul>
-                        <li>OpSTEM: Promote STEM engagement and organize educational events for underrepresented students in technology</li>
-                        <li>Billiards Club: Manage communications, coordinate club events, and maintain member engagement records</li>
-                        <li>Develop leadership, organizational, and teamwork skills through campus involvement</li>
-                    </ul>
-                </div>
-            </div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <p>&copy; 2026 Tirth Patel. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://github.com/tirth6851" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Proficient</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Git/GitHub</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Data Structures</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Learning & Exploring</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Cybersecurity</span>
-                        <span class="skill-tag">Data Analytics</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">API Integration</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Certifications</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Deloitte Data Analytics (Forage)</span>
-                        <span class="skill-tag">Mastercard Cybersecurity (Forage)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <p>I'm actively seeking internship opportunities for Summer 2026 in software engineering, AI/ML, or cybersecurity. Let's connect if you're passionate about tech, education, or solving meaningful problems!</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <strong>Location:</strong> Cleveland, Ohio
-                    </div>
-                    <div class="contact-item">
-                        <strong>Email:</strong> <a href="mailto:t.m.patel73@vikes.csuohio.edu">t.m.patel73@vikes.csuohio.edu</a>
-                    </div>
-                    <div class="contact-item">
-                        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank">linkedin.com/in/tirth-patel2093</a>
-                    </div>
-                    <div class="contact-item">
-                        <strong>GitHub:</strong> <a href="https://github.com/tirth6851" target="_blank">github.com/tirth6851</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Tirth Patel. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/tirth6851" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>
