@@ -1,6 +1,11 @@
 'use strict';
 
 /* ============================================================
+   Note: document.documentElement.classList.add('js') is called
+   via an inline <script> in <head> for progressive enhancement.
+   ============================================================ */
+
+/* ============================================================
    1. Hamburger Menu
    ============================================================ */
 const hamburger = document.querySelector('.hamburger');
@@ -39,22 +44,33 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ============================================================
-   3. 3D Scroll Reveal  (Intersection Observer)
-   ============================================================
-   Elements get an .anim + .anim-* class in the HTML.
-   When they enter the viewport, .is-visible is added,
-   which resets all transforms to identity (transform: none).
+   3. Targeted scroll animations (2 observers)
    ============================================================ */
-const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target); // animate once, then stop watching
-        }
-    });
-}, {
-    threshold: 0.12,          // element must be 12% visible to trigger
-    rootMargin: '0px 0px -40px 0px'  // triggers 40px before bottom of viewport
-});
 
-document.querySelectorAll('.anim').forEach(el => revealObserver.observe(el));
+// Animation 2: Projects grid — staggered card reveal
+const projectsGrid = document.querySelector('.projects-grid');
+if (projectsGrid) {
+    const projectsObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('projects-revealed');
+                projectsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    projectsObserver.observe(projectsGrid);
+}
+
+// Animation 3: About content — fade-up on scroll
+const aboutContent = document.querySelector('.about-content');
+if (aboutContent) {
+    const aboutObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('about-revealed');
+                aboutObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    aboutObserver.observe(aboutContent);
+}

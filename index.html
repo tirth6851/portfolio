@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tirth Patel | CS Student &amp; Developer</title>
     <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -31,17 +32,16 @@
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <img src="assets/me-pic.jpeg" alt="Portrait of Tirth Patel" class="profile-pic anim anim-scale">
-            <h1 class="hero-title anim anim-up delay-1">CS Student | Recommendation Systems &amp; Backend Development | Fall 2026 Internship</h1>
-            <p class="hero-subtitle anim anim-up delay-2">
-                CS @ Cleveland State | Math Minor | GPA 3.54 | Seeking Fall 2026 Internship
+            <img src="assets/me-pic.jpeg" alt="Portrait of Tirth Patel" class="profile-pic hero-pic">
+            <h1 class="hero-name">Tirth Patel</h1>
+            <p class="hero-tagline">CS student &middot; backend tools &amp; ML systems</p>
+            <p class="hero-description">
+                I build and ship Python applications using real algorithms — including a live movie
+                recommendation engine powered by TF-IDF and cosine similarity, deployed on Render.
+                Looking for a Fall 2026 SWE or ML internship where I can contribute from day one.
             </p>
-            <p class="hero-description anim anim-up delay-3">
-                I build and deploy Python applications that use real algorithms to solve practical
-                problems — including a live content-based recommendation engine using TF-IDF and
-                cosine similarity. Currently seeking a Fall 2026 SWE or AI/ML internship.
-            </p>
-            <div class="hero-buttons anim anim-up delay-4">
+            <p class="hero-meta">Cleveland State University &middot; Math Minor &middot; GPA 3.54</p>
+            <div class="hero-cta">
                 <a href="assets/resume.pdf" class="btn btn-primary" download>
                     View Resume
                 </a>
@@ -59,10 +59,13 @@
 <!-- About Section -->
 <section id="about" class="about">
     <div class="container">
-        <h2 class="section-title anim anim-scale">About Me</h2>
-        <div class="about-content anim anim-up">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
             <p>
-                I am a Computer Science student focused on building strong programming fundamentals in Java and Python. I enjoy developing clean, modular programs and improving them through iteration and testing. As a STEM Peer Teacher, I regularly explain complex problems clearly and guide students through structured problem-solving. I am currently seeking a Fall 2026 internship where I can contribute to real-world software projects while continuing to strengthen my engineering foundations.
+                Junior CS student at Cleveland State, minoring in Math. Most of my time goes into building things — right now, a live movie recommendation engine that uses TF-IDF vectorization and cosine similarity to match users to films they'll actually want to watch. I care about algorithms that do real work, not just prototypes.
+            </p>
+            <p>
+                Outside class, I teach Precalculus I as a STEM Peer Teacher, which has made me a much better communicator — you understand something differently when you have to explain it out loud. I'm looking for a Fall 2026 internship where I can ship real code alongside people who take their craft seriously.
             </p>
         </div>
     </div>
@@ -71,13 +74,14 @@
 <!-- Projects Section -->
 <section id="projects" class="projects">
     <div class="container">
-        <h2 class="section-title anim anim-scale">Featured Projects</h2>
+        <h2 class="section-title">Featured Projects</h2>
 
         <div class="projects-grid">
 
         <!-- Project 1: Java Programming Projects -->
-        <div class="project-card anim anim-flip delay-1">
+        <div class="project-card">
             <h3 class="project-title">Java Programming Projects</h3>
+            <p class="project-summary">Core Java coursework — OOP patterns, data structures, and file I/O across 10+ programs.</p>
             <div class="project-tags">
                 <span class="tech-tag">Java</span>
                 <span class="tech-tag">OOP</span>
@@ -96,17 +100,15 @@
         </div>
 
         <!-- Project 2: WatchNextAI -->
-        <div class="project-card anim anim-flip delay-2">
+        <div class="project-card">
             <h3 class="project-title">WatchNextAI</h3>
+            <p class="project-summary">A deployed movie recommendation engine — not a demo, actually running and processing requests.</p>
             <div class="project-tags">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">Flask</span>
-                <span class="tech-tag">REST APIs</span>
-                <span class="tech-tag">TMDB API</span>
                 <span class="tech-tag">Supabase</span>
                 <span class="tech-tag">PostgreSQL</span>
                 <span class="tech-tag">TF-IDF</span>
-                <span class="tech-tag">Cosine Similarity</span>
             </div>
             <ul class="project-details">
                 <li>Built a content-based recommendation engine using TF-IDF vectorization and cosine similarity to match users to movies based on genre, cast, and keyword metadata</li>
@@ -124,8 +126,9 @@
         </div>
 
         <!-- Project 3: CS50P -->
-        <div class="project-card anim anim-flip delay-3">
+        <div class="project-card">
             <h3 class="project-title">CS50P – Python Programming (Harvard)</h3>
+            <p class="project-summary">Harvard's Python curriculum, completed front-to-back — 10 problem sets with required pytest test coverage.</p>
             <div class="project-tags">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">Unit Testing</span>
@@ -136,7 +139,6 @@
             <ul class="project-details">
                 <li>Completed Harvard's CS50P curriculum — 10 problem sets covering file I/O, regular expressions, OOP, and API integration</li>
                 <li>Wrote pytest unit tests for each submission, enforced by the course's automated grader</li>
-                <li>Final project: [describe your CS50P final project here]</li>
             </ul>
             <div class="project-links">
                 <a href="https://github.com/tirth6851" target="_blank" rel="noreferrer" class="project-link">
@@ -152,12 +154,12 @@
 <!-- Experience Section -->
 <section id="experience" class="experience">
     <div class="container">
-        <h2 class="section-title anim anim-scale">Experience</h2>
+        <h2 class="section-title">Experience</h2>
 
         <div class="experience-timeline">
 
         <!-- Experience 1 -->
-        <div class="experience-item anim anim-left delay-1">
+        <div class="experience-item">
             <h3>STEM Peer Teacher – Precalculus I (MTH 167)</h3>
             <p class="company">Cleveland State University</p>
             <p class="date">July 2025 – Present</p>
@@ -170,7 +172,7 @@
         </div>
 
         <!-- Experience 2 -->
-        <div class="experience-item anim anim-left delay-2">
+        <div class="experience-item">
             <h3>Operations Assistant</h3>
             <p class="company">CENTERS, LLC at Cleveland State University</p>
             <p class="date">January 2026 – Present</p>
@@ -183,7 +185,7 @@
         </div>
 
         <!-- Experience 3 -->
-        <div class="experience-item anim anim-left delay-3">
+        <div class="experience-item">
             <h3>OpSTEM Representative &amp; Billiards Club Secretary</h3>
             <p class="company">Cleveland State University</p>
             <p class="date">2024 – Present</p>
@@ -201,11 +203,11 @@
 <!-- Skills Section -->
 <section id="skills" class="skills">
     <div class="container">
-        <h2 class="section-title anim anim-scale">Technical Skills</h2>
+        <h2 class="section-title">Technical Skills</h2>
 
         <div class="skills-grid">
 
-        <div class="skill-category anim anim-up delay-1">
+        <div class="skill-category">
             <h3>Languages</h3>
             <div class="skill-tags">
                 <span class="skill-tag">Python</span>
@@ -215,7 +217,7 @@
             </div>
         </div>
 
-        <div class="skill-category anim anim-up delay-2">
+        <div class="skill-category">
             <h3>Web &amp; Backend</h3>
             <div class="skill-tags">
                 <span class="skill-tag">Flask</span>
@@ -227,7 +229,7 @@
             </div>
         </div>
 
-        <div class="skill-category anim anim-up delay-3">
+        <div class="skill-category">
             <h3>Concepts</h3>
             <div class="skill-tags">
                 <span class="skill-tag">Object-Oriented Programming</span>
@@ -238,7 +240,7 @@
             </div>
         </div>
 
-        <div class="skill-category anim anim-up delay-4">
+        <div class="skill-category">
             <h3>Tools</h3>
             <div class="skill-tags">
                 <span class="skill-tag">Git</span>
@@ -258,33 +260,29 @@
 <!-- Contact Section -->
 <section id="contact" class="contact">
     <div class="container">
-        <h2 class="section-title anim anim-scale">Get in Touch</h2>
-        <div class="contact-content">
-            <p class="contact-intro">
-                Seeking Software Engineering / Developer Internship or Co-op — Fall 2026
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-body">
+            <p class="contact-blurb">
+                Seeking a Fall 2026 software engineering internship or co-op. I respond to every message.
             </p>
-
-            <div class="contact-details">
-                <div class="contact-item anim anim-right delay-1">
-                    <strong>Location</strong>
-                    <p>Cleveland, Ohio, United States</p>
-                </div>
-
-                <div class="contact-item anim anim-right delay-2">
-                    <strong>Email</strong>
-                    <p><a href="mailto:t.patel76@vikes.csohio.edu">t.patel76@vikes.csohio.edu</a></p>
-                </div>
-
-                <div class="contact-item anim anim-right delay-3">
-                    <strong>LinkedIn</strong>
-                    <p><a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank" rel="noreferrer">linkedin.com/in/tirth-patel2093</a></p>
-                </div>
-
-                <div class="contact-item anim anim-right delay-4">
-                    <strong>GitHub</strong>
-                    <p><a href="https://github.com/tirth6851" target="_blank" rel="noreferrer">github.com/tirth6851</a></p>
-                </div>
-            </div>
+            <ul class="contact-links">
+                <li class="contact-link">
+                    <span class="cl-label">Email</span>
+                    <a href="mailto:t.patel76@vikes.csohio.edu" class="cl-value">t.patel76@vikes.csohio.edu</a>
+                    <span class="cl-arrow">&#8594;</span>
+                </li>
+                <li class="contact-link">
+                    <span class="cl-label">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank" rel="noreferrer" class="cl-value">linkedin.com/in/tirth-patel2093</a>
+                    <span class="cl-arrow">&#8594;</span>
+                </li>
+                <li class="contact-link">
+                    <span class="cl-label">GitHub</span>
+                    <a href="https://github.com/tirth6851" target="_blank" rel="noreferrer" class="cl-value">github.com/tirth6851</a>
+                    <span class="cl-arrow">&#8594;</span>
+                </li>
+            </ul>
+            <p class="contact-location">Cleveland, Ohio</p>
         </div>
     </div>
 </section>
