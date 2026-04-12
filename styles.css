@@ -359,7 +359,7 @@ section {
 }
 
 .experience-item h3 {
-    color: var(--accent-primary);
+    color: var(--accent-secondary);
     margin-bottom: 0.5rem;
 }
 
@@ -525,28 +525,17 @@ section {
         padding: 0 1.5rem;
     }
 
-    .navbar .container {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-
     .hero {
         min-height: auto;
         padding: 7rem 0 4rem;
     }
 
     .hero-title {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
 
     .hero-subtitle {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     section {
@@ -593,5 +582,198 @@ section {
 
     .section-title {
         font-size: 2rem;
+    }
+}
+
+/* ============================================================
+   Hamburger Button
+   ============================================================ */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    z-index: 1100;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--accent-gold);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   Navbar Scroll State
+   ============================================================ */
+
+.navbar.scrolled {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================================
+   3D Scroll Animations
+   ============================================================ */
+
+/* Base class — shared transition on every animated element */
+.anim {
+    will-change: transform, opacity;
+    transition:
+        opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Fade-up with 3D perspective tilt (hero, about, skills) */
+.anim-up {
+    opacity: 0;
+    transform: perspective(800px) translateY(50px) rotateX(10deg);
+}
+
+/* Card flip-in (project cards) */
+.anim-flip {
+    opacity: 0;
+    transform: perspective(1000px) translateY(60px) rotateX(20deg) rotateY(8deg);
+}
+
+/* Slide in from left with depth (experience items) */
+.anim-left {
+    opacity: 0;
+    transform: perspective(800px) translateX(-55px) rotateY(-12deg);
+}
+
+/* Slide in from right with depth (contact items) */
+.anim-right {
+    opacity: 0;
+    transform: perspective(800px) translateX(55px) rotateY(12deg);
+}
+
+/* Scale-and-tilt reveal (section titles) */
+.anim-scale {
+    opacity: 0;
+    transform: perspective(600px) scale(0.88) translateY(20px) rotateX(8deg);
+}
+
+/* Visible state — resets ALL transforms to identity */
+.anim.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Stagger delays for cascading effect within a section */
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.18s; }
+.delay-3 { transition-delay: 0.28s; }
+.delay-4 { transition-delay: 0.38s; }
+.delay-5 { transition-delay: 0.48s; }
+
+/* Accessibility: respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .anim,
+    .anim-up,
+    .anim-flip,
+    .anim-left,
+    .anim-right,
+    .anim-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* ============================================================
+   Mobile — Hamburger Nav
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    /* Slide-down mobile nav panel */
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(5, 8, 9, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0 2rem;
+        gap: 1.5rem;
+        transform: translateY(-110%);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+            opacity   0.35s ease;
+        border-bottom: 1px solid var(--accent-primary);
+        z-index: 999;
+    }
+
+    .nav-links.nav-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+    }
+
+    /* Single-column grids on mobile */
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-pic {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.65rem;
+    }
+
+    .profile-pic {
+        width: 130px;
+        height: 130px;
+    }
+
+    .project-card,
+    .experience-item {
+        padding: 1.5rem;
+    }
+}
+
+/* Disable translateX hover effects on touch-only devices */
+@media (hover: none) {
+    .experience-item:hover,
+    .contact-item:hover {
+        transform: none;
+        box-shadow: none;
     }
 }
