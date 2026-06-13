@@ -26,7 +26,7 @@ html {
 
 body {
     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    background-color: var(--bg-primary);
+    background-color: transparent; /* Allow fixed shader to show through */
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -299,7 +299,7 @@ section {
 /* About */
 
 .about {
-    background-color: var(--bg-secondary);
+    background-color: rgba(13, 17, 23, 0.65); /* 35% transparent */
 }
 
 .about-content p {
@@ -414,7 +414,7 @@ section {
 /* Experience */
 
 .experience {
-    background-color: rgba(13, 17, 23, 0.65);
+    background-color: rgba(13, 17, 23, 0.65); /* 35% transparent */
 }
 
 .experience-timeline {
@@ -513,7 +513,7 @@ section {
 /* Skills */
 
 .skills {
-    background: var(--bg-secondary);
+    background-color: rgba(13, 17, 23, 0.65); /* 35% transparent */
 }
 
 .skills-grid {
@@ -557,7 +557,7 @@ section {
 .contact {
     position: relative;
     overflow: hidden;
-    background: var(--bg-primary);
+    background-color: rgba(5, 8, 9, 0.65); /* 35% transparent */
 }
 
 #contact-raining-letters {
@@ -625,7 +625,7 @@ section {
 /* Footer */
 
 .footer {
-    background: rgba(5, 8, 9, 0.95);
+    background: rgba(5, 8, 9, 0.75); /* Match header transparency */
     padding: 2rem 0;
     border-top: 1px solid var(--accent-primary);
 }
