@@ -57,7 +57,7 @@ class MatrixText {
             const s = document.createElement('span');
             s.className = 'matrix-span';
             s.innerText = c;
-            s.style.width = c === ' ' ? '0.5ch' : '1.2ch';
+            s.style.minWidth = c === ' ' ? '0.4em' : '0.6em';
             this.el.appendChild(s);
             return { el: s, char: c };
         });
@@ -261,6 +261,6 @@ window.addEventListener('scroll', () => {
     if (rect.top < viewHeight && rect.bottom > 0) {
         const progress = Math.min(Math.max((viewHeight - rect.top) / viewHeight, 0), 1);
         const rotateX = 20 - (progress * 20); // Tilt from 20deg to 0deg
-        projects.style.transform = `perspective(1000px) rotateX(${rotateX}deg) scale(${0.9 + (progress * 0.1)})`;
+        projects.style.transform = `perspective(1200px) rotateX(${rotateX}deg) scale(${0.95 + (progress * 0.05)})`;
     }
 }, { passive: true });

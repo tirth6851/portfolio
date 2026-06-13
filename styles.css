@@ -107,10 +107,9 @@ body {
     position: relative;
     overflow: hidden;
     padding-top: 80px;
-    background-color: #000;
+    background-color: var(--bg-primary);
 }
 
-#hero-shader {
 #hero-shader {
     position: absolute;
     top: 0;
@@ -118,7 +117,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    opacity: 0.9;
+    opacity: 0.6;
     pointer-events: none;
 }
 
@@ -148,7 +147,7 @@ body {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    border-radius: 9999px;
+    border-radius: 8px;
     z-index: -1;
     box-shadow: 
         0 0 6px rgba(0,0,0,0.03),
@@ -178,6 +177,7 @@ body {
     display: inline-block;
     font-family: monospace;
     font-variant-numeric: tabular-nums;
+    text-align: center;
 }
 
 .hero-content {
@@ -194,7 +194,8 @@ body {
     margin-bottom: 1rem;
     color: var(--text-primary);
     font-family: monospace;
-    min-height: 4.5rem;
+    display: block;
+    min-height: 120px; /* Prevents layout jump when text wraps on small screens */
 }
 
 .hero-subtitle {
