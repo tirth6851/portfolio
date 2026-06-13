@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tirth Patel | CS Student &amp; Developer</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 </head>
 <body>
 
 <!-- Navigation -->
 <nav class="navbar">
     <div class="container">
-        <div class="logo">Tirth Patel</div>
+        <div class="logo" id="scramble-logo">Tirth Patel</div>
         <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
             <span></span>
             <span></span>
@@ -29,18 +30,13 @@
 
 <!-- Hero Section -->
 <section class="hero">
+    <div id="hero-shader"></div>
     <div class="container">
         <div class="hero-content">
             <img src="assets/me-pic.jpeg" alt="Portrait of Tirth Patel" class="profile-pic anim anim-scale">
-            <h1 class="hero-title anim anim-up delay-1">CS Student | Recommendation Systems &amp; Backend Development | Fall 2026 Internship</h1>
-            <p class="hero-subtitle anim anim-up delay-2">
-                CS @ Cleveland State | Math Minor | GPA 3.54 | Seeking Fall 2026 Internship
-            </p>
-            <p class="hero-description anim anim-up delay-3">
-                I build and deploy Python applications that use real algorithms to solve practical
-                problems — including a live content-based recommendation engine using TF-IDF and
-                cosine similarity. Currently seeking a Fall 2026 SWE or AI/ML internship.
-            </p>
+            <h1 class="hero-title anim anim-up delay-1" id="scramble-hero-title">Engineering Intelligent Systems</h1>
+            <p class="hero-description anim anim-up delay-2" id="scramble-hero-desc">Building the future of AI & Backend.</p>
+            
             <div class="hero-buttons anim anim-up delay-4">
                 <a href="assets/resume.pdf" class="btn btn-primary" download>
                     View Resume
