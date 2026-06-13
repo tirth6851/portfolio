@@ -107,7 +107,7 @@ body {
     position: relative;
     overflow: hidden;
     padding-top: 80px;
-    background-color: var(--bg-primary);
+    background-color: rgba(5, 8, 9, 0.65); /* 35% transparent to show shader */
 }
 
 #hero-shader {
