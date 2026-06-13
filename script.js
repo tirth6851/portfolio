@@ -39,56 +39,60 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ============================================================
-   3. Text Scramble Engine
+   3. Matrix Text Engine (Adapted from Kokonut UI)
    ============================================================ */
-class TextScramble {
-    constructor(el) {
+class MatrixText {
+    constructor(el, options = {}) {
         this.el = el;
-        this.chars = '!<>-_\\/[]{}—=+*^?#';
-        this.update = this.update.bind(this);
+        this.text = options.text || el.innerText;
+        this.duration = options.duration || 500;
+        this.interval = options.interval || 100;
+        this.initialDelay = options.initialDelay || 200;
     }
+
+    async animate() {
+        const chars = this.text.split('');
+        this.el.innerHTML = '';
+        const spans = chars.map(c => {
+            const s = document.createElement('span');
+            s.className = 'matrix-span';
+            s.innerText = c;
+            s.style.width = c === ' ' ? '0.5ch' : '1.2ch';
+            this.el.appendChild(s);
+            return { el: s, char: c };
+        });
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                spans.forEach((span, i) => {
+                    setTimeout(() => this.animateLetter(span), i * this.interval);
+                });
+                setTimeout(resolve, (spans.length * this.interval) + this.duration);
+            }, this.initialDelay);
+        });
+    }
+
+    animateLetter(span) {
+        if (span.char === ' ') return;
+        
+        const originalChar = span.char;
+        const scrambleInterval = setInterval(() => {
+            span.innerText = Math.random() > 0.5 ? '1' : '0';
+            span.style.color = '#00ff00';
+            span.style.textShadow = '0 2px 4px rgba(0, 255, 0, 0.5)';
+        }, 50);
+
+        setTimeout(() => {
+            clearInterval(scrambleInterval);
+            span.innerText = originalChar;
+            span.style.color = '';
+            span.style.textShadow = '';
+        }, this.duration);
+    }
+
     setText(newText) {
-        const oldText = this.el.innerText;
-        const length = Math.max(oldText.length, newText.length);
-        const promise = new Promise((resolve) => this.resolve = resolve);
-        this.queue = [];
-        for (let i = 0; i < length; i++) {
-            const from = oldText[i] || '';
-            const to = newText[i] || '';
-            const start = Math.floor(Math.random() * 40);
-            const end = start + Math.floor(Math.random() * 40);
-            this.queue.push({ from, to, start, end });
-        }
-        cancelAnimationFrame(this.frameRequest);
-        this.frame = 0;
-        this.update();
-        return promise;
-    }
-    update() {
-        let output = '';
-        let complete = 0;
-        for (let i = 0, n = this.queue.length; i < n; i++) {
-            let { from, to, start, end, char } = this.queue[i];
-            if (this.frame >= end) {
-                complete++;
-                output += to;
-            } else if (this.frame >= start) {
-                if (!char || Math.random() < 0.28) {
-                    char = this.chars[Math.floor(Math.random() * this.chars.length)];
-                    this.queue[i].char = char;
-                }
-                output += `<span class="dud">${char}</span>`;
-            } else {
-                output += from;
-            }
-        }
-        this.el.innerHTML = output;
-        if (complete === this.queue.length) {
-            this.resolve();
-        } else {
-            this.frameRequest = requestAnimationFrame(this.update);
-            this.frame++;
-        }
+        this.text = newText;
+        return this.animate();
     }
 }
 
@@ -131,17 +135,17 @@ function initHeroShader() {
                 float rx = p.x * (1.0 + d);
                 float gx = p.x;
                 float bx = p.x * (1.0 - d);
-                float r = 0.03 / abs(p.y + sin((rx + time) * xScale) * yScale);
-                float g = 0.04 / abs(p.y + sin((gx + time) * xScale) * yScale);
+                float r = 0.05 / abs(p.y + sin((rx + time) * xScale) * yScale);
+                float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
                 float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
-                gl_FragColor = vec4(r * 0.1, g * 0.4, b * 0.3, 1.0);
+                gl_FragColor = vec4(r, g, b, 1.0);
             }`
     });
 
     scene.add(new THREE.Mesh(geometry, material));
 
     function animate(t) {
-        uniforms.time.value = t * 0.0006;
+        uniforms.time.value = t * 0.001;
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     }
@@ -204,9 +208,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleEl = document.getElementById('scramble-hero-title');
     const descEl = document.getElementById('scramble-hero-desc');
 
-    const logoFx = new TextScramble(logoEl);
-    const titleFx = new TextScramble(titleEl);
-    const descFx = new TextScramble(descEl);
+    const logoFx = new MatrixText(logoEl);
+    const titleFx = new MatrixText(titleEl);
+    const descFx = new MatrixText(descEl);
 
     const logoPhrases = ["Tirth Patel", "CS @ Cleveland State", "Math Minor", "Python & Java"];
     const titlePhrases = ["Engineering Intelligent Systems", "Backend Developer", "Building Future Tech", "Fall 2026 Intern"];
