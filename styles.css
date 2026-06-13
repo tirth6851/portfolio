@@ -44,7 +44,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(5, 8, 9, 0.95);
+    background-color: rgba(5, 8, 9, 0.75); /* 25% Transparent as requested */
     backdrop-filter: blur(10px);
     padding: 1rem 0;
     z-index: 1000;
@@ -111,14 +111,15 @@ body {
 }
 
 #hero-shader {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
-    opacity: 0.6;
+    z-index: -1;
+    opacity: 1;
     pointer-events: none;
+    background: #000;
 }
 
 /* Liquid Glass Button Adaptation */
@@ -273,6 +274,7 @@ body {
 
 section {
     padding: 5rem 0;
+    background-color: rgba(5, 8, 9, 0.65); /* 35% Transparent as requested */
 }
 
 .section-title {
@@ -311,7 +313,7 @@ section {
 /* Projects */
 
 .projects {
-    background-color: var(--bg-primary);
+    background-color: rgba(5, 8, 9, 0.65);
 }
 
 .projects-grid {
@@ -321,7 +323,7 @@ section {
 }
 
 .project-card {
-    background-color: var(--bg-card);
+    background-color: rgba(22, 27, 34, 0.85);
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid var(--accent-primary);
@@ -412,7 +414,7 @@ section {
 /* Experience */
 
 .experience {
-    background-color: var(--bg-secondary);
+    background-color: rgba(13, 17, 23, 0.65);
 }
 
 .experience-timeline {
@@ -420,17 +422,64 @@ section {
 }
 
 .experience-item {
-    background: var(--bg-card);
+    background: rgba(22, 27, 34, 1);
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 2rem;
-    border-left: 4px solid var(--accent-primary);
+    border: 1px solid var(--accent-primary);
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.experience-item:hover {
-    transform: translateX(6px);
-    box-shadow: 0 8px 32px rgba(15, 241, 50, 0.15);
+/* The 2 Slanting Overlapping Squares */
+.experience-item::before,
+.experience-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--accent-primary);
+    border-radius: 12px;
+    z-index: -1;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.experience-item::before { transform: rotate(-4deg); opacity: 0.4; }
+.experience-item::after { transform: rotate(4deg); opacity: 0.2; }
+
+/* Specific Experience Animations */
+.anim-spt {
+    transform: perspective(1000px) translateX(-100vw) rotateY(-30deg);
+    opacity: 0;
+}
+
+.anim-oa {
+    transform: perspective(1000px) translateX(100vw) rotateY(30deg);
+    opacity: 0;
+}
+
+.anim-last {
+    transform: perspective(1000px) translateY(100px) scale(0.8);
+    opacity: 0;
+}
+
+.anim-spt.is-visible {
+    transform: perspective(1000px) translateX(5%) rotateY(-5deg);
+    opacity: 1;
+}
+
+.anim-oa.is-visible {
+    transform: perspective(1000px) translateX(-5%) rotateY(5deg);
+    opacity: 1;
+}
+
+.anim-last.is-visible {
+    transform: perspective(1000px) translateY(0) rotateX(10deg);
+    opacity: 1;
 }
 
 .experience-item h3 {
