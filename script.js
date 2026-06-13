@@ -58,3 +58,18 @@ const revealObserver = new IntersectionObserver(entries => {
 });
 
 document.querySelectorAll('.anim').forEach(el => revealObserver.observe(el));
+
+// 3D "Container Scroll" Effect for Projects
+window.addEventListener('scroll', () => {
+    const projects = document.querySelector('.projects-grid');
+    if (!projects) return;
+    
+    const rect = projects.getBoundingClientRect();
+    const viewHeight = window.innerHeight;
+    
+    if (rect.top < viewHeight && rect.bottom > 0) {
+        const progress = Math.min(Math.max((viewHeight - rect.top) / viewHeight, 0), 1);
+        const rotateX = 20 - (progress * 20); // Tilt from 20deg to 0deg
+        projects.style.transform = `perspective(1000px) rotateX(${rotateX}deg) scale(${0.9 + (progress * 0.1)})`;
+    }
+}, { passive: true });
