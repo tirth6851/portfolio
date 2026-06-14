@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens (Tailwind v4 @theme)
+   Ported from the legacy :root CSS variables.
+   --color-* names expose utilities like bg-bg-primary, text-accent-gold.
+   ============================================================ */
+@theme {
+  --color-bg-primary: #050809;
+  --color-bg-secondary: #0d1117;
+  --color-bg-card: #161b22;
+
+  --color-accent-primary: #0f5132;
+  --color-accent-secondary: #198754;
+  --color-accent-gold: #c9a96b;
+
+  --color-text-primary: #f9f5ef;
+  --color-text-secondary: #c9d1d9;
+  --color-text-muted: #8b949e;
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Accessible focus ring for every interactive element */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent-secondary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.hidden-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Liquid Glass Button (raw CSS — too complex for utilities)
+   backdrop-filter: url() is Chromium-only; degrades to the
+   rgba background + border fallback elsewhere.
+   ============================================================ */
+.liquid-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.liquid-button:hover {
+  transform: scale(1.05);
+}
+
+.liquid-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  z-index: -1;
+  box-shadow:
+    0 0 6px rgba(0, 0, 0, 0.03),
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    inset 3px 3px 0.5px -3px rgba(255, 255, 255, 0.9),
+    inset -3px -3px 0.5px -3px rgba(255, 255, 255, 0.85),
+    inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.6),
+    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.6),
+    inset 0 0 6px 6px rgba(255, 255, 255, 0.12),
+    inset 0 0 2px 2px rgba(255, 255, 255, 0.06),
+    0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+.liquid-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: 8px;
+  backdrop-filter: url("#container-glass");
+  -webkit-backdrop-filter: url("#container-glass");
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================
+   Matrix / scramble text helpers
+   ============================================================ */
+.matrix-span {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.dud {
+  color: var(--color-accent-secondary);
+  opacity: 0.7;
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   Accessibility: respect reduced-motion (belt-and-suspenders;
+   JS also gates effects via useReducedMotion)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
