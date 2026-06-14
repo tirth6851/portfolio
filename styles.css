@@ -453,32 +453,32 @@ section {
 
 /* Specific Experience Animations */
 .anim-spt {
-    transform: perspective(1000px) translateX(-100vw) rotateY(-30deg);
+    transform: perspective(1000px) translateX(100px) rotateY(-10deg);
     opacity: 0;
 }
 
 .anim-oa {
-    transform: perspective(1000px) translateX(100vw) rotateY(30deg);
+    transform: perspective(1000px) translateX(-100px) rotateY(10deg);
     opacity: 0;
 }
 
 .anim-last {
-    transform: perspective(1000px) translateY(100px) scale(0.8);
+    transform: perspective(1000px) translateY(60px) scale(0.95);
     opacity: 0;
 }
 
 .anim-spt.is-visible {
-    transform: perspective(1000px) translateX(5%) rotateY(-5deg);
+    transform: perspective(1000px) translateX(40px) rotateY(-2deg);
     opacity: 1;
 }
 
 .anim-oa.is-visible {
-    transform: perspective(1000px) translateX(-5%) rotateY(5deg);
+    transform: perspective(1000px) translateX(-40px) rotateY(2deg);
     opacity: 1;
 }
 
 .anim-last.is-visible {
-    transform: perspective(1000px) translateY(0) rotateX(10deg);
+    transform: perspective(1000px) translateX(0) rotateX(0deg);
     opacity: 1;
 }
 
@@ -785,8 +785,8 @@ section {
 .anim {
     will-change: transform, opacity;
     transition:
-        opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity  0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Fade-up with 3D perspective tilt (hero, about, skills) */
