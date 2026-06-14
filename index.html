@@ -1,318 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tirth Patel | CS Student &amp; Developer</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#050809" />
 
-<!-- Liquid Glass SVG Filter -->
-<svg class="hidden">
-  <defs>
-    <filter id="container-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
-      <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
-      <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced" />
-      <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
-      <feComposite in="finalBlur" in2="finalBlur" operator="over" />
-    </filter>
-  </defs>
-</svg>
+    <title>Tirth Patel — Software Engineering Intern (Fall 2026) | CS @ Cleveland State</title>
+    <meta
+      name="description"
+      content="Tirth Patel — Computer Science student at Cleveland State University (GPA 3.54) building backend and AI applications in Python and Java. Seeking a Fall 2026 Software Engineering internship."
+    />
+    <meta name="author" content="Tirth Patel" />
+    <link rel="canonical" href="https://tirth6851.github.io/portfolio/" />
 
-<!-- Global Background Shader -->
-<div id="hero-shader"></div>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tirth Patel — Software Engineering Intern (Fall 2026)" />
+    <meta
+      property="og:description"
+      content="CS student building backend & AI applications in Python and Java. Seeking a Fall 2026 SWE internship."
+    />
+    <meta property="og:url" content="https://tirth6851.github.io/portfolio/" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="container">
-        <div class="logo" id="scramble-logo">Tirth Patel</div>
-        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <img src="assets/me-pic.jpeg" alt="Portrait of Tirth Patel" class="profile-pic anim anim-scale">
-            <h1 class="hero-title anim anim-up delay-1" id="scramble-hero-title">Engineering Intelligent Systems</h1>
-            <p class="hero-description anim anim-up delay-2" id="scramble-hero-desc">Building the future of AI & Backend.</p>
-            
-            <div class="hero-buttons anim anim-up delay-4">
-                <a href="assets/resume.pdf" class="liquid-button" download>
-                    View Resume
-                </a>
-                <a href="https://github.com/tirth6851" target="_blank" rel="noreferrer" class="liquid-button">
-                    GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank" rel="noreferrer" class="liquid-button">
-                    LinkedIn
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about">
-    <div class="container">
-        <h2 class="section-title anim anim-scale">About Me</h2>
-        <div class="about-content anim anim-up">
-            <p>
-                I am a Computer Science student focused on building strong programming fundamentals in Java and Python. I enjoy developing clean, modular programs and improving them through iteration and testing. As a STEM Peer Teacher, I regularly explain complex problems clearly and guide students through structured problem-solving. I am currently seeking a Fall 2026 internship where I can contribute to real-world software projects while continuing to strengthen my engineering foundations.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="projects">
-    <div class="container">
-        <h2 class="section-title anim anim-scale">Featured Projects</h2>
-
-        <div class="projects-grid">
-
-        <!-- Project 1: Java Programming Projects -->
-        <div class="project-card anim anim-flip delay-1">
-            <h3 class="project-title">Java Programming Projects</h3>
-            <div class="project-tags">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">OOP</span>
-                <span class="tech-tag">Data Structures</span>
-            </div>
-            <ul class="project-details">
-                <li>Implemented 10+ Java programs applying OOP principles: encapsulation, inheritance, and polymorphism across custom class hierarchies</li>
-                <li>Applied core data structures (ArrayList, HashMap, Stack) and control flow patterns for input validation, data processing, and file persistence</li>
-                <li>Refactored programs iteratively using structured debugging to improve readability and reduce runtime errors</li>
-            </ul>
-            <div class="project-links">
-                <a href="https://github.com/tirth6851/Java-CIS151" target="_blank" rel="noreferrer" class="project-link">
-                    View on GitHub
-                </a>
-            </div>
-        </div>
-
-        <!-- Project 2: WatchNextAI -->
-        <div class="project-card anim anim-flip delay-2">
-            <h3 class="project-title">WatchNextAI</h3>
-            <div class="project-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">REST APIs</span>
-                <span class="tech-tag">TMDB API</span>
-                <span class="tech-tag">Supabase</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">TF-IDF</span>
-                <span class="tech-tag">Cosine Similarity</span>
-            </div>
-            <ul class="project-details">
-                <li>Built a content-based recommendation engine using TF-IDF vectorization and cosine similarity to match users to movies based on genre, cast, and keyword metadata</li>
-                <li>Designed a 3-tier pipeline: TMDB API data ingestion → Supabase (PostgreSQL) storage → TF-IDF similarity scoring → Flask REST backend → Jinja2 frontend</li>
-                <li>Deployed live on Render with Flask routing, Jinja2 templating, and environment-based secret management via python-dotenv</li>
-            </ul>
-            <div class="project-links">
-                <a href="https://watchnextai.onrender.com" target="_blank" rel="noreferrer" class="project-link">
-                    Live Demo
-                </a>
-                <a href="https://github.com/tirth6851/watchnextai" target="_blank" rel="noreferrer" class="project-link">
-                    View on GitHub
-                </a>
-            </div>
-        </div>
-
-        <!-- Project 3: CS50P -->
-        <div class="project-card anim anim-flip delay-3">
-            <h3 class="project-title">CS50P – Python Programming (Harvard)</h3>
-            <div class="project-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Unit Testing</span>
-                <span class="tech-tag">File I/O</span>
-                <span class="tech-tag">OOP</span>
-                <span class="tech-tag">Regex</span>
-            </div>
-            <ul class="project-details">
-                <li>Completed Harvard's CS50P curriculum — 10 problem sets covering file I/O, regular expressions, OOP, and API integration</li>
-                <li>Wrote pytest unit tests for each submission, enforced by the course's automated grader</li>
-                
-            </ul>
-            <div class="project-links">
-                <a href="https://github.com/tirth6851" target="_blank" rel="noreferrer" class="project-link">
-                    View on GitHub
-                </a>
-            </div>
-        </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Experience Section -->
-<section id="experience" class="experience">
-    <div class="container">
-        <h2 class="section-title anim anim-scale">Experience</h2>
-
-        <div class="experience-timeline">
-
-        <!-- Experience 1 -->
-        <div class="experience-item spt-item anim anim-spt">
-            <h3>STEM Peer Teacher – Precalculus I (MTH 167)</h3>
-            <p class="company">Cleveland State University</p>
-            <p class="date">July 2025 – Present</p>
-            <ul>
-                <li>Selected through competitive hiring to support student learning in Precalculus I</li>
-                <li>Guide students through algebra, trigonometry, and functions during class sessions</li>
-                <li>Collaborate with faculty to reinforce key concepts and structured problem solving</li>
-                <li>Provide individualized support and encourage active participation in class</li>
-            </ul>
-        </div>
-
-        <!-- Experience 2 -->
-        <div class="experience-item oa-item anim anim-oa">
-            <h3>Operations Assistant</h3>
-            <p class="company">CENTERS, LLC at Cleveland State University</p>
-            <p class="date">January 2026 – Present</p>
-            <ul>
-                <li>Provide front-line customer service to members and guests at the recreation center</li>
-                <li>Enforce facility policies and support emergency procedures to maintain a safe environment</li>
-                <li>Monitor facility operations, assist with incident response, and maintain cleanliness standards</li>
-                <li>Collaborate with supervisors and student staff to coordinate daily operations</li>
-            </ul>
-        </div>
-
-        <!-- Experience 3 -->
-        <div class="experience-item last-item anim anim-last">
-            <h3>OpSTEM Representative &amp; Billiards Club Secretary</h3>
-            <p class="company">Cleveland State University</p>
-            <p class="date">2024 – Present</p>
-            <ul>
-                <li>Promote STEM engagement and support events for underrepresented students in technology</li>
-                <li>Coordinate Billiards Club communication, meeting logistics, and event planning</li>
-                <li>Build leadership, organization, and teamwork skills through campus involvement</li>
-            </ul>
-        </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Skills Section -->
-<section id="skills" class="skills">
-    <div class="container">
-        <h2 class="section-title anim anim-scale">Technical Skills</h2>
-
-        <div class="skills-grid">
-
-        <div class="skill-category anim anim-up delay-1">
-            <h3>Languages</h3>
-            <div class="skill-tags">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">SQL</span>
-            </div>
-        </div>
-
-        <div class="skill-category anim anim-up delay-2">
-            <h3>Web &amp; Backend</h3>
-            <div class="skill-tags">
-                <span class="skill-tag">Flask</span>
-                <span class="skill-tag">REST APIs</span>
-                <span class="skill-tag">Jinja2</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">HTML</span>
-                <span class="skill-tag">CSS</span>
-            </div>
-        </div>
-
-        <div class="skill-category anim anim-up delay-3">
-            <h3>Concepts</h3>
-            <div class="skill-tags">
-                <span class="skill-tag">Object-Oriented Programming</span>
-                <span class="skill-tag">Data Structures</span>
-                <span class="skill-tag">Algorithms</span>
-                <span class="skill-tag">NLP</span>
-                <span class="skill-tag">Recommendation Systems</span>
-            </div>
-        </div>
-
-        <div class="skill-category anim anim-up delay-4">
-            <h3>Tools</h3>
-            <div class="skill-tags">
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">GitHub</span>
-                <span class="skill-tag">Supabase</span>
-                <span class="skill-tag">Render</span>
-                <span class="skill-tag">pytest</span>
-                <span class="skill-tag">Linux</span>
-                <span class="skill-tag">VS Code</span>
-            </div>
-        </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="container">
-        <h2 class="section-title anim anim-scale">Get in Touch</h2>
-        <div class="contact-content">
-            <p class="contact-intro">
-                Seeking Software Engineering / Developer Internship or Co-op — Fall 2026
-            </p>
-
-            <div class="contact-details">
-                <div class="contact-item anim anim-right delay-1">
-                    <strong>Location</strong>
-                    <p>Cleveland, Ohio, United States</p>
-                </div>
-
-                <div class="contact-item anim anim-right delay-2">
-                    <strong>Email</strong>
-                    <p><a href="mailto:t.patel76@vikes.csohio.edu">t.patel76@vikes.csohio.edu</a></p>
-                </div>
-
-                <div class="contact-item anim anim-right delay-3">
-                    <strong>LinkedIn</strong>
-                    <p><a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank" rel="noreferrer">linkedin.com/in/tirth-patel2093</a></p>
-                </div>
-
-                <div class="contact-item anim anim-right delay-4">
-                    <strong>GitHub</strong>
-                    <p><a href="https://github.com/tirth6851" target="_blank" rel="noreferrer">github.com/tirth6851</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-inner">
-            <p>© 2026 Tirth Patel. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/tirth6851" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/tirth-patel2093" target="_blank" rel="noreferrer">LinkedIn</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script src="script.js"></script>
-</body>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tirth Patel — Software Engineering Intern (Fall 2026)" />
+    <meta
+      name="twitter:description"
+      content="CS student building backend & AI applications in Python and Java. Seeking a Fall 2026 SWE internship."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

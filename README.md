@@ -1,71 +1,56 @@
-# Tirth Patel – Portfolio Website
+# Tirth Patel — Portfolio
 
-This repository contains my personal portfolio website. It showcases my projects, experience, and skills as a Computer Science student at Cleveland State University.
+Personal portfolio for Tirth Patel, a Computer Science student at Cleveland State
+University seeking a Fall 2026 Software Engineering internship. Built as a
+single-page React app with scroll-driven animations, an animated WebGL
+background, and a dark green/gold theme.
 
-The site is a single-page, responsive layout built with HTML and CSS.
+## Tech stack
 
----
+- **React 19** + **TypeScript**
+- **Vite** (build tooling / dev server)
+- **Tailwind CSS v4** (`@tailwindcss/vite`, tokens via `@theme`)
+- **Motion** (Framer Motion — `motion/react`) for scroll animations
+- **three.js** for the WebGL hero background
 
 ## Features
 
-### Core Sections
+- Scroll progress bar, active-section nav highlighting (scrollspy), and
+  staggered scroll-reveal animations (`whileInView`).
+- Animated stat counters, a 3D "container-scroll" tilt on the projects grid,
+  and a back-to-top button.
+- Run-once "matrix" text scramble on the hero and logo.
+- WebGL shader background (code-split, DPR-capped, paused on hidden tab).
+- Full reduced-motion support (`useReducedMotion`) plus a CSS fallback.
+- SEO/shareability: meta description, Open Graph + Twitter cards, favicon,
+  `robots.txt`.
 
-- **Hero**  
-  Name, headline, location, quick links to GitHub and resume download.
+## Getting started
 
-- **About**  
-  Background, current roles, and technical interests.
+```bash
+npm install
+npm run dev      # start the dev server (http://localhost:5173)
+npm run build    # type-check + production build → dist/
+npm run preview  # preview the production build
+npm run lint     # run ESLint
+```
 
-- **Projects**  
-  A curated set of projects, including:
-  - **WatchNextAI** – Machine learning based movie recommendation system.
-  - **Java CIS151** – Fundamentals of Java, OOP, and data structures.
-  - **Harvard CS50P** – Python programming and problem sets.
+## Project structure
 
-- **Experience**  
-  Roles at Cleveland State University, including Operations Assistant, STEM Peer Teacher, and student leadership positions.
+```
+public/        static assets (resume, profile photo, favicon, og-image, robots.txt)
+src/
+  data/        content.ts — all portfolio content (single source of truth)
+  hooks/       useScrollSpy, useCountUp
+  components/  Navbar, ShaderBackground, MatrixText, Reveal, ScrollProgressBar, …
+  sections/    Hero, About, Highlights, Projects, Experience, Skills, Contact, Footer
+  App.tsx      composes the page
+```
 
-- **Technical Skills**  
-  Languages, tools, technologies, and certifications.
+Edit `src/data/content.ts` to update projects, experience, skills, and contact info.
 
-- **Contact**  
-  Email, LinkedIn, GitHub, and location.
+## Deployment
 
----
-
-## Design
-
-- Dark theme with charcoal background and deep green accents.
-- Gold highlights for headings and key elements.
-- Responsive grid layout for projects, experience, and skills.
-- Smooth scrolling navigation and subtle hover effects.
-
----
-
-## Tech Stack
-
-**Frontend**
-
-- HTML5
-- CSS3 (custom)
-
-**Future Enhancements**
-
-- Light JavaScript for animations and a mobile navigation menu.
-- Possible refactor to React or Next.js.
-- Utility-first styling with Tailwind CSS for faster iteration.
-- Deployment on GitHub Pages or Vercel with a custom domain.
-
----
-
-## Project Structure
-
-```text
-portfolio/
-├── index.html         # Main page
-├── styles.css         # Stylesheet
-├── assets/
-│   ├── me-pic.jpeg    # Profile image
-│   ├── resume.pdf     # Current resume (for download)
-│   └── tirth-patel-resume.docx
-└── README.md
+Deploys as a static SPA. Recommended: **Vercel** or **Netlify** (zero-config for
+Vite; build `npm run build`, output `dist/`). For a **GitHub Pages** project site,
+set `base: '/portfolio/'` in `vite.config.ts`.
