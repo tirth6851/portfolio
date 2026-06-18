@@ -19,7 +19,8 @@ const fragmentShader = `
         color[j] += lineWidth * float(i * i) / abs(fract(t - 0.01 * float(j) + float(i) * 0.01) * 5.0 - length(uv) + mod(uv.x + uv.y, 0.2));
       }
     }
-    gl_FragColor = vec4(color[0], color[1], color[2], 1.0);
+    /* Tint output toward neon green (#00e676) */
+    gl_FragColor = vec4(color[0] * 0.08, color[1] * 0.9, color[2] * 0.18, 1.0);
   }
 `
 

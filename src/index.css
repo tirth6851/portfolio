@@ -2,24 +2,30 @@
 
 /* ============================================================
    Design tokens (Tailwind v4 @theme)
-   Ported from the legacy :root CSS variables.
-   --color-* names expose utilities like bg-bg-primary, text-accent-gold.
+   Neon-green identity refresh:
+     accent-primary  = dark green (subtle borders / bg tints)
+     accent-secondary = neon green (interactive / text emphasis)
+     accent-gold     = near-white (section / card titles)
    ============================================================ */
 @theme {
-  --color-bg-primary: #050809;
-  --color-bg-secondary: #0d1117;
-  --color-bg-card: #161b22;
+  /* Backgrounds — near-black with intentional green undertone */
+  --color-bg-primary:    #030c06;
+  --color-bg-secondary:  #091409;
+  --color-bg-card:       #0d1a10;
 
-  --color-accent-primary: #0f5132;
-  --color-accent-secondary: #198754;
-  --color-accent-gold: #c9a96b;
+  /* Accent */
+  --color-accent-primary:   #004d22;
+  --color-accent-secondary: #00e676;
+  --color-accent-gold:      #e8f0e9;
 
-  --color-text-primary: #f9f5ef;
-  --color-text-secondary: #c9d1d9;
-  --color-text-muted: #8b949e;
+  /* Text */
+  --color-text-primary:   #f0faf2;
+  --color-text-secondary: #9dbfa5;
+  --color-text-muted:     #4d7558;
 
-  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 /* ============================================================
@@ -37,7 +43,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Accessible focus ring for every interactive element */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--color-accent-secondary);
@@ -45,6 +50,87 @@ button:focus-visible {
   border-radius: 4px;
 }
 
+/* ============================================================
+   Gradient text — applied to name span in Hero
+   ============================================================ */
+.gradient-name {
+  background: linear-gradient(135deg, #00e676 0%, #a7f3d0 50%, #00e676 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   Terminal widget (About section)
+   ============================================================ */
+.terminal {
+  background: #040d07;
+  border: 1px solid rgba(0, 230, 118, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.terminal-header {
+  background: #071209;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(0, 230, 118, 0.08);
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-body {
+  padding: 16px 18px;
+  line-height: 1.9;
+}
+
+.terminal-prompt {
+  color: #00e676;
+}
+
+.terminal-output {
+  color: #9dbfa5;
+  padding-left: 4px;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: #00e676;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================================
+   Scroll indicator (Hero bottom arrow)
+   ============================================================ */
+.scroll-indicator {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+
+/* ============================================================
+   Liquid Glass Button (kept, used for any legacy usage)
+   ============================================================ */
 .hidden-svg {
   position: absolute;
   width: 0;
@@ -52,11 +138,6 @@ button:focus-visible {
   overflow: hidden;
 }
 
-/* ============================================================
-   Liquid Glass Button (raw CSS — too complex for utilities)
-   backdrop-filter: url() is Chromium-only; degrades to the
-   rgba background + border fallback elsewhere.
-   ============================================================ */
 .liquid-button {
   position: relative;
   display: inline-flex;
@@ -125,8 +206,7 @@ button:focus-visible {
 }
 
 /* ============================================================
-   Accessibility: respect reduced-motion (belt-and-suspenders;
-   JS also gates effects via useReducedMotion)
+   Reduced-motion
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   html {

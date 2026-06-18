@@ -12,7 +12,7 @@ export function ScrollProgressBar() {
   return (
     <motion.div
       style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-[1100] h-1 origin-left bg-gradient-to-r from-accent-primary to-accent-secondary"
+      className="fixed inset-x-0 top-0 z-[1100] h-[2px] origin-left bg-gradient-to-r from-accent-secondary/40 via-accent-secondary to-accent-secondary"
       aria-hidden="true"
     />
   )

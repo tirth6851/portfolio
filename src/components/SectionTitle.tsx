@@ -1,13 +1,23 @@
+import { cn } from '@/lib/utils'
 import { Reveal } from './Reveal'
 
-/** Gold centered section heading with the gradient underline. */
-export function SectionTitle({ children }: { children: string }) {
+interface SectionTitleProps {
+  label: string
+  children: string
+  center?: boolean
+}
+
+/** Section heading with monospace "// label" prefix above the h2. */
+export function SectionTitle({ label, children, center }: SectionTitleProps) {
   return (
-    <Reveal variant="scale">
-      <h2 className="relative mb-12 text-center text-3xl font-bold text-accent-gold md:text-4xl">
-        {children}
-        <span className="mx-auto mt-4 block h-1 w-20 rounded bg-gradient-to-r from-accent-primary to-accent-secondary" />
-      </h2>
+    <Reveal variant="up">
+      <div className={cn('mb-12', center && 'text-center')}>
+        <p className="mb-2 font-mono text-sm tracking-wide text-accent-secondary">
+          {'// '}
+          {label}
+        </p>
+        <h2 className="text-3xl font-bold text-text-primary md:text-4xl">{children}</h2>
+      </div>
     </Reveal>
   )
 }

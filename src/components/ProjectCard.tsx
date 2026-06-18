@@ -1,36 +1,41 @@
 import type { Project } from '@/data/content'
 import { Reveal } from './Reveal'
 
-/** A single featured-project card (data-driven). */
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <Reveal
-      variant="flip"
+      variant="up"
       asItem
-      className="group rounded-xl border border-accent-primary bg-bg-card/85 p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent-secondary hover:shadow-[0_10px_40px_rgba(25,135,84,0.2)]"
+      className="group relative flex flex-col rounded-xl bg-bg-card/50 p-6 ring-1 ring-accent-secondary/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:ring-accent-secondary/25 hover:shadow-[0_12px_40px_rgba(0,230,118,0.08)]"
     >
-      <h3 className="mb-3 text-xl font-semibold text-accent-secondary">{project.title}</h3>
+      {/* Top accent strip */}
+      <div className="absolute inset-x-0 top-0 h-px rounded-t-xl bg-gradient-to-r from-accent-secondary/40 via-accent-secondary/15 to-transparent" />
 
+      <h3 className="mb-3 text-lg font-semibold text-accent-secondary">{project.title}</h3>
+
+      {/* Tech tags — pill shaped */}
       <div className="mb-4 flex flex-wrap gap-2">
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-md border border-accent-primary bg-accent-primary/30 px-2.5 py-1 text-xs text-accent-secondary"
+            className="rounded-full border border-accent-secondary/15 bg-bg-card px-2.5 py-0.5 font-mono text-xs text-text-muted"
           >
             {tag}
           </span>
         ))}
       </div>
 
-      <ul className="mb-6 space-y-2 text-text-secondary">
+      {/* Details */}
+      <ul className="mb-6 flex-1 space-y-2 text-sm text-text-secondary">
         {project.details.map((detail, i) => (
-          <li key={i} className="relative pl-6 leading-relaxed">
-            <span className="absolute left-0 font-bold text-accent-secondary">✓</span>
+          <li key={i} className="relative pl-5 leading-relaxed">
+            <span className="absolute left-0 text-accent-secondary/60">▸</span>
             {detail}
           </li>
         ))}
       </ul>
 
+      {/* Links */}
       <div className="flex flex-wrap gap-5">
         {project.links.map((link) => (
           <a
@@ -38,9 +43,12 @@ export function ProjectCard({ project }: { project: Project }) {
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            className="font-semibold text-accent-gold transition-colors hover:text-accent-secondary"
+            className="group/link flex items-center gap-1 text-sm font-medium text-accent-secondary/80 transition-colors hover:text-accent-secondary"
           >
-            {link.label} →
+            {link.label}
+            <span className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5">
+              ↗
+            </span>
           </a>
         ))}
       </div>

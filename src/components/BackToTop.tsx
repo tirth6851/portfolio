@@ -27,7 +27,7 @@ export function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.6 }}
           whileHover={{ y: -3 }}
-          className="fixed bottom-6 right-6 z-[1050] flex h-12 w-12 items-center justify-center rounded-full border border-accent-primary bg-bg-card/90 text-accent-gold shadow-lg backdrop-blur transition-colors hover:border-accent-secondary hover:text-accent-secondary"
+          className="fixed bottom-6 right-6 z-[1050] flex h-12 w-12 items-center justify-center rounded-full border border-accent-secondary/25 bg-bg-card/90 text-text-muted shadow-[0_4px_20px_rgba(0,0,0,0.4)] backdrop-blur transition-all hover:border-accent-secondary/60 hover:text-accent-secondary hover:shadow-[0_0_16px_rgba(0,230,118,0.15)]"
         >
           <svg
             width="20"
