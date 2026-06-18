@@ -1,0 +1,333 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Tirth Patel" [ref=e5] [cursor=pointer]:
+        - /url: "#top"
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "About" [ref=e8] [cursor=pointer]:
+            - /url: "#about"
+        - listitem [ref=e9]:
+          - link "Projects" [ref=e10] [cursor=pointer]:
+            - /url: "#projects"
+        - listitem [ref=e11]:
+          - link "Experience" [ref=e12] [cursor=pointer]:
+            - /url: "#experience"
+        - listitem [ref=e13]:
+          - link "Skills" [ref=e14] [cursor=pointer]:
+            - /url: "#skills"
+        - listitem [ref=e15]:
+          - link "Contact" [ref=e16] [cursor=pointer]:
+            - /url: "#contact"
+      - link "Resume ↗" [ref=e18] [cursor=pointer]:
+        - /url: resume.pdf
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]: Available for Fall 2026 Internships
+        - heading "Tirth Patel" [level=1] [ref=e26]
+        - paragraph [ref=e28]: Backend & AI Developer
+        - paragraph [ref=e29]: Building Python & Java backends, recommendation systems, and clean software from Cleveland, Ohio.
+        - generic [ref=e30]:
+          - link "View My Work" [ref=e31] [cursor=pointer]:
+            - /url: "#projects"
+          - link "Get in Touch" [ref=e32] [cursor=pointer]:
+            - /url: "#contact"
+        - generic [ref=e33]:
+          - link "GitHub" [ref=e34] [cursor=pointer]:
+            - /url: https://github.com/tirth6851
+          - link "LinkedIn" [ref=e36] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/tirth-patel2093
+          - link "Email" [ref=e38] [cursor=pointer]:
+            - /url: mailto:t.patel76@vikes.csohio.edu
+      - link "Scroll to About" [ref=e39] [cursor=pointer]:
+        - /url: "#about"
+        - img [ref=e40]
+    - generic [ref=e43]:
+      - generic [ref=e45]:
+        - paragraph [ref=e46]: // about
+        - heading "Who I Am" [level=2] [ref=e47]
+      - generic [ref=e48]:
+        - generic [ref=e50]:
+          - img "Portrait of Tirth Patel" [ref=e52]
+          - generic [ref=e55]:
+            - generic [ref=e60]: ~/tirth
+            - generic [ref=e61]:
+              - generic [ref=e62]: $ whoami
+              - generic [ref=e63]: "> tirth_patel"
+              - generic [ref=e64]: $ cat stack.txt
+              - generic [ref=e65]: "> python, java, flask, postgresql"
+              - generic [ref=e66]: $ cat role.txt
+              - generic [ref=e67]: "> cs_student, stem_teacher, builder"
+              - generic [ref=e68]: $ echo $STATUS
+              - generic [ref=e69]: "> open_to_fall_2026_internship"
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - paragraph [ref=e74]: I'm a Computer Science student at Cleveland State University (GPA 3.54) focused on building real software — not just coursework. My work spans Python backends, Java applications, and recommendation systems using NLP.
+            - paragraph [ref=e75]: "As a STEM Peer Teacher I explain hard problems simply every day, which shapes how I write code: clear structure, good naming, no unnecessary complexity. I'm looking for a Fall 2026 internship where I can ship real things from day one."
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - paragraph [ref=e78]: "3.54"
+              - paragraph [ref=e79]: Cumulative GPA
+            - generic [ref=e80]:
+              - paragraph [ref=e81]: 10+
+              - paragraph [ref=e82]: Java Projects
+            - generic [ref=e83]:
+              - paragraph [ref=e84]: "10"
+              - paragraph [ref=e85]: CS50P Problems
+            - generic [ref=e86]:
+              - paragraph [ref=e87]: F'26
+              - paragraph [ref=e88]: Available
+    - generic [ref=e92]:
+      - generic [ref=e94]:
+        - generic [ref=e95]: 0+
+        - generic [ref=e96]: Java programs built
+      - generic [ref=e98]:
+        - generic [ref=e99]: "0"
+        - generic [ref=e100]: CS50P problem sets
+      - generic [ref=e102]:
+        - generic [ref=e103]: "0.00"
+        - generic [ref=e104]: Cumulative GPA
+      - generic [ref=e106]:
+        - generic [ref=e107]: "0"
+        - generic [ref=e108]: Available — Fall
+    - generic [ref=e111]:
+      - generic [ref=e113]:
+        - paragraph [ref=e114]: // projects
+        - heading "What I've Built" [level=2] [ref=e115]
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - heading "WatchNextAI" [level=3] [ref=e121]
+          - generic [ref=e122]:
+            - generic [ref=e123]: Python
+            - generic [ref=e124]: Flask
+            - generic [ref=e125]: REST APIs
+            - generic [ref=e126]: TMDB API
+            - generic [ref=e127]: Supabase
+            - generic [ref=e128]: PostgreSQL
+            - generic [ref=e129]: TF-IDF
+            - generic [ref=e130]: Cosine Similarity
+          - list [ref=e131]:
+            - listitem [ref=e132]:
+              - generic [ref=e133]: ▸
+              - text: Built a content-based recommendation engine using TF-IDF vectorization and cosine similarity to match users to movies across genre, cast, and keyword metadata.
+            - listitem [ref=e134]:
+              - generic [ref=e135]: ▸
+              - text: "Designed a 3-tier pipeline: TMDB API ingestion → Supabase (PostgreSQL) storage → TF-IDF similarity scoring → Flask REST backend → Jinja2 frontend."
+            - listitem [ref=e136]:
+              - generic [ref=e137]: ▸
+              - text: Deployed live on Render with Flask routing, Jinja2 templating, and environment-based secret management via python-dotenv.
+          - generic [ref=e138]:
+            - link "Live Demo ↗" [ref=e139] [cursor=pointer]:
+              - /url: https://watchnextai.onrender.com
+              - text: Live Demo
+              - generic [ref=e140]: ↗
+            - link "View on GitHub ↗" [ref=e141] [cursor=pointer]:
+              - /url: https://github.com/tirth6851/watchnextai
+              - text: View on GitHub
+              - generic [ref=e142]: ↗
+        - generic [ref=e143]:
+          - heading "Java Programming Projects" [level=3] [ref=e145]
+          - generic [ref=e146]:
+            - generic [ref=e147]: Java
+            - generic [ref=e148]: OOP
+            - generic [ref=e149]: Data Structures
+          - list [ref=e150]:
+            - listitem [ref=e151]:
+              - generic [ref=e152]: ▸
+              - text: Implemented 10+ Java programs applying OOP principles — encapsulation, inheritance, and polymorphism — across custom class hierarchies.
+            - listitem [ref=e153]:
+              - generic [ref=e154]: ▸
+              - text: Applied core data structures (ArrayList, HashMap, Stack) and control-flow patterns for input validation, data processing, and file persistence.
+            - listitem [ref=e155]:
+              - generic [ref=e156]: ▸
+              - text: Refactored programs iteratively using structured debugging to improve readability and reduce runtime errors.
+          - link "View on GitHub ↗" [ref=e158] [cursor=pointer]:
+            - /url: https://github.com/tirth6851/Java-CIS151
+            - text: View on GitHub
+            - generic [ref=e159]: ↗
+        - generic [ref=e160]:
+          - heading "CS50P — Python Programming (Harvard)" [level=3] [ref=e162]
+          - generic [ref=e163]:
+            - generic [ref=e164]: Python
+            - generic [ref=e165]: Unit Testing
+            - generic [ref=e166]: File I/O
+            - generic [ref=e167]: OOP
+            - generic [ref=e168]: Regex
+          - list [ref=e169]:
+            - listitem [ref=e170]:
+              - generic [ref=e171]: ▸
+              - text: Completed Harvard's CS50P curriculum — 10 problem sets covering file I/O, regular expressions, OOP, and API integration.
+            - listitem [ref=e172]:
+              - generic [ref=e173]: ▸
+              - text: Wrote pytest unit tests for each submission, enforced by the course's automated grader.
+          - link "View on GitHub ↗" [ref=e175] [cursor=pointer]:
+            - /url: https://github.com/tirth6851
+            - text: View on GitHub
+            - generic [ref=e176]: ↗
+    - generic [ref=e178]:
+      - generic [ref=e180]:
+        - paragraph [ref=e181]: // experience
+        - heading "Where I've Worked" [level=2] [ref=e182]
+      - generic [ref=e184]:
+        - article [ref=e189]:
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - heading "STEM Peer Teacher — Precalculus I (MTH 167)" [level=3] [ref=e192]
+              - paragraph [ref=e193]: Cleveland State University
+            - generic [ref=e194]: July 2025 – Present
+          - list [ref=e195]:
+            - listitem [ref=e196]:
+              - generic [ref=e197]: ▸
+              - text: Selected through competitive hiring to support student learning in Precalculus I.
+            - listitem [ref=e198]:
+              - generic [ref=e199]: ▸
+              - text: Guide students through algebra, trigonometry, and functions during class sessions.
+            - listitem [ref=e200]:
+              - generic [ref=e201]: ▸
+              - text: Collaborate with faculty to reinforce key concepts and structured problem solving.
+            - listitem [ref=e202]:
+              - generic [ref=e203]: ▸
+              - text: Provide individualized support and encourage active participation in class.
+        - article [ref=e207]:
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - heading "Operations Assistant" [level=3] [ref=e210]
+              - paragraph [ref=e211]: CENTERS, LLC at Cleveland State University
+            - generic [ref=e212]: January 2026 – Present
+          - list [ref=e213]:
+            - listitem [ref=e214]:
+              - generic [ref=e215]: ▸
+              - text: Provide front-line customer service to members and guests at the recreation center.
+            - listitem [ref=e216]:
+              - generic [ref=e217]: ▸
+              - text: Enforce facility policies and support emergency procedures to maintain a safe environment.
+            - listitem [ref=e218]:
+              - generic [ref=e219]: ▸
+              - text: Monitor facility operations, assist with incident response, and maintain cleanliness standards.
+            - listitem [ref=e220]:
+              - generic [ref=e221]: ▸
+              - text: Collaborate with supervisors and student staff to coordinate daily operations.
+        - article [ref=e225]:
+          - generic [ref=e226]:
+            - generic [ref=e227]:
+              - heading "OpSTEM Representative & Billiards Club Secretary" [level=3] [ref=e228]
+              - paragraph [ref=e229]: Cleveland State University
+            - generic [ref=e230]: 2024 – Present
+          - list [ref=e231]:
+            - listitem [ref=e232]:
+              - generic [ref=e233]: ▸
+              - text: Promote STEM engagement and support events for underrepresented students in technology.
+            - listitem [ref=e234]:
+              - generic [ref=e235]: ▸
+              - text: Coordinate Billiards Club communication, meeting logistics, and event planning.
+            - listitem [ref=e236]:
+              - generic [ref=e237]: ▸
+              - text: Build leadership, organization, and teamwork skills through campus involvement.
+    - generic [ref=e239]:
+      - generic [ref=e241]:
+        - paragraph [ref=e242]: // skills
+        - heading "Tech Stack" [level=2] [ref=e243]
+      - generic [ref=e244]:
+        - generic [ref=e245]: Primary
+        - generic [ref=e247]: Familiar
+        - generic [ref=e249]: Learning
+      - generic [ref=e251]:
+        - generic [ref=e253]:
+          - generic [ref=e254]:
+            - generic [ref=e255]: </>
+            - heading "Languages" [level=3] [ref=e256]
+          - generic [ref=e257]:
+            - generic [ref=e258]:
+              - img [ref=e259]
+              - text: Python
+            - generic [ref=e262]:
+              - img [ref=e263]
+              - text: Java
+            - generic [ref=e266]:
+              - img [ref=e267]
+              - text: JavaScript
+            - generic [ref=e270]: SQL
+        - generic [ref=e273]:
+          - generic [ref=e274]:
+            - generic [ref=e275]: ⚡
+            - heading "Web & Backend" [level=3] [ref=e276]
+          - generic [ref=e277]:
+            - generic [ref=e278]:
+              - img [ref=e279]
+              - text: Flask
+            - generic [ref=e282]: REST APIs
+            - generic [ref=e284]:
+              - img [ref=e285]
+              - text: PostgreSQL
+            - generic [ref=e288]: Jinja2
+            - generic [ref=e290]:
+              - img [ref=e291]
+              - text: HTML
+            - generic [ref=e294]:
+              - img [ref=e295]
+              - text: CSS
+        - generic [ref=e299]:
+          - generic [ref=e300]:
+            - generic [ref=e301]: ◈
+            - heading "Concepts" [level=3] [ref=e302]
+          - generic [ref=e303]:
+            - generic [ref=e304]: Object-Oriented Programming
+            - generic [ref=e306]: Data Structures
+            - generic [ref=e308]: Algorithms
+            - generic [ref=e310]: NLP
+            - generic [ref=e312]: Recommendation Systems
+        - generic [ref=e315]:
+          - generic [ref=e316]:
+            - generic [ref=e317]: ⚙
+            - heading "Tools" [level=3] [ref=e318]
+          - generic [ref=e319]:
+            - generic [ref=e320]:
+              - img [ref=e321]
+              - text: Git
+            - generic [ref=e324]:
+              - img [ref=e325]
+              - text: GitHub
+            - generic [ref=e328]:
+              - img [ref=e329]
+              - text: VS Code
+            - generic [ref=e332]:
+              - img [ref=e333]
+              - text: Supabase
+            - generic [ref=e336]: Render
+            - generic [ref=e338]: pytest
+            - generic [ref=e340]:
+              - img [ref=e341]
+              - text: Linux
+    - generic [ref=e345]:
+      - generic [ref=e347]:
+        - paragraph [ref=e348]: // contact
+        - heading "Let's Work Together" [level=2] [ref=e349]
+      - generic [ref=e350]:
+        - paragraph [ref=e351]:
+          - text: Seeking Software Engineering internship — Fall 2026.
+          - text: Open to remote, hybrid, or Cleveland area opportunities.
+        - link "t.patel76@vikes.csohio.edu ↗" [ref=e353] [cursor=pointer]:
+          - /url: mailto:t.patel76@vikes.csohio.edu
+          - text: t.patel76@vikes.csohio.edu
+          - generic [ref=e354]: ↗
+        - generic [ref=e357]: or find me on
+        - generic [ref=e359]:
+          - link "GitHub" [ref=e360] [cursor=pointer]:
+            - /url: https://github.com/tirth6851
+            - img [ref=e361]
+            - text: GitHub
+          - link "LinkedIn" [ref=e364] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/tirth-patel2093
+            - img [ref=e365]
+            - text: LinkedIn
+  - contentinfo [ref=e367]:
+    - generic [ref=e368]:
+      - paragraph [ref=e369]: © 2026 Tirth Patel — Built with React + Vite + Tailwind
+      - generic [ref=e370]:
+        - link "GitHub" [ref=e371] [cursor=pointer]:
+          - /url: https://github.com/tirth6851
+        - link "LinkedIn" [ref=e372] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/tirth-patel2093
+        - link "Back to top ↑" [ref=e373] [cursor=pointer]:
+          - /url: "#top"

@@ -1,0 +1,332 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "aaabadcode" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e5]:
+        - link "About" [ref=e6] [cursor=pointer]:
+          - /url: "#about"
+        - link "Projects" [ref=e7] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Skills" [ref=e8] [cursor=pointer]:
+          - /url: "#skills"
+        - link "Experience" [ref=e9] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Blog" [ref=e10] [cursor=pointer]:
+          - /url: "#blog"
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: Available for new projects
+      - heading "Aaabad Touk" [level=1] [ref=e19]
+      - paragraph [ref=e20]: "@aaabadcode"
+      - paragraph [ref=e21]: AI engineer building intelligent systems — from LLMs and computer vision to production ML pipelines. Turning research into products.
+      - generic [ref=e22]:
+        - link "View Projects" [ref=e23] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Get in Touch" [ref=e24] [cursor=pointer]:
+          - /url: "#contact"
+        - generic [ref=e25]:
+          - link "GitHub" [ref=e26] [cursor=pointer]:
+            - /url: https://github.com/aaaby-code
+            - img
+          - link "Twitter" [ref=e27] [cursor=pointer]:
+            - /url: https://x.com/aaabadcode
+            - img
+      - link "scroll" [ref=e29] [cursor=pointer]:
+        - /url: "#about"
+        - generic [ref=e30]: scroll
+        - img [ref=e32]
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]: // about
+        - heading "Building AI That Ships" [level=2] [ref=e38]
+        - paragraph [ref=e39]: Not just research — production systems that scale.
+      - generic [ref=e40]:
+        - generic [ref=e42]:
+          - img "Aaabad Touk" [ref=e44]
+          - generic [ref=e46]:
+            - generic [ref=e51]: terminal
+            - code [ref=e53]: $ whoami > aaabad_touk $ cat skills.txt > pytorch, langchain, nextjs, > kubernetes, python, typescript $ echo $STATUS > building the future
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - paragraph [ref=e57]: I'm Aaabad Touk, an AI engineer based in San Francisco. I specialize in building end-to-end machine learning systems — from training custom models to deploying them at scale.
+            - paragraph [ref=e58]: My work spans large language models, computer vision, and MLOps. I believe the best AI isn't the most complex — it's the one that reliably ships value to users.
+            - paragraph [ref=e59]: When I'm not training models or optimizing inference pipelines, you'll find me contributing to open-source ML tools and writing about practical AI engineering.
+          - generic [ref=e60]:
+            - generic [ref=e63]:
+              - paragraph [ref=e64]: 30+
+              - paragraph [ref=e65]: Projects Shipped
+            - generic [ref=e68]:
+              - paragraph [ref=e69]: 5+
+              - paragraph [ref=e70]: Years Experience
+            - generic [ref=e73]:
+              - paragraph [ref=e74]: 100+
+              - paragraph [ref=e75]: Models Trained
+            - generic [ref=e78]:
+              - paragraph [ref=e79]: ∞
+              - paragraph [ref=e80]: Papers Read
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - generic [ref=e84]: // projects
+        - heading "What I've Built" [level=2] [ref=e85]
+        - paragraph [ref=e86]: A selection of AI-powered products and tools.
+      - generic [ref=e87]:
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - img [ref=e94]
+            - heading "NeuroChat" [level=3] [ref=e96]
+          - paragraph [ref=e97]: An enterprise LLM chatbot platform with multi-model orchestration, RAG pipelines, and real-time streaming. Handles 50k+ concurrent conversations.
+          - generic [ref=e98]:
+            - generic [ref=e99]: React
+            - generic [ref=e100]: Python
+            - generic [ref=e101]: LangChain
+            - generic [ref=e102]: Redis
+            - generic [ref=e103]: PostgreSQL
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - img [ref=e110]
+            - heading "VisionLab" [level=3] [ref=e113]
+          - paragraph [ref=e114]: Computer vision toolkit for real-time object detection, image segmentation, and visual search. Deployed across 200+ edge devices.
+          - generic [ref=e115]:
+            - generic [ref=e116]: PyTorch
+            - generic [ref=e117]: OpenCV
+            - generic [ref=e118]: FastAPI
+            - generic [ref=e119]: Docker
+            - generic [ref=e120]: ONNX
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - img [ref=e127]
+            - heading "CodeSensei" [level=3] [ref=e130]
+          - paragraph [ref=e131]: AI-powered code reviewer that catches bugs, suggests optimizations, and enforces style guides. Integrated with GitHub Actions.
+          - generic [ref=e132]:
+            - generic [ref=e133]: TypeScript
+            - generic [ref=e134]: GPT-4
+            - generic [ref=e135]: GitHub API
+            - generic [ref=e136]: Next.js
+            - generic [ref=e137]: Vercel
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - img [ref=e144]
+            - heading "FlowML" [level=3] [ref=e148]
+          - paragraph [ref=e149]: ML pipeline orchestrator for training, evaluation, and deployment. Supports distributed training across multi-GPU clusters.
+          - generic [ref=e150]:
+            - generic [ref=e151]: Python
+            - generic [ref=e152]: Kubernetes
+            - generic [ref=e153]: Apache Airflow
+            - generic [ref=e154]: Go
+            - generic [ref=e155]: gRPC
+        - generic [ref=e159]:
+          - generic [ref=e160]:
+            - img [ref=e162]
+            - heading "PixelForge" [level=3] [ref=e166]
+          - paragraph [ref=e167]: AI image generation platform with fine-tuning, inpainting, and style transfer. Serves 10k+ generations daily.
+          - generic [ref=e168]:
+            - generic [ref=e169]: Stable Diffusion
+            - generic [ref=e170]: React
+            - generic [ref=e171]: Node.js
+            - generic [ref=e172]: AWS
+            - generic [ref=e173]: S3
+    - generic [ref=e175]:
+      - generic [ref=e176]:
+        - generic [ref=e177]: // skills
+        - heading "Tech Stack" [level=2] [ref=e178]
+        - paragraph [ref=e179]: The tools and technologies I work with daily.
+      - generic [ref=e180]:
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - img [ref=e186]
+            - heading "AI / Machine Learning" [level=3] [ref=e194]
+          - generic [ref=e195]:
+            - generic [ref=e197]:
+              - generic [ref=e198]: PyTorch
+              - generic [ref=e199]: 95%
+            - generic [ref=e202]:
+              - generic [ref=e203]: LangChain
+              - generic [ref=e204]: 90%
+            - generic [ref=e207]:
+              - generic [ref=e208]: Transformers
+              - generic [ref=e209]: 88%
+            - generic [ref=e212]:
+              - generic [ref=e213]: Computer Vision
+              - generic [ref=e214]: 85%
+            - generic [ref=e217]:
+              - generic [ref=e218]: MLOps
+              - generic [ref=e219]: 82%
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img [ref=e226]
+            - heading "Web Development" [level=3] [ref=e229]
+          - generic [ref=e230]:
+            - generic [ref=e232]:
+              - generic [ref=e233]: TypeScript
+              - generic [ref=e234]: 93%
+            - generic [ref=e237]:
+              - generic [ref=e238]: React / Next.js
+              - generic [ref=e239]: 92%
+            - generic [ref=e242]:
+              - generic [ref=e243]: Node.js
+              - generic [ref=e244]: 88%
+            - generic [ref=e247]:
+              - generic [ref=e248]: Python
+              - generic [ref=e249]: 95%
+            - generic [ref=e252]:
+              - generic [ref=e253]: Go
+              - generic [ref=e254]: 75%
+        - generic [ref=e258]:
+          - generic [ref=e259]:
+            - img [ref=e261]
+            - heading "Infrastructure" [level=3] [ref=e264]
+          - generic [ref=e265]:
+            - generic [ref=e267]:
+              - generic [ref=e268]: Docker
+              - generic [ref=e269]: 90%
+            - generic [ref=e272]:
+              - generic [ref=e273]: Kubernetes
+              - generic [ref=e274]: 85%
+            - generic [ref=e277]:
+              - generic [ref=e278]: AWS
+              - generic [ref=e279]: 88%
+            - generic [ref=e282]:
+              - generic [ref=e283]: CI/CD
+              - generic [ref=e284]: 87%
+            - generic [ref=e287]:
+              - generic [ref=e288]: PostgreSQL
+              - generic [ref=e289]: 83%
+    - generic [ref=e292]:
+      - generic [ref=e293]:
+        - generic [ref=e294]: // experience
+        - heading "Where I've Worked" [level=2] [ref=e295]
+        - paragraph [ref=e296]: From open-source contributions to scaling AI at top companies.
+      - generic [ref=e299]:
+        - generic [ref=e305]:
+          - generic [ref=e306]:
+            - img [ref=e307]
+            - generic [ref=e310]: 2023 — Present
+          - heading "DeepMind" [level=3] [ref=e311]
+          - paragraph [ref=e312]: Senior AI Research Engineer
+          - paragraph [ref=e313]: Leading research on multi-modal foundation models. Built internal tooling for large-scale distributed training across TPU pods.
+          - generic [ref=e314]:
+            - generic [ref=e315]: JAX
+            - generic [ref=e316]: TPU
+            - generic [ref=e317]: Transformers
+            - generic [ref=e318]: Python
+        - generic [ref=e325]:
+          - generic [ref=e326]:
+            - img [ref=e327]
+            - generic [ref=e330]: 2021 — 2023
+          - heading "OpenAI" [level=3] [ref=e331]
+          - paragraph [ref=e332]: ML Platform Engineer
+          - paragraph [ref=e333]: Designed and scaled inference infrastructure for GPT models. Reduced latency by 40% through model optimization and caching strategies.
+          - generic [ref=e334]:
+            - generic [ref=e335]: Python
+            - generic [ref=e336]: Kubernetes
+            - generic [ref=e337]: CUDA
+            - generic [ref=e338]: Redis
+        - generic [ref=e345]:
+          - generic [ref=e346]:
+            - img [ref=e347]
+            - generic [ref=e350]: 2020 — 2021
+          - heading "Scale AI" [level=3] [ref=e351]
+          - paragraph [ref=e352]: Full-Stack ML Engineer
+          - paragraph [ref=e353]: Built data labeling pipelines and quality assurance systems for computer vision datasets. Shipped annotation tools used by 5k+ labelers.
+          - generic [ref=e354]:
+            - generic [ref=e355]: React
+            - generic [ref=e356]: Python
+            - generic [ref=e357]: FastAPI
+            - generic [ref=e358]: PostgreSQL
+        - generic [ref=e365]:
+          - generic [ref=e366]:
+            - img [ref=e367]
+            - generic [ref=e370]: 2019 — 2020
+          - heading "Hugging Face" [level=3] [ref=e371]
+          - paragraph [ref=e372]: Open Source Engineer (Intern)
+          - paragraph [ref=e373]: Contributed to the Transformers library. Implemented model architectures and wrote documentation for community adoption.
+          - generic [ref=e374]:
+            - generic [ref=e375]: PyTorch
+            - generic [ref=e376]: Transformers
+            - generic [ref=e377]: TypeScript
+            - generic [ref=e378]: Docker
+    - generic [ref=e381]:
+      - generic [ref=e382]:
+        - generic [ref=e383]: // blog
+        - heading "Writing & Thinking" [level=2] [ref=e384]
+        - paragraph [ref=e385]: Thoughts on AI engineering, ML systems, and building products.
+      - generic [ref=e386]:
+        - generic [ref=e389] [cursor=pointer]:
+          - generic [ref=e390]:
+            - generic [ref=e391]: LLM
+            - img [ref=e392]
+          - heading "Why RAG is Eating the AI World" [level=3] [ref=e395]
+          - paragraph [ref=e396]: Retrieval-Augmented Generation is becoming the default architecture for enterprise AI. Here's why it works and how to build one.
+          - generic [ref=e397]:
+            - generic [ref=e398]: Mar 2026
+            - generic [ref=e399]:
+              - img [ref=e400]
+              - text: 8 min read
+        - generic [ref=e405] [cursor=pointer]:
+          - generic [ref=e406]:
+            - generic [ref=e407]: ML
+            - img [ref=e408]
+          - 'heading "Fine-Tuning vs. Prompting: A Practical Guide" [level=3] [ref=e411]'
+          - paragraph [ref=e412]: When should you fine-tune a model versus engineering better prompts? I break down cost, performance, and maintenance trade-offs.
+          - generic [ref=e413]:
+            - generic [ref=e414]: Jan 2026
+            - generic [ref=e415]:
+              - img [ref=e416]
+              - text: 12 min read
+        - generic [ref=e421] [cursor=pointer]:
+          - generic [ref=e422]:
+            - generic [ref=e423]: MLOps
+            - img [ref=e424]
+          - heading "Building ML Pipelines That Don't Break at 3AM" [level=3] [ref=e427]
+          - paragraph [ref=e428]: Lessons from running production ML systems. Monitoring, rollback strategies, and why you need feature stores.
+          - generic [ref=e429]:
+            - generic [ref=e430]: Nov 2025
+            - generic [ref=e431]:
+              - img [ref=e432]
+              - text: 6 min read
+        - generic [ref=e437] [cursor=pointer]:
+          - generic [ref=e438]:
+            - generic [ref=e439]: CV
+            - img [ref=e440]
+          - heading "The State of Computer Vision in 2025" [level=3] [ref=e443]
+          - paragraph [ref=e444]: From YOLO to vision transformers — a survey of what's working in production computer vision systems today.
+          - generic [ref=e445]:
+            - generic [ref=e446]: Sep 2025
+            - generic [ref=e447]:
+              - img [ref=e448]
+              - text: 10 min read
+    - generic [ref=e452]:
+      - generic [ref=e453]:
+        - generic [ref=e454]: // contact
+        - heading "Let's Build Something" [level=2] [ref=e455]
+        - paragraph [ref=e456]: Have a project in mind? I'm always open to discussing new opportunities.
+      - generic [ref=e459]:
+        - link "hello@aaabadcode.dev" [ref=e461] [cursor=pointer]:
+          - /url: mailto:hello@aaabadcode.dev
+          - img [ref=e462]
+          - text: hello@aaabadcode.dev
+          - img [ref=e465]
+        - generic [ref=e468]:
+          - link "GitHub" [ref=e469] [cursor=pointer]:
+            - /url: https://github.com/aaaby-code
+            - img
+            - text: GitHub
+          - link "Twitter" [ref=e470] [cursor=pointer]:
+            - /url: https://x.com/aaabadcode
+            - img
+            - text: Twitter
+  - contentinfo [ref=e471]:
+    - generic [ref=e472]:
+      - paragraph [ref=e473]: © 2026 Aaabad Touk. All rights reserved.
+      - generic [ref=e474]:
+        - link "GitHub" [ref=e475] [cursor=pointer]:
+          - /url: https://github.com/aaaby-code
+          - img [ref=e476]
+        - separator [ref=e478]
+        - link "Twitter" [ref=e479] [cursor=pointer]:
+          - /url: https://x.com/aaabadcode
+          - img [ref=e480]
+  - alert [ref=e482]

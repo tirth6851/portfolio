@@ -1,0 +1,115 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - paragraph [ref=e4]:
+      - link "Enrollment for my animation course is open!" [ref=e5] [cursor=pointer]:
+        - /url: http://animations.dev/
+      - text: Enrollment has closed.
+    - button "Close" [ref=e6] [cursor=pointer]:
+      - img [ref=e7]
+  - generic [ref=e9]:
+    - banner [ref=e10]:
+      - link "Emil Kowalski" [ref=e11] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e12]: Design Engineer
+    - main [ref=e13]:
+      - generic [ref=e14]: Today
+      - paragraph [ref=e15]: I work on the Web team at Linear. I like to build things for designers and developers, think deeply about the user interface, how it looks, feels, behaves.
+      - paragraph [ref=e16]: Previously, I worked on the design team at Vercel.
+      - generic [ref=e17]:
+        - generic [ref=e18]: Projects
+        - generic [ref=e19]:
+          - link "animations.dev A course on web animations." [ref=e20] [cursor=pointer]:
+            - /url: https://animations.dev/
+            - generic [ref=e21]: animations.dev
+            - generic [ref=e22]: A course on web animations.
+          - link "Sonner An opinionated toast component for React." [ref=e23] [cursor=pointer]:
+            - /url: https://sonner.emilkowal.ski/
+            - generic [ref=e24]: Sonner
+            - generic [ref=e25]: An opinionated toast component for React.
+          - link "index.how A new kind of design education." [ref=e26] [cursor=pointer]:
+            - /url: http://index.how/
+            - generic [ref=e27]: index.how
+            - generic [ref=e28]: A new kind of design education.
+          - link "Vaul A drawer component for React." [ref=e29] [cursor=pointer]:
+            - /url: https://vaul.emilkowal.ski/
+            - generic [ref=e30]: Vaul
+            - generic [ref=e31]: A drawer component for React.
+      - generic [ref=e32]:
+        - generic [ref=e33]: Writing
+        - generic [ref=e34]:
+          - link "Agents with Taste How to transfer taste into an AI." [ref=e35] [cursor=pointer]:
+            - /url: /ui/agents-with-taste
+            - generic [ref=e36]: Agents with Taste
+            - generic [ref=e37]: How to transfer taste into an AI.
+          - link "Train Your Judgement Settling for good enough is not good enough." [ref=e38] [cursor=pointer]:
+            - /url: /ui/train-your-judgement
+            - generic [ref=e39]: Train Your Judgement
+            - generic [ref=e40]: Settling for good enough is not good enough.
+          - link "Building an animation course Behind the scenes of my animation course." [ref=e41] [cursor=pointer]:
+            - /url: /ui/building-an-animation-course
+            - generic [ref=e42]: Building an animation course
+            - generic [ref=e43]: Behind the scenes of my animation course.
+          - link "Building a Toast Component My experience building a toast library for React." [ref=e44] [cursor=pointer]:
+            - /url: /ui/building-a-toast-component
+            - generic [ref=e45]: Building a Toast Component
+            - generic [ref=e46]: My experience building a toast library for React.
+          - link "You Don’t Need Animations Why you are animating more often than you should." [ref=e47] [cursor=pointer]:
+            - /url: /ui/you-dont-need-animations
+            - generic [ref=e48]: You Don’t Need Animations
+            - generic [ref=e49]: Why you are animating more often than you should.
+          - link "Developing Taste Why taste matters and how to develop it." [ref=e50] [cursor=pointer]:
+            - /url: /ui/developing-taste
+            - generic [ref=e51]: Developing Taste
+            - generic [ref=e52]: Why taste matters and how to develop it.
+          - link "7 Practical Animation Tips Simple ideas you can use to improve your animations." [ref=e53] [cursor=pointer]:
+            - /url: /ui/7-practical-animation-tips
+            - generic [ref=e54]: 7 Practical Animation Tips
+            - generic [ref=e55]: Simple ideas you can use to improve your animations.
+          - link "Animating in Public On the importance of sharing your work." [ref=e56] [cursor=pointer]:
+            - /url: /ui/animating-in-public
+            - generic [ref=e57]: Animating in Public
+            - generic [ref=e58]: On the importance of sharing your work.
+          - link "The Magic of Clip Path One of the most underrated CSS properties." [ref=e59] [cursor=pointer]:
+            - /url: /ui/the-magic-of-clip-path
+            - generic [ref=e60]: The Magic of Clip Path
+            - generic [ref=e61]: One of the most underrated CSS properties.
+          - link "Good vs Great Animations Practical tips on how to improve your animations." [ref=e62] [cursor=pointer]:
+            - /url: /ui/good-vs-great-animations
+            - generic [ref=e63]: Good vs Great Animations
+            - generic [ref=e64]: Practical tips on how to improve your animations.
+          - link "Great Animations What it takes to craft great animations." [ref=e65] [cursor=pointer]:
+            - /url: /ui/great-animations
+            - generic [ref=e66]: Great Animations
+            - generic [ref=e67]: What it takes to craft great animations.
+          - link "CSS Transforms The foundation of most web animations." [ref=e68] [cursor=pointer]:
+            - /url: /ui/css-transforms
+            - generic [ref=e69]: CSS Transforms
+            - generic [ref=e70]: The foundation of most web animations.
+          - link "Building a Drawer Component My experience building a drawer component for React." [ref=e71] [cursor=pointer]:
+            - /url: /ui/building-a-drawer-component
+            - generic [ref=e72]: Building a Drawer Component
+            - generic [ref=e73]: My experience building a drawer component for React.
+          - link "Building a Hold to Delete Component A clever use of clip path." [ref=e74] [cursor=pointer]:
+            - /url: /ui/building-a-hold-to-delete-component
+            - generic [ref=e75]: Building a Hold to Delete Component
+            - generic [ref=e76]: A clever use of clip path.
+      - generic [ref=e77]:
+        - generic [ref=e78]: Newsletter
+        - generic [ref=e79]: Exclusive, newsletter-only content once a month. No spam, no nonsense.
+        - generic [ref=e80]:
+          - generic [ref=e81]: Email
+          - textbox "Email" [ref=e82]:
+            - /placeholder: Enter your email
+          - button "Subscribe" [ref=e83] [cursor=pointer]:
+            - generic [ref=e84]: Subscribe
+      - generic [ref=e85]:
+        - generic [ref=e86]: More
+        - generic [ref=e87]:
+          - text: You can see more of my work on
+          - link "Twitter" [ref=e88] [cursor=pointer]:
+            - /url: https://twitter.com/emilkowalski
+          - text: and more of my code on
+          - link "GitHub" [ref=e89] [cursor=pointer]:
+            - /url: https://github.com/emilkowalski
+          - text: .
+  - alert [ref=e90]

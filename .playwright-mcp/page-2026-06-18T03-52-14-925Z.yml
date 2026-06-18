@@ -1,0 +1,107 @@
+- generic [ref=e2]:
+  - link "Skip to content" [ref=e3] [cursor=pointer]:
+    - /url: main-content
+  - generic [ref=e4]:
+    - navigation "Nav bar" [ref=e5]:
+      - link "Fonts" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img [ref=e9]: font_download
+        - generic [ref=e10]: Fonts
+      - link "Noto" [ref=e11] [cursor=pointer]:
+        - /url: /noto
+        - img [ref=e14]: language
+        - generic [ref=e15]: Noto
+      - link "Icons" [ref=e16] [cursor=pointer]:
+        - /url: /icons
+        - img [ref=e19]: interests
+        - generic [ref=e20]: Icons
+      - link "Knowledge" [ref=e21] [cursor=pointer]:
+        - /url: /knowledge
+        - img [ref=e24]: school
+        - generic [ref=e25]: Knowledge
+      - link "FAQ" [ref=e26] [cursor=pointer]:
+        - /url: /faq
+        - img [ref=e29]: help
+        - generic [ref=e30]: FAQ
+      - button "Switch to dark theme" [ref=e33] [cursor=pointer]:
+        - img [ref=e35]: dark_mode
+    - generic [ref=e41]:
+      - banner [ref=e44]:
+        - generic [ref=e45]:
+          - link "Google Fonts" [ref=e47] [cursor=pointer]:
+            - /url: https://fonts.google.com/
+            - img [ref=e49]
+          - generic [ref=e58]:
+            - generic [ref=e64]:
+              - img [ref=e67]: search
+              - combobox "Search fonts" [ref=e69]
+            - button "View selected families" [ref=e73] [cursor=pointer]:
+              - img [ref=e75]: shopping_bag
+      - generic [ref=e78]:
+        - main [ref=e79]
+        - contentinfo [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]:
+              - generic "Google Fonts" [ref=e85]:
+                - img [ref=e87]
+              - generic [ref=e90]: Google Fonts makes it easy to bring personality and performance to your websites and products. Our robust catalog of open-source fonts and icons makes it easy to integrate expressive type and icons seamlessly — no matter where you are in the world.
+            - generic [ref=e92]:
+              - list [ref=e93]:
+                - listitem [ref=e94]:
+                  - link "About us Making the web more beautiful, fast, and open through great typography & icons" [ref=e96] [cursor=pointer]:
+                    - /url: /about
+                    - generic [ref=e97]:
+                      - img [ref=e99]
+                      - generic [ref=e112]:
+                        - paragraph [ref=e113]: About us
+                        - paragraph [ref=e114]: Making the web more beautiful, fast, and open through great typography & icons
+                - listitem [ref=e115]:
+                  - link "Fonts GitHub This repository contains the binary font files served by Google Fonts" [ref=e117] [cursor=pointer]:
+                    - /url: https://github.com/google/fonts
+                    - generic [ref=e118]:
+                      - img [ref=e121]
+                      - generic [ref=e125]:
+                        - paragraph [ref=e126]: Fonts GitHub
+                        - paragraph [ref=e127]: This repository contains the binary font files served by Google Fonts
+                - listitem [ref=e128]:
+                  - link "Icons GitHub This repository contains the binary font files served by Google Icons" [ref=e130] [cursor=pointer]:
+                    - /url: https://github.com/google/material-design-icons
+                    - generic [ref=e131]:
+                      - img [ref=e134]
+                      - generic [ref=e138]:
+                        - paragraph [ref=e139]: Icons GitHub
+                        - paragraph [ref=e140]: This repository contains the binary font files served by Google Icons
+              - list [ref=e141]:
+                - listitem [ref=e142]:
+                  - link "Fonts blog This blog has stories about how different fonts were designed for various languages and scripts" [ref=e144] [cursor=pointer]:
+                    - /url: https://fonts.googleblog.com/
+                    - generic [ref=e145]:
+                      - img [ref=e147]
+                      - generic [ref=e150]:
+                        - paragraph [ref=e151]: Fonts blog
+                        - paragraph [ref=e152]: This blog has stories about how different fonts were designed for various languages and scripts
+                - listitem [ref=e153]:
+                  - link "Material Design A cross-platform design system for creating high-quality digital experiences" [ref=e155] [cursor=pointer]:
+                    - /url: https://m3.material.io/styles/typography/overview
+                    - generic [ref=e156]:
+                      - img [ref=e158]
+                      - generic [ref=e163]:
+                        - paragraph [ref=e164]: Material Design
+                        - paragraph [ref=e165]: A cross-platform design system for creating high-quality digital experiences
+                - listitem [ref=e166]:
+                  - link "Google Design Google Design highlights the breadth and craft of design and fonts from speculation, to work-in-progress, to finished product" [ref=e168] [cursor=pointer]:
+                    - /url: https://design.google/tags/typography
+                    - generic [ref=e169]:
+                      - img [ref=e171]
+                      - generic [ref=e174]:
+                        - paragraph [ref=e175]: Google Design
+                        - paragraph [ref=e176]: Google Design highlights the breadth and craft of design and fonts from speculation, to work-in-progress, to finished product
+          - generic [ref=e178]:
+            - img [ref=e180]
+            - generic [ref=e189]:
+              - link "Privacy" [ref=e190] [cursor=pointer]:
+                - /url: https://policies.google.com/privacy?hl=en
+              - link "Terms of service" [ref=e191] [cursor=pointer]:
+                - /url: https://policies.google.com/terms?hl=en
+        - button "Leave feedback" [ref=e192] [cursor=pointer]:
+          - img [ref=e194]: feedback

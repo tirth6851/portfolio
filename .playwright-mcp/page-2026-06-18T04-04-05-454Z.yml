@@ -1,0 +1,68 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - heading "Lee Robinson" [level=1] [ref=e3]
+    - paragraph [ref=e4]:
+      - text: I’m a
+      - link "developer and writer" [ref=e5] [cursor=pointer]:
+        - /url: /bio
+      - text: . I work at
+      - link "Cursor" [ref=e6] [cursor=pointer]:
+        - /url: /cursor
+      - text: teaching about AI. Previously, I worked at
+      - link "Vercel" [ref=e7] [cursor=pointer]:
+        - /url: /vercel
+      - text: . I’ve been coding for 15 years and teaching for the second half.
+    - paragraph [ref=e8]:
+      - text: My life’s work is to make technology easy to understand and interesting to learn about. I’m a husband, father, and a massive
+      - link "music fan" [ref=e9] [cursor=pointer]:
+        - /url: /music
+      - text: .
+      - generic [ref=e10]:
+        - text: I last listened to
+        - link "Radio/Video" [ref=e11] [cursor=pointer]:
+          - /url: https://open.spotify.com/track/41pOIT2t1rvr2Trg1HQChZ
+        - text: by System Of A Down.
+    - paragraph [ref=e12]: "Some of my favorite writing includes:"
+    - list [ref=e13]:
+      - listitem [ref=e14]:
+        - text: ■
+        - link "Things I Believe" [ref=e15] [cursor=pointer]:
+          - /url: /beliefs
+      - listitem [ref=e16]:
+        - text: ■
+        - link "Coding Agents & Complexity Budgets" [ref=e17] [cursor=pointer]:
+          - /url: /agents
+      - listitem [ref=e18]:
+        - text: ■
+        - link "Building Low-Level Software with Only Coding Agents" [ref=e19] [cursor=pointer]:
+          - /url: /pixo
+      - listitem [ref=e20]:
+        - text: ■
+        - link "How Does Image Compression Work?" [ref=e21] [cursor=pointer]:
+          - /url: /compression
+      - listitem [ref=e22]:
+        - text: ■
+        - link "Developer Marketing" [ref=e23] [cursor=pointer]:
+          - /url: /developer-marketing
+      - listitem [ref=e24]:
+        - text: ■
+        - link "Understanding AI" [ref=e25] [cursor=pointer]:
+          - /url: /ai
+    - paragraph [ref=e26]:
+      - text: You can
+      - link "read my writing" [ref=e27] [cursor=pointer]:
+        - /url: /writing
+      - text: or
+      - link "code" [ref=e28] [cursor=pointer]:
+        - /url: https://github.com/leerob
+      - text: ", or"
+      - link "follow me online" [ref=e29] [cursor=pointer]:
+        - /url: https://x.com/leerob
+      - text: . I also make
+      - link "videos" [ref=e30] [cursor=pointer]:
+        - /url: https://www.youtube.com/@leerob
+      - text: ", advise companies, and do angel investing."
+      - link "Reach out" [ref=e31] [cursor=pointer]:
+        - /url: mailto:lee@leerob.com
+      - text: if interested.
+  - alert [ref=e32]
