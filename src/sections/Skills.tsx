@@ -11,7 +11,7 @@ const categoryIcons: Record<string, string> = {
 
 export function Skills() {
   return (
-    <section id="skills" className="py-32">
+    <section id="skills" className="bg-bg-primary/88 py-32 backdrop-blur-sm">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <SectionTitle label="skills">Tech Stack</SectionTitle>
 

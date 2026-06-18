@@ -16,7 +16,7 @@ export function Projects() {
   const scale = useTransform(scrollYProgress, [0, 1], [0.97, 1])
 
   return (
-    <section id="projects" className="py-32">
+    <section id="projects" className="bg-bg-primary/88 py-32 backdrop-blur-sm">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <SectionTitle label="projects">What I've Built</SectionTitle>
         <div ref={ref} style={{ perspective: 1200 }}>

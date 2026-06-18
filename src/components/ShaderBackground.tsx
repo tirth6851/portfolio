@@ -19,17 +19,18 @@ const fragmentShader = `
         color[j] += lineWidth * float(i * i) / abs(fract(t - 0.01 * float(j) + float(i) * 0.01) * 5.0 - length(uv) + mod(uv.x + uv.y, 0.2));
       }
     }
-    /* Tint output toward neon green (#00e676) */
-    gl_FragColor = vec4(color[0] * 0.08, color[1] * 0.9, color[2] * 0.18, 1.0);
+    /* Dim output — green tint, low intensity so section text stays readable */
+    gl_FragColor = vec4(color[0] * 0.04, color[1] * 0.38, color[2] * 0.08, 1.0);
   }
 `
 
 const vertexShader = `void main() { gl_Position = vec4(position, 1.0); }`
 
 /**
- * Full-screen animated WebGL background (line-glow shader from the legacy site).
- * Perf-guarded: capped DPR, no antialias on mobile, paused on hidden tab,
- * and rendered as a single static frame under reduced-motion.
+ * Full-screen animated WebGL background.
+ * Animation loop guard: onVisibility only restarts when truly stopped to prevent
+ * double-loop stall caused by calling animate() while rAF is already queued.
+ * Context-lost/restored handlers keep it alive across bfcache restores.
  */
 export function ShaderBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -44,7 +45,7 @@ export function ShaderBackground() {
     try {
       renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: true })
     } catch {
-      return // WebGL unsupported — solid bg fallback remains
+      return
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
 
@@ -56,52 +57,64 @@ export function ShaderBackground() {
       resolution: { value: new THREE.Vector2() },
     }
     const material = new THREE.ShaderMaterial({ uniforms, vertexShader, fragmentShader })
-    const mesh = new THREE.Mesh(geometry, material)
-    scene.add(mesh)
+    scene.add(new THREE.Mesh(geometry, material))
 
     const resize = () => {
       renderer.setSize(window.innerWidth, window.innerHeight)
-      uniforms.resolution.value.set(
-        renderer.domElement.width,
-        renderer.domElement.height,
-      )
+      uniforms.resolution.value.set(renderer.domElement.width, renderer.domElement.height)
     }
 
     let rafId = 0
-    let running = true
+    let running = false
+
     const animate = () => {
-      // Calmer pace than the legacy 0.05 increment.
       uniforms.time.value += 0.02
       renderer.render(scene, camera)
       if (running) rafId = requestAnimationFrame(animate)
     }
 
-    const onVisibility = () => {
-      if (document.hidden) {
-        running = false
-        cancelAnimationFrame(rafId)
-      } else if (!reduceMotion) {
-        running = true
-        animate()
-      }
+    const start = () => {
+      if (running || reduceMotion) return
+      running = true
+      rafId = requestAnimationFrame(animate)
     }
+
+    const stop = () => {
+      running = false
+      cancelAnimationFrame(rafId)
+    }
+
+    const onVisibility = () => {
+      if (document.hidden) stop()
+      else start()
+    }
+
+    // WebGL context can be lost on bfcache restore or GPU reset
+    const onContextLost = (e: Event) => {
+      e.preventDefault()
+      stop()
+    }
+    const onContextRestored = () => start()
 
     window.addEventListener('resize', resize)
     document.addEventListener('visibilitychange', onVisibility)
+    canvas.addEventListener('webglcontextlost', onContextLost)
+    canvas.addEventListener('webglcontextrestored', onContextRestored)
+
     resize()
 
     if (reduceMotion) {
-      // Render a single static frame, no loop.
       renderer.render(scene, camera)
     } else {
-      animate()
+      start()
     }
 
     return () => {
-      running = false
-      cancelAnimationFrame(rafId)
+      stop()
       window.removeEventListener('resize', resize)
       document.removeEventListener('visibilitychange', onVisibility)
+      canvas.removeEventListener('webglcontextlost', onContextLost)
+      canvas.removeEventListener('webglcontextrestored', onContextRestored)
       geometry.dispose()
       material.dispose()
       renderer.dispose()

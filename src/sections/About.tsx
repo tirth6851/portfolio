@@ -44,7 +44,7 @@ function TerminalWidget() {
 
 export function About() {
   return (
-    <section id="about" className="bg-bg-secondary/80 py-32">
+    <section id="about" className="bg-bg-secondary/93 py-32">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <SectionTitle label="about">Who I Am</SectionTitle>
 
