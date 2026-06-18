@@ -120,16 +120,6 @@ export const experiences: Experience[] = [
       'Coordinated with operations supervisors on daily administrative tasks and facility operational efficiency.',
     ],
   },
-  {
-    role: 'OpSTEM Representative & Billiards Club Secretary',
-    company: 'Cleveland State University',
-    date: '2024 – Present',
-    bullets: [
-      'Promote STEM engagement and support events for underrepresented students in technology.',
-      'Coordinate Billiards Club communication, meeting logistics, and event planning as Club Secretary.',
-      'Build leadership, organization, and teamwork skills through campus involvement.',
-    ],
-  },
 ]
 
 export interface Skill {
