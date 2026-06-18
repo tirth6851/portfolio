@@ -1,10 +1,9 @@
 import type { IconType } from 'react-icons'
 import {
-  SiPython, SiJavascript, SiFlask, SiPostgresql,
-  SiGit, SiGithub, SiLinux, SiHtml5, SiCss,
-  SiSupabase,
+  SiPython, SiJavascript, SiTypescript, SiFlask, SiSpringboot,
+  SiNextdotjs, SiReact, SiTailwindcss, SiPostgresql, SiSupabase,
+  SiVercel, SiGit, SiGithub, SiVitest,
 } from 'react-icons/si'
-import { VscVscode } from 'react-icons/vsc'
 import { FaJava } from 'react-icons/fa'
 import { skillCategories } from '@/data/content'
 import type { Skill } from '@/data/content'
@@ -13,24 +12,27 @@ import { RevealGroup, Reveal } from '@/components/Reveal'
 
 const categoryIcons: Record<string, string> = {
   Languages: '</>',
-  'Web & Backend': '⚡',
-  Concepts: '◈',
-  Tools: '⚙',
+  'Frameworks & Libraries': '⚡',
+  'Databases & Cloud': '◈',
+  'Testing & Tools': '⚙',
 }
 
 const skillIcons: Record<string, IconType> = {
   Python: SiPython,
   Java: FaJava,
+  TypeScript: SiTypescript,
   JavaScript: SiJavascript,
   Flask: SiFlask,
+  'Spring Boot': SiSpringboot,
+  'Next.js': SiNextdotjs,
+  React: SiReact,
+  'Tailwind CSS': SiTailwindcss,
   PostgreSQL: SiPostgresql,
+  Supabase: SiSupabase,
+  Vercel: SiVercel,
   Git: SiGit,
   GitHub: SiGithub,
-  Linux: SiLinux,
-  HTML: SiHtml5,
-  CSS: SiCss,
-  'VS Code': VscVscode,
-  Supabase: SiSupabase,
+  Vitest: SiVitest,
 }
 
 const tierPill: Record<Skill['tier'], string> = {
@@ -50,7 +52,7 @@ const tierDot: Record<Skill['tier'], string> = {
 
 export function Skills() {
   return (
-    <section id="skills" className="bg-bg-primary/88 py-32 backdrop-blur-sm">
+    <section id="skills" className="bg-transparent py-32">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <SectionTitle label="skills">Tech Stack</SectionTitle>
 

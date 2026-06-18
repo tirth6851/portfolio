@@ -4,7 +4,7 @@ import { Reveal } from '@/components/Reveal'
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-bg-secondary/95 py-32">
+    <section id="contact" className="bg-bg-secondary/90 py-32">
       <div className="mx-auto max-w-3xl px-6 text-center md:px-8">
         <SectionTitle label="contact" center>
           Let's Work Together

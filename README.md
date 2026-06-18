@@ -1,9 +1,8 @@
 # Tirth Patel — Portfolio
 
-Personal portfolio for Tirth Patel, a Computer Science student at Cleveland State
-University seeking a Fall 2026 Software Engineering internship. Built as a
-single-page React app with scroll-driven animations, an animated WebGL
-background, and a dark green/gold theme.
+Personal portfolio for Tirth Patel, a Computer Science student at Cleveland State University seeking a Fall 2026 Software Engineering internship. Built as a single-page React app with scroll-driven animations, an animated WebGL background, and a neon-green dark theme.
+
+**Live:** https://portfolio-green-delta-11.vercel.app/
 
 ## Tech stack
 
@@ -11,19 +10,17 @@ background, and a dark green/gold theme.
 - **Vite** (build tooling / dev server)
 - **Tailwind CSS v4** (`@tailwindcss/vite`, tokens via `@theme`)
 - **Motion** (Framer Motion — `motion/react`) for scroll animations
-- **three.js** for the WebGL hero background
+- **three.js** for the WebGL shader background
+- **react-icons** for skill category icons
 
 ## Features
 
-- Scroll progress bar, active-section nav highlighting (scrollspy), and
-  staggered scroll-reveal animations (`whileInView`).
-- Animated stat counters, a 3D "container-scroll" tilt on the projects grid,
-  and a back-to-top button.
-- Run-once "matrix" text scramble on the hero and logo.
+- Scroll progress bar, active-section nav highlighting (scrollspy), and staggered scroll-reveal animations (`whileInView`).
+- Animated stat counters, a 3D "container-scroll" tilt on the projects grid, and a back-to-top button.
+- Run-once "matrix" text scramble on the hero role subtitle.
 - WebGL shader background (code-split, DPR-capped, paused on hidden tab).
 - Full reduced-motion support (`useReducedMotion`) plus a CSS fallback.
-- SEO/shareability: meta description, Open Graph + Twitter cards, favicon,
-  `robots.txt`.
+- SEO/shareability: meta description, Open Graph + Twitter cards, favicon, `robots.txt`.
 
 ## Getting started
 
@@ -51,6 +48,4 @@ Edit `src/data/content.ts` to update projects, experience, skills, and contact i
 
 ## Deployment
 
-Deploys as a static SPA. Recommended: **Vercel** or **Netlify** (zero-config for
-Vite; build `npm run build`, output `dist/`). For a **GitHub Pages** project site,
-set `base: '/portfolio/'` in `vite.config.ts`.
+Deploys as a static SPA via **Vercel** (zero-config for Vite; build `npm run build`, output `dist/`). For a **GitHub Pages** project site, set `base: '/portfolio/'` in `vite.config.ts`.

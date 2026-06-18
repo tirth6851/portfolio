@@ -44,7 +44,7 @@ function TerminalWidget() {
 
 export function About() {
   return (
-    <section id="about" className="bg-bg-secondary/93 py-32">
+    <section id="about" className="bg-bg-secondary/80 py-32">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <SectionTitle label="about">Who I Am</SectionTitle>
 
@@ -72,23 +72,25 @@ export function About() {
             <div className="space-y-6">
               <div className="space-y-4 text-text-secondary leading-8">
                 <p>
-                  I'm a Computer Science student at Cleveland State University (GPA 3.54) focused on
-                  building real software — not just coursework. My work spans Python backends, Java
-                  applications, and recommendation systems using NLP.
+                  I'm a CS student at Cleveland State University (GPA 3.52, Dean's List) building
+                  full-stack and backend applications with Python, Java, TypeScript, and SQL. My work
+                  spans deployed web platforms, REST APIs with automated test suites, and Next.js apps —
+                  built with Flask, Spring Boot, Supabase, and PostgreSQL.
                 </p>
                 <p>
-                  As a STEM Peer Teacher I explain hard problems simply every day, which shapes how I
-                  write code: clear structure, good naming, no unnecessary complexity. I'm looking for a
-                  Fall 2026 internship where I can ship real things from day one.
+                  As a STEM Peer Teacher (competitively selected, ~30 students per session) I explain
+                  hard problems simply every day — a skill that transfers directly to writing clear,
+                  maintainable code. I'm looking for a Fall 2026 internship where I can ship real things
+                  from day one.
                 </p>
               </div>
 
               {/* Stats row */}
               <div className="grid grid-cols-2 gap-4 pt-2 sm:grid-cols-4">
                 {[
-                  { value: '3.54', label: 'Cumulative GPA' },
-                  { value: '10+', label: 'Java Projects' },
-                  { value: '10', label: 'CS50P Problems' },
+                  { value: '3.52', label: 'Cumulative GPA' },
+                  { value: '4', label: 'Projects Shipped' },
+                  { value: '47+', label: 'Automated Tests' },
                   { value: 'F\'26', label: 'Available' },
                 ].map(({ value, label }) => (
                   <div

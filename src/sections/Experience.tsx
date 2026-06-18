@@ -4,7 +4,7 @@ import { Reveal } from '@/components/Reveal'
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-bg-secondary/93 py-32">
+    <section id="experience" className="bg-bg-secondary/80 py-32">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <SectionTitle label="experience">Where I've Worked</SectionTitle>
 

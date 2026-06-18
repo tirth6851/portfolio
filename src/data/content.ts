@@ -7,36 +7,12 @@ export const profile = {
   email: 't.patel76@vikes.csohio.edu',
   github: 'https://github.com/tirth6851',
   githubLabel: 'github.com/tirth6851',
-  linkedin: 'https://www.linkedin.com/in/tirth-patel2093',
-  linkedinLabel: 'linkedin.com/in/tirth-patel2093',
+  linkedin: 'https://www.linkedin.com/in/tirthm2093',
+  linkedinLabel: 'linkedin.com/in/tirthm2093',
   location: 'Cleveland, Ohio, United States',
   resume: 'resume.pdf',
   photo: 'me-pic.jpeg',
 }
-
-/** Phrases the hero scramble cycles through once, then settles on the first. */
-export const heroStrings = {
-  logoPhrases: ['Tirth Patel', 'CS @ Cleveland State', 'Python & Java'],
-  titlePhrases: [
-    'Engineering Intelligent Systems',
-    'Backend & AI Developer',
-    'Fall 2026 SWE Intern',
-  ],
-  descPhrases: [
-    'CS @ Cleveland State · GPA 3.54',
-    'Building scalable Python & Java applications',
-    'Recommendation systems & backend development',
-  ],
-}
-
-export const badges = [
-  'Open to Fall 2026 SWE Internships',
-  'GPA 3.54',
-  'Cleveland, OH · Open to relocation',
-]
-
-export const about =
-  'I am a Computer Science student focused on building strong programming fundamentals in Java and Python. I enjoy developing clean, modular programs and improving them through iteration and testing. As a STEM Peer Teacher, I regularly explain complex problems clearly and guide students through structured problem-solving. I am currently seeking a Fall 2026 internship where I can contribute to real-world software projects while continuing to strengthen my engineering foundations.'
 
 export interface Stat {
   /** Numeric target the counter animates toward. */
@@ -49,9 +25,9 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { value: 10, suffix: '+', label: 'Java programs built' },
-  { value: 10, label: 'CS50P problem sets' },
-  { value: 3.54, decimals: 2, label: 'Cumulative GPA' },
+  { value: 3.52, decimals: 2, label: 'Cumulative GPA' },
+  { value: 4, label: 'Projects Shipped' },
+  { value: 47, label: 'Automated Tests' },
   { value: 2026, label: 'Available — Fall' },
 ]
 
@@ -65,44 +41,53 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: 'WatchNextAI',
-    tags: [
-      'Python',
-      'Flask',
-      'REST APIs',
-      'TMDB API',
-      'Supabase',
-      'PostgreSQL',
-      'TF-IDF',
-      'Cosine Similarity',
-    ],
+    tags: ['Python', 'Flask', 'Supabase', 'PostgreSQL', 'Vercel', 'Groq', 'TMDB API', 'Jikan API'],
     details: [
-      'Built a content-based recommendation engine using TF-IDF vectorization and cosine similarity to match users to movies across genre, cast, and keyword metadata.',
-      'Designed a 3-tier pipeline: TMDB API ingestion → Supabase (PostgreSQL) storage → TF-IDF similarity scoring → Flask REST backend → Jinja2 frontend.',
-      'Deployed live on Render with Flask routing, Jinja2 templating, and environment-based secret management via python-dotenv.',
+      'Full-stack media discovery platform with 37 REST endpoints across movies, TV, and anime (TMDB + Jikan v4); deployed on Vercel with Supabase Auth supporting Google OAuth, OTP, and MFA/TOTP.',
+      'Content-based recommendation engine using two concurrent ThreadPoolExecutor pools (max 4 workers each); weighted scoring: 40% frequency, 25% rating, 25% genre overlap, 10% quality.',
+      'Groq LLM (llama-3.3-70b-versatile) AI chat; Supabase schema with 3 tables, 3 composite unique indexes, 10 RLS policies; flask-limiter rate limits (20–300 req/hr by route sensitivity).',
     ],
     links: [
-      { label: 'Live Demo', href: 'https://watchnextai.onrender.com' },
+      { label: 'Live Demo', href: 'https://watchnextai-orpin.vercel.app/' },
       { label: 'View on GitHub', href: 'https://github.com/tirth6851/watchnextai' },
     ],
   },
   {
-    title: 'Java Programming Projects',
-    tags: ['Java', 'OOP', 'Data Structures'],
+    title: 'Java JWT Authentication Service',
+    tags: ['Java 17', 'Spring Boot', 'Spring Security', 'JJWT', 'JUnit 5', 'Mockito'],
     details: [
-      'Implemented 10+ Java programs applying OOP principles — encapsulation, inheritance, and polymorphism — across custom class hierarchies.',
-      'Applied core data structures (ArrayList, HashMap, Stack) and control-flow patterns for input validation, data processing, and file persistence.',
-      'Refactored programs iteratively using structured debugging to improve readability and reduce runtime errors.',
+      'Stateless JWT REST API with BCrypt hashing, HS256 token issuance (JJWT 0.12.5), and a custom Spring Security OncePerRequestFilter; enforced user-enumeration resistance via uniform 401 for wrong-password and unknown-email.',
+      '17 automated tests across 3 files: 8 JwtUtil unit tests (token generation, claims, expiry, startup secret validation), 5 Mockito service tests, and 4 MockMvc integration tests covering the full HTTP contract.',
     ],
-    links: [{ label: 'View on GitHub', href: 'https://github.com/tirth6851/Java-CIS151' }],
+    links: [
+      { label: 'View on GitHub', href: 'https://github.com/tirth6851/auth-service-java' },
+    ],
   },
   {
-    title: 'CS50P — Python Programming (Harvard)',
-    tags: ['Python', 'Unit Testing', 'File I/O', 'OOP', 'Regex'],
+    title: 'ComplexityLab',
+    tags: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Clerk', 'Groq', 'Vitest'],
     details: [
-      "Completed Harvard's CS50P curriculum — 10 problem sets covering file I/O, regular expressions, OOP, and API integration.",
-      "Wrote pytest unit tests for each submission, enforced by the course's automated grader.",
+      'Full-stack Big-O code complexity analyzer for 7 languages (TypeScript, JavaScript, Python, Java, Go, Rust, C++) classifying 7 complexity classes (O(1) through O(2ⁿ)) with 18 built-in code templates and per-user history.',
+      'Dual-engine analysis pipeline: Groq LLM (temperature 0, structured JSON) with automatic fallback to a deterministic heuristic engine detecting loop nesting, recursion branching, and memoization.',
+      '30-test suite (Vitest + Testing Library); Clerk v7 auth (Google OAuth only), Supabase PostgreSQL with RLS across 3 tables, 14 app routes.',
     ],
-    links: [{ label: 'View on GitHub', href: 'https://github.com/tirth6851' }],
+    links: [
+      { label: 'Live Demo', href: 'https://complexity-lab-eight.vercel.app/' },
+      { label: 'View on GitHub', href: 'https://github.com/tirth6851/ComplexityLab' },
+    ],
+  },
+  {
+    title: 'SponsorScout AI',
+    tags: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Groq', 'Framer Motion'],
+    details: [
+      'Visa-aware job-matching platform with an 8-factor, 100-point scoring algorithm (authorization compatibility 30 pts, skills overlap 22 pts, sponsorship history 18 pts) classifying roles into Realistic/Stretch/Low-Fit tiers.',
+      'Multi-source ingestion pipeline from Adzuna, SerpApi (Google Jobs), and USAJobs; sponsorship signal detection across 33 phrases; listings normalized into Supabase PostgreSQL with RLS across 7 relational tables.',
+      'Groq LLM (llama-3.3-70b-versatile) for AI career strategy generation; Supabase Auth for user profiles and saved opportunities.',
+    ],
+    links: [
+      { label: 'Live Demo', href: 'https://sponsorscout-ai.vercel.app/' },
+      { label: 'View on GitHub', href: 'https://github.com/tirth6851/sponsorscout-ai' },
+    ],
   },
 ]
 
@@ -117,23 +102,22 @@ export const experiences: Experience[] = [
   {
     role: 'STEM Peer Teacher — Precalculus I (MTH 167)',
     company: 'Cleveland State University',
-    date: 'July 2025 – Present',
+    date: 'August 2025 – Present',
     bullets: [
-      'Selected through competitive hiring to support student learning in Precalculus I.',
-      'Guide students through algebra, trigonometry, and functions during class sessions.',
-      'Collaborate with faculty to reinforce key concepts and structured problem solving.',
-      'Provide individualized support and encourage active participation in class.',
+      'Competitively selected to provide instructional support for Precalculus I, serving approximately 30 students per session.',
+      'Diagnosed comprehension gaps across student cohorts and adapted practice activities based on participation patterns to improve concept retention.',
+      'Translated abstract concepts — algebra, trigonometry, functions — into structured problem-solving frameworks for students from varied learning backgrounds.',
+      'Maintained weekly session documentation covering learning objectives, topic coverage, and student response trends.',
     ],
   },
   {
     role: 'Operations Assistant',
-    company: 'CENTERS, LLC at Cleveland State University',
+    company: 'CENTERS Recreation Center, Cleveland State University',
     date: 'January 2026 – Present',
     bullets: [
-      'Provide front-line customer service to members and guests at the recreation center.',
-      'Enforce facility policies and support emergency procedures to maintain a safe environment.',
-      'Monitor facility operations, assist with incident response, and maintain cleanliness standards.',
-      'Collaborate with supervisors and student staff to coordinate daily operations.',
+      'Supported 100+ members per shift by maintaining facility operations, enforcing safety protocols, and responding to incidents including injury response procedures.',
+      'Delivered customer service across reception and member inquiry functions, maintaining positive experience under high-traffic conditions.',
+      'Coordinated with operations supervisors on daily administrative tasks and facility operational efficiency.',
     ],
   },
   {
@@ -142,7 +126,7 @@ export const experiences: Experience[] = [
     date: '2024 – Present',
     bullets: [
       'Promote STEM engagement and support events for underrepresented students in technology.',
-      'Coordinate Billiards Club communication, meeting logistics, and event planning.',
+      'Coordinate Billiards Club communication, meeting logistics, and event planning as Club Secretary.',
       'Build leadership, organization, and teamwork skills through campus involvement.',
     ],
   },
@@ -165,41 +149,38 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Python', tier: 'Primary' },
       { name: 'Java', tier: 'Primary' },
+      { name: 'TypeScript', tier: 'Primary' },
       { name: 'JavaScript', tier: 'Familiar' },
       { name: 'SQL', tier: 'Familiar' },
     ],
   },
   {
-    title: 'Web & Backend',
+    title: 'Frameworks & Libraries',
     skills: [
       { name: 'Flask', tier: 'Primary' },
-      { name: 'REST APIs', tier: 'Primary' },
-      { name: 'PostgreSQL', tier: 'Familiar' },
-      { name: 'Jinja2', tier: 'Familiar' },
-      { name: 'HTML', tier: 'Familiar' },
-      { name: 'CSS', tier: 'Familiar' },
+      { name: 'Spring Boot', tier: 'Familiar' },
+      { name: 'Next.js', tier: 'Familiar' },
+      { name: 'React', tier: 'Familiar' },
+      { name: 'Tailwind CSS', tier: 'Familiar' },
     ],
   },
   {
-    title: 'Concepts',
+    title: 'Databases & Cloud',
     skills: [
-      { name: 'Object-Oriented Programming', tier: 'Primary' },
-      { name: 'Data Structures', tier: 'Primary' },
-      { name: 'Algorithms', tier: 'Familiar' },
-      { name: 'NLP', tier: 'Familiar' },
-      { name: 'Recommendation Systems', tier: 'Familiar' },
+      { name: 'PostgreSQL', tier: 'Primary' },
+      { name: 'Supabase', tier: 'Familiar' },
+      { name: 'Vercel', tier: 'Familiar' },
     ],
   },
   {
-    title: 'Tools',
+    title: 'Testing & Tools',
     skills: [
       { name: 'Git', tier: 'Primary' },
       { name: 'GitHub', tier: 'Primary' },
-      { name: 'VS Code', tier: 'Primary' },
-      { name: 'Supabase', tier: 'Familiar' },
-      { name: 'Render', tier: 'Familiar' },
+      { name: 'JUnit 5', tier: 'Familiar' },
+      { name: 'Mockito', tier: 'Familiar' },
+      { name: 'Vitest', tier: 'Familiar' },
       { name: 'pytest', tier: 'Familiar' },
-      { name: 'Linux', tier: 'Learning' },
     ],
   },
 ]

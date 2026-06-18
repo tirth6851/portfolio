@@ -30,7 +30,7 @@ export function RainingLetters() {
     const draw = () => {
       ctx.fillStyle = 'rgba(5, 8, 9, 0.15)'
       ctx.fillRect(0, 0, width, height)
-      ctx.fillStyle = '#198754'
+      ctx.fillStyle = '#00e676'
       ctx.font = '15px monospace'
       for (let i = 0; i < drops.length; i++) {
         const text = chars[Math.floor(Math.random() * chars.length)]

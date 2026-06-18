@@ -31,9 +31,13 @@ export default function App() {
         <Hero />
         <About />
         <Highlights />
+        <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-accent-secondary/15 to-transparent" />
         <Projects />
+        <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-accent-secondary/15 to-transparent" />
         <Experience />
+        <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-accent-secondary/15 to-transparent" />
         <Skills />
+        <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-accent-secondary/15 to-transparent" />
         <Contact />
       </main>
 

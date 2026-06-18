@@ -41,9 +41,9 @@ export function Navbar() {
         {/* Logo — stable, no cycling */}
         <a
           href="#top"
-          className="font-mono text-lg font-semibold text-accent-secondary transition-opacity hover:opacity-80"
+          className="text-lg font-semibold text-accent-secondary transition-opacity hover:opacity-80"
         >
-          tirth.dev
+          Tirth Patel
         </a>
 
         {/* Desktop links */}

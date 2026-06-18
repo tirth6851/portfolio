@@ -2,10 +2,9 @@
 
 /* ============================================================
    Design tokens (Tailwind v4 @theme)
-   Neon-green identity refresh:
-     accent-primary  = dark green (subtle borders / bg tints)
-     accent-secondary = neon green (interactive / text emphasis)
-     accent-gold     = near-white (section / card titles)
+   Neon-green identity:
+     accent-secondary = neon green #00e676 (primary accent — all interactive elements)
+     accent-primary   = dark green #004d22 (reserved for subtle tints/bg)
    ============================================================ */
 @theme {
   /* Backgrounds — near-black with intentional green undertone */
@@ -16,7 +15,6 @@
   /* Accent */
   --color-accent-primary:   #004d22;
   --color-accent-secondary: #00e676;
-  --color-accent-gold:      #e8f0e9;
 
   /* Text */
   --color-text-primary:   #f0faf2;
