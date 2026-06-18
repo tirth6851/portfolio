@@ -148,30 +148,59 @@ export const experiences: Experience[] = [
   },
 ]
 
+export interface Skill {
+  name: string
+  /** Primary = use in every project · Familiar = know and have used · Learning = currently building */
+  tier: 'Primary' | 'Familiar' | 'Learning'
+}
+
 export interface SkillCategory {
   title: string
-  skills: string[]
+  skills: Skill[]
 }
 
 export const skillCategories: SkillCategory[] = [
-  { title: 'Languages', skills: ['Python', 'Java', 'JavaScript', 'SQL'] },
+  {
+    title: 'Languages',
+    skills: [
+      { name: 'Python', tier: 'Primary' },
+      { name: 'Java', tier: 'Primary' },
+      { name: 'JavaScript', tier: 'Familiar' },
+      { name: 'SQL', tier: 'Familiar' },
+    ],
+  },
   {
     title: 'Web & Backend',
-    skills: ['Flask', 'REST APIs', 'Jinja2', 'PostgreSQL', 'HTML', 'CSS'],
+    skills: [
+      { name: 'Flask', tier: 'Primary' },
+      { name: 'REST APIs', tier: 'Primary' },
+      { name: 'PostgreSQL', tier: 'Familiar' },
+      { name: 'Jinja2', tier: 'Familiar' },
+      { name: 'HTML', tier: 'Familiar' },
+      { name: 'CSS', tier: 'Familiar' },
+    ],
   },
   {
     title: 'Concepts',
     skills: [
-      'Object-Oriented Programming',
-      'Data Structures',
-      'Algorithms',
-      'NLP',
-      'Recommendation Systems',
+      { name: 'Object-Oriented Programming', tier: 'Primary' },
+      { name: 'Data Structures', tier: 'Primary' },
+      { name: 'Algorithms', tier: 'Familiar' },
+      { name: 'NLP', tier: 'Familiar' },
+      { name: 'Recommendation Systems', tier: 'Familiar' },
     ],
   },
   {
     title: 'Tools',
-    skills: ['Git', 'GitHub', 'Supabase', 'Render', 'pytest', 'Linux', 'VS Code'],
+    skills: [
+      { name: 'Git', tier: 'Primary' },
+      { name: 'GitHub', tier: 'Primary' },
+      { name: 'VS Code', tier: 'Primary' },
+      { name: 'Supabase', tier: 'Familiar' },
+      { name: 'Render', tier: 'Familiar' },
+      { name: 'pytest', tier: 'Familiar' },
+      { name: 'Linux', tier: 'Learning' },
+    ],
   },
 ]
 
