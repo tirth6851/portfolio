@@ -89,6 +89,18 @@ export const projects: Project[] = [
       { label: 'View on GitHub', href: 'https://github.com/tirth6851/sponsorscout-ai' },
     ],
   },
+  {
+    title: 'MarkItDown Web',
+    tags: ['Python', 'Flask', 'MarkItDown', 'Vercel', 'Tailwind CSS', 'HTML/CSS'],
+    details: [
+      'Serverless Flask backend wrapping Microsoft\'s MarkItDown library with two REST endpoints — multipart/form-data for file uploads and application/json for pasted text or HTML — supporting 9+ formats: PDF, Word, Excel, PowerPoint, images, HTML, CSV, JSON, and plain text.',
+      'Drag-and-drop file attachment, Ctrl+V clipboard paste, and Ctrl+Enter keyboard shortcut; chat-style result UI where each conversion renders as an independent card with one-click Copy and Save .md actions.',
+      'Zero JavaScript framework — vanilla HTML + Tailwind CSS frontend co-deployed with the serverless function on Vercel.',
+    ],
+    links: [
+      { label: 'Live Demo', href: 'https://markitdown-web-rho.vercel.app' },
+    ],
+  },
 ]
 
 export interface Experience {
