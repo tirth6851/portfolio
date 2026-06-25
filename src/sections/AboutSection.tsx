@@ -38,7 +38,7 @@ const decorativeImages = [
 ];
 
 const aboutText =
-  "With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!";
+  "CS student at Cleveland State University with a 3.52 GPA, i build full-stack and AI-powered web apps using Python, Java, and TypeScript. I love turning complex problems into clean, fast products — from REST APIs and auth systems to LLM integrations and data pipelines. Let's build something incredible together!";
 
 export function AboutSection() {
   return (
@@ -47,7 +47,6 @@ export function AboutSection() {
       className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20"
       style={{ backgroundColor: '#0C0C0C' }}
     >
-      {/* Decorative corner images */}
       {decorativeImages.map((img) => (
         <FadeIn
           key={img.alt}
@@ -61,9 +60,7 @@ export function AboutSection() {
         </FadeIn>
       ))}
 
-      {/* Main content */}
       <div className="relative z-10 flex flex-col items-center text-center gap-10 sm:gap-14 md:gap-16">
-        {/* Heading */}
         <FadeIn delay={0} y={40}>
           <h2
             className="hero-heading font-black uppercase leading-none tracking-tight"
@@ -74,14 +71,11 @@ export function AboutSection() {
         </FadeIn>
 
         <div className="flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
-          {/* Animated paragraph */}
           <AnimatedText
             text={aboutText}
             className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px]"
             style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
           />
-
-          {/* Contact button */}
           <ContactButton />
         </div>
       </div>

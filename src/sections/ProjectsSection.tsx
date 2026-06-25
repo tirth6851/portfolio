@@ -6,8 +6,11 @@ import { LiveProjectButton } from '@/components/LiveProjectButton';
 const projects = [
   {
     num: '01',
-    category: 'Client',
-    name: 'Nextlevel Studio',
+    category: 'Personal',
+    name: 'WatchNextAI',
+    liveUrl: 'https://watchnextai-orpin.vercel.app/',
+    tags: ['Python', 'Flask', 'Supabase', 'Groq', 'TMDB API'],
+    desc: 'Full-stack media discovery platform with 37 REST endpoints, content-based recommendation engine, and Groq LLM AI chat.',
     col1img1:
       'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
     col1img2:
@@ -18,7 +21,10 @@ const projects = [
   {
     num: '02',
     category: 'Personal',
-    name: 'Aura Brand Identity',
+    name: 'ComplexityLab',
+    liveUrl: 'https://complexity-lab-eight.vercel.app/',
+    tags: ['Next.js', 'TypeScript', 'Groq', 'Supabase', 'Vitest'],
+    desc: 'Full-stack Big-O complexity analyzer for 7 languages with dual-engine analysis (Groq LLM + deterministic heuristic) and 30-test suite.',
     col1img1:
       'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
     col1img2:
@@ -28,8 +34,11 @@ const projects = [
   },
   {
     num: '03',
-    category: 'Client',
-    name: 'Solaris Digital',
+    category: 'Personal',
+    name: 'SponsorScout AI',
+    liveUrl: 'https://sponsorscout-ai.vercel.app/',
+    tags: ['Next.js', 'TypeScript', 'Groq', 'Supabase', 'Framer Motion'],
+    desc: 'Visa-aware job-matching platform with an 8-factor scoring algorithm, multi-source ingestion pipeline, and AI career strategy generation.',
     col1img1:
       'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
     col1img2:
@@ -55,7 +64,7 @@ function ProjectCard({ project, index, totalCards, scrollYProgress }: ProjectCar
   return (
     <div className="h-[85vh] flex items-start">
       <motion.div
-        className="w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] p-4 sm:p-6 md:p-8 sticky"
+        className="w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] p-4 sm:p-6 md:p-8"
         style={{
           scale,
           top: `calc(6rem + ${index * 28}px)`,
@@ -72,7 +81,7 @@ function ProjectCard({ project, index, totalCards, scrollYProgress }: ProjectCar
             >
               {project.num}
             </span>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
               <span className="text-[#D7E2EA] text-xs sm:text-sm uppercase tracking-widest opacity-60">
                 {project.category}
               </span>
@@ -82,14 +91,26 @@ function ProjectCard({ project, index, totalCards, scrollYProgress }: ProjectCar
               >
                 {project.name}
               </h3>
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1.5 mt-1">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[#D7E2EA] text-[10px] sm:text-xs uppercase tracking-wider opacity-50 border border-[#D7E2EA]/30 rounded-full px-2 py-0.5"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-          <LiveProjectButton />
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+            <LiveProjectButton />
+          </a>
         </div>
 
         {/* Image grid */}
         <div className="flex gap-3 sm:gap-4">
-          {/* Left column — 40% */}
           <div className="flex flex-col gap-3 sm:gap-4" style={{ width: '40%' }}>
             <img
               src={project.col1img1}
@@ -106,8 +127,6 @@ function ProjectCard({ project, index, totalCards, scrollYProgress }: ProjectCar
               style={{ height: 'clamp(160px, 22vw, 340px)' }}
             />
           </div>
-
-          {/* Right column — 60% */}
           <div style={{ width: '60%' }}>
             <img
               src={project.col2img}
@@ -136,17 +155,15 @@ export function ProjectsSection() {
       className="rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 z-10 relative px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
       style={{ backgroundColor: '#0C0C0C' }}
     >
-      {/* Heading */}
       <FadeIn delay={0} y={40}>
         <h2
           className="hero-heading font-black uppercase leading-none tracking-tight text-center mb-16 sm:mb-20 md:mb-28"
           style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
         >
-          Project
+          Projects
         </h2>
       </FadeIn>
 
-      {/* Card stack */}
       <div ref={containerRef}>
         {projects.map((project, index) => (
           <ProjectCard
