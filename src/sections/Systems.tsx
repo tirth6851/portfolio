@@ -127,9 +127,27 @@ export function Systems({ graphId, onGraphChange }: Props) {
           <div className="lg:col-span-7">
             <div
               ref={stageRef}
-              className="relative aspect-[4/3] w-full overflow-hidden border border-stage-rule bg-stage-2"
+              className="relative w-full overflow-hidden border border-stage-rule bg-stage-2 sm:aspect-[4/3]"
             >
-              {use3D ? (
+              {!wide ? (
+                <ol className="divide-y divide-stage-rule">
+                  {graph.edges.map((e) => (
+                    <li key={`${e.from}-${e.to}`} className="px-4 py-3 text-sm">
+                      <span className="font-medium">{nameOf(e.from)}</span>
+                      <span aria-hidden="true" className="mx-2 text-stage-soft">→</span>
+                      <span className="sr-only"> to </span>
+                      <span className="font-medium">{nameOf(e.to)}</span>
+                      {(e.label || e.fallback) && (
+                        <span className="mono-label mt-1 block text-stage-soft">
+                          {e.label}
+                          {e.label && e.fallback && ' · '}
+                          {e.fallback && <span className="text-[#ff8a5c]">fallback</span>}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              ) : use3D ? (
                 <Suspense
                   fallback={
                     <ArchitectureDiagram graph={graph} activeNodeId={activeNodeId} onSelect={select} />
@@ -150,7 +168,7 @@ export function Systems({ graphId, onGraphChange }: Props) {
               )}
             </div>
             <div className="mono-label mt-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-stage-soft">
-              <span>{use3D ? 'Interactive 3D view' : 'Static diagram'}</span>
+              <span>{!wide ? 'Request paths' : use3D ? 'Interactive 3D view' : 'Static diagram'}</span>
               <span className="flex items-center gap-2">
                 <span aria-hidden="true" className="inline-block h-px w-6 bg-stage-soft" />
                 Primary path
