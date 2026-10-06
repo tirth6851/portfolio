@@ -126,7 +126,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Flask', 'MarkItDown', 'Pillow', 'Tailwind CSS', 'Vercel'],
     details: [
       'Document-to-Markdown web tool: a Flask backend wraps the Microsoft MarkItDown library to convert uploaded PDF, Word, PowerPoint, and Excel files, or pasted text and HTML, into Markdown.',
-      'Two conversion endpoints (file upload and pasted content) with a 50 MB upload limit and a Pillow-based image handler that returns format, dimensions, and EXIF metadata; single-page drag-and-drop interface with copy and save-as-.md, deployed on Vercel.',
+      'Two conversion endpoints (file upload and pasted content) with a 50 MB upload limit set in the Flask config and a Pillow-based image handler that returns format, dimensions, and EXIF metadata; single-page drag-and-drop interface with copy and save-as-.md, deployed on Vercel.',
     ],
     links: [
       { label: 'Live Demo', href: 'https://markitdown-web-rho.vercel.app/' },

@@ -112,7 +112,7 @@ export const architectures: ArchGraph[] = [
     summary: 'A council of model passes proposes; deterministic policy rules decide; a human approves the exact action.',
     nodes: [
       { id: 'web', label: 'Next.js UI', kind: 'client', detail: 'Task form and report view. A same-origin proxy attaches the operator credential only after a signed session cookie and origin check.', position: [-4.6, 0.5, 0] },
-      { id: 'api', label: 'FastAPI', kind: 'api', detail: 'Evaluation routes: create, report, approve, execute, and rollback, plus health. Approve, execute, and rollback require an operator credential.', position: [-2.4, -0.6, 0.2] },
+      { id: 'api', label: 'FastAPI', kind: 'api', detail: 'Evaluation routes: create, fetch a run (polled for live runs), report, approve, execute, and rollback, plus health. Approve, execute, and rollback require an operator credential.', position: [-2.4, -0.6, 0.2] },
       { id: 'council', label: 'Council', kind: 'service', detail: 'Four passes (planner, red team, privacy, arbiter) plus five controlled prompt-perturbation tests.', position: [-0.2, 0.9, 0.4] },
       { id: 'provider', label: 'Model provider', kind: 'external', detail: 'Budgeted client with per-run and daily call caps, retries, and typed failures. Mock mode uses a scripted provider; the live Nebius path is implemented but unverified.', position: [-0.4, -1.9, -0.6] },
       { id: 'policy', label: 'Policy engine', kind: 'security', detail: 'Pure deterministic rules for shell payloads, file deletion, scope, secrets, network, authorization, legal holds, and untrusted text. Model output never sets the outcome.', position: [2.3, -0.4, 0.2] },

@@ -16,6 +16,7 @@ export default function App() {
   const viewArchitecture = (id: string) => {
     setGraphId(id)
     document.getElementById('systems')?.scrollIntoView()
+    document.getElementById(`tab-${id}`)?.focus({ preventScroll: true })
   }
 
   return (

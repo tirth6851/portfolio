@@ -15,6 +15,7 @@ export function Work({ onViewArchitecture }: Props) {
 
   return (
     <section id="work" className="py-24 md:py-32">
+      <span id="projects" aria-hidden="true" className="block scroll-mt-14" />
       <div className="wrap">
         <SectionHead index="02" kicker="Case studies" title="What I built, and how it works." className="mb-14" />
 

@@ -5,13 +5,14 @@ import { Reveal } from '@/components/Reveal'
 export function Stack() {
   return (
     <section id="stack" className="border-t border-ink bg-paper-2 py-24 md:py-32">
+      <span id="skills" aria-hidden="true" className="block scroll-mt-14" />
       <div className="wrap">
         <SectionHead index="05" kicker="Stack" title="Tools I reach for." className="mb-14" />
         <Reveal>
           <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {skillCategories.map((cat) => (
-              <section key={cat.title} aria-labelledby={`stack-${cat.title}`}>
-                <h3 id={`stack-${cat.title}`} className="mono-label border-b border-ink pb-3 text-ink-soft">
+            {skillCategories.map((cat, ci) => (
+              <section key={cat.title} aria-labelledby={`stack-heading-${ci}`}>
+                <h3 id={`stack-heading-${ci}`} className="mono-label border-b border-ink pb-3 text-ink-soft">
                   {cat.title}
                 </h3>
                 <ul>

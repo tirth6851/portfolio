@@ -184,3 +184,18 @@ SponsorScout AI
 Headline stats
 - "47 Automated Tests" -> "650+ automated tests" (7 + 75 + 578 = 660 declared) or drop the aggregate and cite per-project counts.
 - "4 Projects Shipped" -> keep, optionally qualify as "3 live in production".
+
+---
+
+## 8. Addendum: claims verified directly in repos (2026-10-06)
+
+Checked by direct inspection after an independent review flagged them as unsupported by sections 1-7:
+
+| Claim in site copy | Verdict | Evidence |
+|---|---|---|
+| ComplexityLab stores analysis results as JSONB | CONFIRMED | `supabase/migrations/20260609000000_init.sql` L43: `result jsonb` (analyses table) |
+| Java service uses stateless sessions with CSRF disabled | CONFIRMED | `config/SecurityConfig.java` L46-47: `csrf(...::disable)` and `SessionCreationPolicy.STATELESS` |
+| WatchNextAI supports email/password sign-in | CONFIRMED | `static/js/auth.js`: `supabase.auth.signUp(...)` L30 and `signInWithPassword(...)` L54 |
+| SponsorScout AI uses Framer Motion | CONFIRMED | `package.json` L16: `"framer-motion": "^12.38.0"` |
+
+Personal facts on the site (GPA 3.52, Dean's List, Mathematics minor, expected May 2028, CSU Billiards Club secretary, job duties and headcounts) come from the owner's own `needUpdate.md` and previous site content, not from repositories, so they are not covered by repo evidence.

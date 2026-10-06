@@ -1,8 +1,9 @@
 import { lazy, Suspense, useRef, useState, type KeyboardEvent } from 'react'
-import { useInView, useReducedMotion } from 'motion/react'
+import { useInView } from 'motion/react'
 import { architectures, type NodeKind } from '@/data/architectures'
 import { projects } from '@/data/content'
 import { ArchitectureDiagram } from '@/components/ArchitectureDiagram'
+import { SceneBoundary } from '@/components/SceneBoundary'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { detectWebGL } from '@/lib/webgl'
 import type { ScenePalette } from '@/scene/ArchitectureScene'
@@ -49,7 +50,9 @@ export function Systems({ graphId, onGraphChange }: Props) {
   const [webglOk] = useState(detectWebGL)
   const [sceneFailed, setSceneFailed] = useState(false)
   const wide = useMediaQuery('(min-width: 640px)')
-  const reduced = useReducedMotion() ?? false
+  const osReduced = useMediaQuery('(prefers-reduced-motion: reduce)')
+  const [paused, setPaused] = useState(false)
+  const reduced = osReduced || paused
   const stageRef = useRef<HTMLDivElement>(null)
   const near = useInView(stageRef, { once: true, margin: '0px 0px 400px 0px' })
   const use3D = webglOk && wide && near && !sceneFailed
@@ -62,6 +65,26 @@ export function Systems({ graphId, onGraphChange }: Props) {
     ? graph.edges.filter((e) => e.from === activeNode.id).map((e) => nameOf(e.to))
     : []
   const hasFallback = graph.edges.some((e) => e.fallback)
+
+  const flowList = (
+    <ol className="divide-y divide-stage-rule">
+      {graph.edges.map((e) => (
+        <li key={`${e.from}-${e.to}`} className="px-4 py-3 text-sm">
+          <span className="font-medium">{nameOf(e.from)}</span>
+          <span aria-hidden="true" className="mx-2 text-stage-soft">→</span>
+          <span className="sr-only"> to </span>
+          <span className="font-medium">{nameOf(e.to)}</span>
+          {(e.label || e.fallback) && (
+            <span className="mono-label mt-1 block text-stage-soft">
+              {e.label}
+              {e.label && e.fallback && ' · '}
+              {e.fallback && <span className="text-[#ff8a5c]">fallback path</span>}
+            </span>
+          )}
+        </li>
+      ))}
+    </ol>
+  )
 
   const onTabKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     const count = architectures.length
@@ -119,10 +142,10 @@ export function Systems({ graphId, onGraphChange }: Props) {
                     : 'bg-stage text-stage-soft hover:text-stage-ink'
                 }`}
               >
-                <span className="mono-label opacity-70">{String(i + 1).padStart(2, '0')}</span>
+                <span className="mono-label">{String(i + 1).padStart(2, '0')}</span>
                 <span className="text-sm font-medium leading-snug">{g.project}</span>
                 {projects.find((p) => p.title === g.project)?.status && (
-                  <span className="mono-label text-[0.62rem] opacity-70">In progress</span>
+                  <span className="mono-label text-[0.65rem]">In progress</span>
                 )}
               </button>
             )
@@ -133,27 +156,15 @@ export function Systems({ graphId, onGraphChange }: Props) {
           <div className="lg:col-span-7">
             <div
               ref={stageRef}
-              className="relative w-full overflow-hidden border border-stage-rule bg-stage-2 sm:aspect-[4/3]"
+              className="relative w-full overflow-hidden border border-stage-rule bg-stage-2 sm:aspect-[16/11]"
             >
               {!wide ? (
-                <ol className="divide-y divide-stage-rule">
-                  {graph.edges.map((e) => (
-                    <li key={`${e.from}-${e.to}`} className="px-4 py-3 text-sm">
-                      <span className="font-medium">{nameOf(e.from)}</span>
-                      <span aria-hidden="true" className="mx-2 text-stage-soft">→</span>
-                      <span className="sr-only"> to </span>
-                      <span className="font-medium">{nameOf(e.to)}</span>
-                      {(e.label || e.fallback) && (
-                        <span className="mono-label mt-1 block text-stage-soft">
-                          {e.label}
-                          {e.label && e.fallback && ' · '}
-                          {e.fallback && <span className="text-[#ff8a5c]">fallback</span>}
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ol>
+                flowList
               ) : use3D ? (
+                <SceneBoundary
+                  onError={() => setSceneFailed(true)}
+                  fallback={<ArchitectureDiagram graph={graph} activeNodeId={activeNodeId} onSelect={select} />}
+                >
                 <Suspense
                   fallback={
                     <ArchitectureDiagram graph={graph} activeNodeId={activeNodeId} onSelect={select} />
@@ -169,12 +180,29 @@ export function Systems({ graphId, onGraphChange }: Props) {
                     onUnavailable={() => setSceneFailed(true)}
                   />
                 </Suspense>
+                </SceneBoundary>
               ) : (
                 <ArchitectureDiagram graph={graph} activeNodeId={activeNodeId} onSelect={select} />
               )}
             </div>
+            {wide && (
+              <div className="sr-only">
+                <h3>Connections in {graph.project}</h3>
+                {flowList}
+              </div>
+            )}
             <div className="mono-label mt-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-stage-soft">
               <span>{!wide ? 'Request paths' : use3D ? 'Interactive 3D view' : 'Static diagram'}</span>
+              {use3D && !osReduced && (
+                <button
+                  type="button"
+                  aria-pressed={paused}
+                  onClick={() => setPaused((v) => !v)}
+                  className="mono-label border border-stage-rule px-2 py-1 text-stage-ink transition-colors hover:border-stage-accent hover:text-stage-accent"
+                >
+                  {paused ? 'Play animation' : 'Pause animation'}
+                </button>
+              )}
               <span className="flex items-center gap-2">
                 <span aria-hidden="true" className="inline-block h-px w-6 bg-stage-soft" />
                 Primary path

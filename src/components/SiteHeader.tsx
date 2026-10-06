@@ -30,7 +30,7 @@ export function SiteHeader() {
                     active === item.id ? 'text-accent' : 'text-ink-soft'
                   }`}
                 >
-                  <span className="mr-1.5 opacity-50">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="mr-1.5">{String(i + 1).padStart(2, '0')}</span>
                   {item.label}
                 </a>
               </li>
@@ -67,7 +67,7 @@ export function SiteHeader() {
                   onClick={() => setOpen(false)}
                   className="mono-label flex items-baseline gap-3 border-b border-rule py-3 text-ink last:border-b-0"
                 >
-                  <span className="opacity-50">{String(i + 1).padStart(2, '0')}</span>
+                  <span>{String(i + 1).padStart(2, '0')}</span>
                   {item.label}
                 </a>
               </li>
