@@ -168,7 +168,7 @@ export function ProjectStage() {
       <span id="work" aria-hidden="true" className="block scroll-mt-14" />
 
       <div className="stage-zoom" data-zoom={zoomTarget !== null}>
-        <div ref={stageRef} className="relative h-[calc(100svh-3.5rem)] min-h-[680px] w-full overflow-hidden bg-bg">
+        <div ref={stageRef} data-quality={quality} data-mode={use3D ? 'webgl' : 'fallback'} className="relative h-[calc(100svh-3.5rem)] min-h-[680px] w-full overflow-hidden bg-bg">
           <div className="aurora" aria-hidden="true" />
 
           <div className="absolute inset-0">
@@ -206,12 +206,13 @@ export function ProjectStage() {
             <div className="wrap flex items-start justify-between gap-6">
               <div>
                 <p className="mono-label text-accent">01 — Projects</p>
-                <h2 className="mt-2 text-4xl font-bold leading-[1.02] tracking-tight sm:text-6xl">
+                <h2 className="mt-2 text-3xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
                   {COUNT_WORDS[architectures.length] ?? architectures.length} systems,{' '}
                   <span className="serif-italic gradient-text text-glow">drawn from the code.</span>
                 </h2>
-                <p className="mt-3 max-w-xl text-sm text-ink-soft sm:text-base">
-                  Drag to slide between projects. Tap any component to fly inside it.
+                <p className="mt-2 max-w-xl text-sm text-ink-soft sm:mt-3 sm:text-base">
+                  <span className="sm:hidden">Swipe to slide. Tap a component to fly inside.</span>
+                  <span className="hidden sm:inline">Drag to slide between projects. Tap any component to fly inside it.</span>
                 </p>
               </div>
               <p className="mono-label hidden text-ink-soft sm:block" aria-hidden="true">
@@ -230,7 +231,7 @@ export function ProjectStage() {
                 disabled={disabled}
                 onClick={() => goTo(target)}
                 aria-label={dir === 'prev' ? 'Previous project' : 'Next project'}
-                className={`glass pointer-events-auto absolute top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-items-center text-xl text-ink transition hover:border-accent hover:text-accent disabled:opacity-20 ${dir === 'prev' ? 'left-3 sm:left-6' : 'right-3 sm:right-6'}`}
+                className={`glass pointer-events-auto absolute top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 sm:h-12 sm:w-12 place-items-center text-xl text-ink transition hover:border-accent hover:text-accent disabled:opacity-20 ${dir === 'prev' ? 'left-3 sm:left-6' : 'right-3 sm:right-6'}`}
                 style={{ borderRadius: 9999 }}
               >
                 <span aria-hidden="true">{dir === 'prev' ? '←' : '→'}</span>
@@ -240,24 +241,24 @@ export function ProjectStage() {
 
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-bg via-bg/85 to-transparent pb-5 pt-24 lg:bg-none lg:pt-0">
             <div className="wrap">
-              <div className="glass glow-border pointer-events-auto max-w-md p-5 sm:p-6 lg:max-w-[30rem]">
+              <div className="glass glow-border pointer-events-auto max-w-md p-4 sm:p-6 lg:max-w-[30rem]">
                 <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">{graph.project}</h3>
+                  <h3 className="text-xl font-bold tracking-tight sm:text-3xl">{graph.project}</h3>
                   {project?.status && <span className="mono-label rounded-full border border-amber/60 px-2.5 py-0.5 text-[0.62rem] text-amber">{project.status}</span>}
                 </div>
-                <p className="mt-2 text-sm text-ink-soft sm:text-base">{graph.summary}</p>
-                <ul className="mt-3 flex flex-wrap gap-2" aria-label="Key facts">
+                <p className="mt-1.5 line-clamp-2 text-sm text-ink-soft sm:mt-2 sm:line-clamp-none sm:text-base">{graph.summary}</p>
+                <ul className="mt-3 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] sm:flex-wrap sm:overflow-visible" aria-label="Key facts">
                   {chips.map((c) => (
-                    <li key={c.label} className="mono-label rounded-full border border-line-strong bg-white/5 px-3 py-1 text-[0.64rem] text-ink">
+                    <li key={c.label} className="mono-label shrink-0 rounded-full border border-line-strong bg-white/5 px-3 py-1 text-[0.64rem] text-ink">
                       <span className="text-accent">{c.value}</span> {c.label}
                     </li>
                   ))}
                 </ul>
-                <div className="mono-label mt-4 flex flex-wrap items-center gap-3">
+                <div className="mono-label mt-3 flex items-center gap-2 sm:mt-4 sm:flex-wrap sm:gap-3">
                   <button
                     type="button"
                     onClick={tracing ? stopTrace : startTrace}
-                    className="rounded-full bg-accent px-5 py-2.5 text-[#03130c] shadow-[0_0_28px_rgba(77,224,160,0.5)] transition hover:brightness-110"
+                    className="rounded-full bg-accent px-4 py-2 text-[#03130c] sm:px-5 sm:py-2.5 shadow-[0_0_28px_rgba(77,224,160,0.5)] transition hover:brightness-110"
                   >
                     {tracing ? 'Stop' : 'Play request path'}
                   </button>
@@ -266,13 +267,13 @@ export function ProjectStage() {
                       type="button"
                       aria-pressed={paused}
                       onClick={() => setPaused((v) => !v)}
-                      className="rounded-full border border-line-strong px-4 py-2.5 text-ink transition hover:border-accent hover:text-accent"
+                      className="rounded-full border border-line-strong px-3.5 py-2 text-ink transition hover:border-accent hover:text-accent sm:px-4 sm:py-2.5"
                     >
                       {paused ? 'Play animation' : 'Pause animation'}
                     </button>
                   )}
                 </div>
-                <p aria-live="polite" className="mt-3 min-h-[1.5rem] text-sm text-amber">
+                <p aria-live="polite" className="mt-2 line-clamp-2 min-h-[1.25rem] text-sm text-amber sm:mt-3 sm:min-h-[1.5rem]">
                   {step && (
                     <>
                       <span className="mono-label mr-2">
@@ -286,7 +287,7 @@ export function ProjectStage() {
                 </p>
               </div>
 
-              <div role="tablist" aria-label="Projects" onKeyDown={onTabKeyDown} className="pointer-events-auto mt-4 flex flex-wrap gap-2">
+              <div role="tablist" aria-label="Projects" onKeyDown={onTabKeyDown} className="pointer-events-auto mt-3 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] sm:mt-4 sm:flex-wrap sm:overflow-visible">
                 {architectures.map((g, i) => {
                   const selected = i === index
                   const p = projects.find((x) => x.title === g.project)
@@ -300,7 +301,7 @@ export function ProjectStage() {
                       aria-controls="stage-details"
                       tabIndex={selected ? 0 : -1}
                       onClick={() => goTo(i)}
-                      className={`mono-label rounded-full border px-4 py-2 text-[0.66rem] transition ${selected ? 'border-accent bg-accent/15 text-accent shadow-[0_0_24px_rgba(77,224,160,0.35)]' : 'border-line text-ink-soft hover:border-line-strong hover:text-ink'}`}
+                      className={`mono-label shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-[0.66rem] transition ${selected ? 'border-accent bg-accent/15 text-accent shadow-[0_0_24px_rgba(77,224,160,0.35)]' : 'border-line text-ink-soft hover:border-line-strong hover:text-ink'}`}
                     >
                       <span className="opacity-70">{String(i + 1).padStart(2, '0')}</span> {g.project}
                       {p?.status && <span className="ml-2 text-amber">·</span>}

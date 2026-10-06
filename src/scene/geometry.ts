@@ -35,13 +35,11 @@ export function createGeometryLibrary() {
   for (const kind of Object.keys(bodies) as NodeKind[]) {
     outlines.set(kind, new EdgesGeometry(bodies[kind], 24))
   }
-  const packet = new OctahedronGeometry(0.055)
   return {
-    bodies, outlines, packet,
+    bodies, outlines,
     dispose() {
       Object.values(bodies).forEach(geometry => geometry.dispose())
       outlines.forEach(geometry => geometry.dispose())
-      packet.dispose()
     },
   }
 }

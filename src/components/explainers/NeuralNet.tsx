@@ -149,7 +149,7 @@ export function NeuralNet() {
         {COLUMN_LABELS.map((label, i) => (
           <span
             key={`${label}-${i}`}
-            className="mono-label absolute -translate-x-1/2 whitespace-nowrap text-[0.58rem] text-ink-soft"
+            className={`mono-label absolute -translate-x-1/2 whitespace-nowrap text-[0.58rem] text-ink-soft ${i === 0 || i === COLUMN_LABELS.length - 1 ? '' : 'max-sm:hidden'}`}
             style={{ left: `${(0.07 + 0.86 * (i / (LAYERS.length - 1))) * 100}%` }}
           >
             {label}
