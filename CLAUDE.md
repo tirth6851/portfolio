@@ -1,6 +1,6 @@
 # Portfolio — Project Rules
 
-Vite + React 19 + TypeScript + Tailwind v4 + Motion + three.js. Single source of truth for content: `src/data/content.ts`. Verified repo evidence: `docs/project-evidence.md`.
+Vite + React 19 + TypeScript + Tailwind v4 + Motion + three.js. Single source of truth for content: `src/data/content.ts`. Verified repo evidence: `docs/project-evidence.md` and `docs/new-repos-evidence.md`.
 
 ## Workflow
 1. Explore, then spec, then code. Plan before implementing; call `/advisor` for consequential decisions.

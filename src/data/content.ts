@@ -26,13 +26,16 @@ export interface Stat {
 
 export const stats: Stat[] = [
   { value: 3.52, decimals: 2, label: 'Cumulative GPA' },
-  { value: 4, label: 'Projects Built' },
-  { value: 3, label: 'Live Deployments' },
-  { value: 650, suffix: '+', label: 'Automated Tests' },
+  { value: 7, label: 'Projects Built' },
+  { value: 4, label: 'Live Deployments' },
+  { value: 800, suffix: '+', label: 'Automated Tests' },
 ]
 
 export interface Project {
   title: string
+  /** Top projects get a full case study and a scene in the Systems stage. */
+  featured: boolean
+  status?: 'In progress'
   tags: string[]
   details: string[]
   links: { label: string; href: string }[]
@@ -40,31 +43,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'WatchNextAI',
-    tags: ['Python', 'Flask', 'Supabase', 'PostgreSQL', 'Vercel', 'Groq', 'TMDB API', 'Jikan API'],
-    details: [
-      'Full-stack media discovery platform: 27 JSON API routes plus 10 server-rendered pages over movies, TV, and anime (TMDB + Jikan v4); deployed on Vercel with Supabase Auth supporting Google OAuth, OTP, and MFA/TOTP.',
-      'Content-based recommendation engine: two ThreadPoolExecutor stages (4 workers each) feed a weighted score of 40% frequency, 25% rating, 25% genre overlap, and 10% quality; search fans out across TMDB movies, TMDB TV, and Jikan in parallel.',
-      'Groq LLM (llama-3.3-70b-versatile) AI chat; Supabase schema with 3 tables, 3 composite unique indexes, and 10 RLS policies; per-route flask-limiter limits from 5 per 15 minutes to 300 per hour; 7 smoke tests.',
-    ],
-    links: [
-      { label: 'Live Demo', href: 'https://watchnextai-orpin.vercel.app/' },
-      { label: 'View on GitHub', href: 'https://github.com/tirth6851/watchnextai' },
-    ],
-  },
-  {
-    title: 'Java JWT Authentication Service',
-    tags: ['Java 17', 'Spring Boot', 'Spring Security', 'JJWT', 'JUnit 5', 'Mockito', 'Testcontainers', 'Flyway'],
-    details: [
-      'Stateless JWT REST API with five endpoints (signup, login, refresh, logout, me): BCrypt hashing, HS256 access tokens (JJWT 0.12.5), rotating refresh tokens with reuse detection, Bucket4j rate limiting, and a custom OncePerRequestFilter; uniform 401 for wrong-password and unknown-email.',
-      '75 automated tests across 8 files (JUnit 5, Mockito, MockMvc, Testcontainers): 40 MockMvc integration tests over the HTTP contract, plus unit tests for JWT handling, the auth filter, refresh tokens, and the service layer. PostgreSQL with Flyway migrations in production, H2 in development, GitHub Actions CI.',
-    ],
-    links: [
-      { label: 'View on GitHub', href: 'https://github.com/tirth6851/auth-service-java' },
-    ],
-  },
-  {
     title: 'ComplexityLab',
+    featured: true,
     tags: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Clerk', 'Groq', 'Vitest'],
     details: [
       'Full-stack Big-O code complexity analyzer for 7 languages (TypeScript, JavaScript, Python, Java, Go, Rust, C++) classifying 8 complexity classes (O(1) through O(n!)) with 35 built-in code templates and per-user history.',
@@ -77,7 +57,58 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: 'AI Guardrail',
+    featured: true,
+    tags: ['Python', 'FastAPI', 'scikit-learn', 'Groq', 'pytest'],
+    details: [
+      'Layered prompt-safety pipeline: input normalization and decoding (unicode folding, leetspeak, zero-width stripping, base64 and hex), a banned-word filter, an intent-gated weapons backstop, injection heuristics, and a TF-IDF plus logistic regression input classifier.',
+      'Groq llama-3.3-70b-versatile call checked by an output classifier and PII redaction (email, SSN, credit card, phone, IP address); a model failure returns an explicit error decision instead of an answer.',
+      'FastAPI service with 4 routes, API-key tenants, per-tenant rate limiting, repeat-offender escalation, and multi-turn session lockout after 3 flagged turns; 63 declared pytest tests and a regression gate with protected anchor cases. Evaluated and rejected a DistilBERT classifier because it regressed a protected case.',
+    ],
+    links: [{ label: 'View on GitHub', href: 'https://github.com/tirth6851/AI_Guardrail' }],
+  },
+  {
+    title: 'Java JWT Authentication Service',
+    featured: true,
+    status: 'In progress',
+    tags: ['Java 17', 'Spring Boot', 'Spring Security', 'JJWT', 'JUnit 5', 'Mockito', 'Testcontainers', 'Flyway'],
+    details: [
+      'Stateless JWT REST API with five endpoints (signup, login, refresh, logout, me): BCrypt hashing, HS256 access tokens (JJWT 0.12.5), rotating refresh tokens with reuse detection, Bucket4j rate limiting, and a custom OncePerRequestFilter; uniform 401 for wrong-password and unknown-email.',
+      '75 automated tests across 8 files (JUnit 5, Mockito, MockMvc, Testcontainers): 40 MockMvc integration tests over the HTTP contract, plus unit tests for JWT handling, the auth filter, refresh tokens, and the service layer. PostgreSQL with Flyway migrations in production, H2 in development, GitHub Actions CI.',
+    ],
+    links: [
+      { label: 'View on GitHub', href: 'https://github.com/tirth6851/auth-service-java' },
+    ],
+  },
+  {
+    title: 'Blackbox Council',
+    featured: true,
+    status: 'In progress',
+    tags: ['Python', 'FastAPI', 'Pydantic', 'SQLAlchemy', 'Next.js', 'TypeScript', 'Playwright', 'pytest'],
+    details: [
+      'Pre-action policy gate for AI agents: a FastAPI backend runs a four-pass council (planner, red team, privacy, arbiter) plus five controlled prompt-perturbation tests, while a deterministic policy engine, not the model, decides the enforced outcome.',
+      'Direct deletion is blocked by policy; the safe path is a bounded archive simulation that needs human approval bound to a hash of the exact action, a dry-run manifest, a backup manifest, and a 30-day recovery window. Untrusted repository text is treated as data, so an embedded override instruction is flagged and cannot change the outcome.',
+      '74 backend pytest tests and 6 Playwright end-to-end tests with a three-job GitHub Actions CI. Built in two days for a hackathon; runs in mock mode, and the live model integration is implemented but not yet verified.',
+    ],
+    links: [{ label: 'View on GitHub', href: 'https://github.com/tirth6851/blackbox-council' }],
+  },
+  {
+    title: 'WatchNextAI',
+    featured: true,
+    tags: ['Python', 'Flask', 'Supabase', 'PostgreSQL', 'Vercel', 'Groq', 'TMDB API', 'Jikan API'],
+    details: [
+      'Full-stack media discovery platform: 27 JSON API routes plus 10 server-rendered pages over movies, TV, and anime (TMDB + Jikan v4); deployed on Vercel with Supabase Auth supporting Google OAuth, OTP, and MFA/TOTP.',
+      'Content-based recommendation engine: two ThreadPoolExecutor stages (4 workers each) feed a weighted score of 40% frequency, 25% rating, 25% genre overlap, and 10% quality; search fans out across TMDB movies, TMDB TV, and Jikan in parallel.',
+      'Groq LLM (llama-3.3-70b-versatile) AI chat; Supabase schema with 3 tables, 3 composite unique indexes, and 10 RLS policies; per-route flask-limiter limits from 5 per 15 minutes to 300 per hour; 7 smoke tests.',
+    ],
+    links: [
+      { label: 'Live Demo', href: 'https://watchnextai-orpin.vercel.app/' },
+      { label: 'View on GitHub', href: 'https://github.com/tirth6851/watchnextai' },
+    ],
+  },
+  {
     title: 'SponsorScout AI',
+    featured: false,
     tags: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Groq', 'Framer Motion'],
     details: [
       'Visa-aware job-matching platform with an 8-factor scoring algorithm capped at 100 (authorization compatibility 30 pts, skills overlap 22 pts, sponsorship history 18 pts) classifying roles into Realistic/Stretch/Low-Fit tiers.',
@@ -87,6 +118,19 @@ export const projects: Project[] = [
     links: [
       { label: 'Live Demo', href: 'https://sponsorscout-ai.vercel.app/' },
       { label: 'View on GitHub', href: 'https://github.com/tirth6851/sponsorscout-ai' },
+    ],
+  },
+  {
+    title: 'MarkItDown Web',
+    featured: false,
+    tags: ['Python', 'Flask', 'MarkItDown', 'Pillow', 'Tailwind CSS', 'Vercel'],
+    details: [
+      'Document-to-Markdown web tool: a Flask backend wraps the Microsoft MarkItDown library to convert uploaded PDF, Word, PowerPoint, and Excel files, or pasted text and HTML, into Markdown.',
+      'Two conversion endpoints (file upload and pasted content) with a 50 MB upload limit and a Pillow-based image handler that returns format, dimensions, and EXIF metadata; single-page drag-and-drop interface with copy and save-as-.md, deployed on Vercel.',
+    ],
+    links: [
+      { label: 'Live Demo', href: 'https://markitdown-web-rho.vercel.app/' },
+      { label: 'View on GitHub', href: 'https://github.com/tirth6851/markitdown-web' },
     ],
   },
 ]

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion, useReducedMotion, useScroll, useSpring } from 'motion/react'
 import { navItems } from '@/data/content'
 import { useScrollSpy } from '@/hooks/useScrollSpy'
 
@@ -7,6 +8,9 @@ const ids = ['top', ...navItems.map((n) => n.id)]
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const active = useScrollSpy(ids)
+  const reduceMotion = useReducedMotion()
+  const { scrollYProgress } = useScroll()
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 24 })
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper/90 backdrop-blur">
@@ -44,6 +48,14 @@ export function SiteHeader() {
           {open ? 'Close' : 'Menu'}
         </button>
       </div>
+
+      {!reduceMotion && (
+        <motion.div
+          aria-hidden="true"
+          style={{ scaleX: progress }}
+          className="absolute inset-x-0 bottom-[-1px] h-px origin-left bg-accent"
+        />
+      )}
 
       {open && (
         <nav id="mobile-nav" aria-label="Primary" className="border-t border-rule bg-paper md:hidden">

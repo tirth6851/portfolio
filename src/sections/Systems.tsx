@@ -1,6 +1,7 @@
 import { lazy, Suspense, useRef, useState, type KeyboardEvent } from 'react'
 import { useInView, useReducedMotion } from 'motion/react'
 import { architectures, type NodeKind } from '@/data/architectures'
+import { projects } from '@/data/content'
 import { ArchitectureDiagram } from '@/components/ArchitectureDiagram'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { detectWebGL } from '@/lib/webgl'
@@ -17,6 +18,8 @@ const PALETTE: ScenePalette = {
   packet: '#f5c04a',
   fallback: '#ff8a5c',
 }
+
+const COUNT_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight']
 
 const KIND_LABEL: Record<NodeKind, string> = {
   client: 'Client',
@@ -84,7 +87,7 @@ export function Systems({ graphId, onGraphChange }: Props) {
         <header className="mb-12 max-w-3xl">
           <p className="mono-label text-stage-soft">01 — Architecture</p>
           <h2 className="mt-4 font-display text-5xl leading-[1.02] md:text-7xl">
-            Four systems, drawn from the&nbsp;code.
+            {COUNT_WORDS[architectures.length] ?? architectures.length} systems, drawn from the&nbsp;code.
           </h2>
           <p className="mt-6 max-w-xl text-stage-soft">
             Each diagram comes from the repository: real modules, real request paths, and the
@@ -96,7 +99,7 @@ export function Systems({ graphId, onGraphChange }: Props) {
           role="tablist"
           aria-label="Projects"
           onKeyDown={onTabKeyDown}
-          className="mb-8 grid grid-cols-2 gap-px border border-stage-rule bg-stage-rule md:grid-cols-4"
+          className="mb-8 flex flex-wrap pl-px pt-px"
         >
           {architectures.map((g, i) => {
             const selected = g.id === graph.id
@@ -110,7 +113,7 @@ export function Systems({ graphId, onGraphChange }: Props) {
                 aria-controls="systems-panel"
                 tabIndex={selected ? 0 : -1}
                 onClick={() => onGraphChange(g.id)}
-                className={`flex flex-col items-start gap-1 px-4 py-4 text-left transition-colors ${
+                className={`-ml-px -mt-px flex min-w-[10.5rem] flex-1 basis-[10.5rem] flex-col items-start gap-1 border border-stage-rule px-4 py-4 text-left transition-colors ${
                   selected
                     ? 'bg-stage-2 text-stage-accent'
                     : 'bg-stage text-stage-soft hover:text-stage-ink'
@@ -118,6 +121,9 @@ export function Systems({ graphId, onGraphChange }: Props) {
               >
                 <span className="mono-label opacity-70">{String(i + 1).padStart(2, '0')}</span>
                 <span className="text-sm font-medium leading-snug">{g.project}</span>
+                {projects.find((p) => p.title === g.project)?.status && (
+                  <span className="mono-label text-[0.62rem] opacity-70">In progress</span>
+                )}
               </button>
             )
           })}
