@@ -12,18 +12,18 @@ export function KineticHeadline({ words, className }: { words: HeadlineWord[]; c
   return (
     <h1 className={className}>
       {words.map((w, i) => {
-        const inner = w.accent ? <em className="text-accent">{w.text}</em> : w.text
+        const inner = w.accent ? <em className="serif-italic gradient-text text-glow pr-1">{w.text}</em> : w.text
         return (
           <span key={`${w.text}-${i}`}>
             {reduceMotion ? (
               inner
             ) : (
-              <span className="-mb-[0.14em] inline-block overflow-hidden pb-[0.14em] align-bottom">
+              <span className="-mb-[0.18em] inline-block overflow-hidden pb-[0.18em] align-bottom">
                 <motion.span
                   className="inline-block"
-                  initial={{ y: '115%' }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.85, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ y: '118%', rotate: 4 }}
+                  animate={{ y: 0, rotate: 0 }}
+                  transition={{ duration: 0.95, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 >
                   {inner}
                 </motion.span>

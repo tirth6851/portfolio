@@ -199,3 +199,12 @@ Checked by direct inspection after an independent review flagged them as unsuppo
 | SponsorScout AI uses Framer Motion | CONFIRMED | `package.json` L16: `"framer-motion": "^12.38.0"` |
 
 Personal facts on the site (GPA 3.52, Dean's List, Mathematics minor, expected May 2028, CSU Billiards Club secretary, job duties and headcounts) come from the owner's own `needUpdate.md` and previous site content, not from repositories, so they are not covered by repo evidence.
+
+### 8b. Addendum: parameters re-verified in source for the explainer visuals (2026-10-06)
+
+| Fact | Verdict | Evidence |
+|---|---|---|
+| Java access token: 1 h TTL; claims `sub` (user id) and `email`; HS256 key must be 32+ chars | CONFIRMED | `application.properties` `app.jwt.expiration-ms=3600000`; `JwtUtil.java` L49-50 `.subject(userId)` `.claim("email", email)`, L39-41 key length guard + `Keys.hmacShaKeyFor` |
+| Java refresh token TTL 7 days | CONFIRMED | `application.properties` `app.refresh-token.ttl-ms=604800000` |
+| ComplexityLab analysis Groq call: temperature 0, timeout 20 s, model llama-3.3-70b-versatile | CONFIRMED | `frontend/lib/ai/groq-client.ts` L60 `temperature = 0`, L62 `timeoutMs = 20_000`, L11 default model |
+| ComplexityLab chat Groq call: temperature 0.7, timeout 30 s | CONFIRMED | same file L124, L126 |

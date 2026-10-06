@@ -231,8 +231,7 @@ export const skillCategories: SkillCategory[] = [
 ]
 
 export const navItems = [
-  { id: 'systems', label: 'Systems' },
-  { id: 'work', label: 'Work' },
+  { id: 'projects', label: 'Projects' },
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'stack', label: 'Stack' },
