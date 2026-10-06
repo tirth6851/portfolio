@@ -8,7 +8,7 @@ export function AlsoBuilt() {
   if (others.length === 0) return null
 
   return (
-    <section aria-labelledby="also-built" className="relative border-t border-line py-20">
+    <section id="also" aria-labelledby="also-built" className="relative border-t border-line py-20">
       <div className="wrap">
         <Reveal>
           <h2 id="also-built" className="mono-label text-accent">
