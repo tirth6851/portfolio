@@ -26,9 +26,9 @@ export interface Stat {
 
 export const stats: Stat[] = [
   { value: 3.52, decimals: 2, label: 'Cumulative GPA' },
-  { value: 4, label: 'Projects Shipped' },
-  { value: 47, label: 'Automated Tests' },
-  { value: 2026, label: 'Available — Fall' },
+  { value: 4, label: 'Projects Built' },
+  { value: 3, label: 'Live Deployments' },
+  { value: 650, suffix: '+', label: 'Automated Tests' },
 ]
 
 export interface Project {
@@ -43,9 +43,9 @@ export const projects: Project[] = [
     title: 'WatchNextAI',
     tags: ['Python', 'Flask', 'Supabase', 'PostgreSQL', 'Vercel', 'Groq', 'TMDB API', 'Jikan API'],
     details: [
-      'Full-stack media discovery platform with 37 REST endpoints across movies, TV, and anime (TMDB + Jikan v4); deployed on Vercel with Supabase Auth supporting Google OAuth, OTP, and MFA/TOTP.',
-      'Content-based recommendation engine using two concurrent ThreadPoolExecutor pools (max 4 workers each); weighted scoring: 40% frequency, 25% rating, 25% genre overlap, 10% quality.',
-      'Groq LLM (llama-3.3-70b-versatile) AI chat; Supabase schema with 3 tables, 3 composite unique indexes, 10 RLS policies; flask-limiter rate limits (20–300 req/hr by route sensitivity).',
+      'Full-stack media discovery platform: 27 JSON API routes plus 10 server-rendered pages over movies, TV, and anime (TMDB + Jikan v4); deployed on Vercel with Supabase Auth supporting Google OAuth, OTP, and MFA/TOTP.',
+      'Content-based recommendation engine: two ThreadPoolExecutor stages (4 workers each) feed a weighted score of 40% frequency, 25% rating, 25% genre overlap, and 10% quality; search fans out across TMDB movies, TMDB TV, and Jikan in parallel.',
+      'Groq LLM (llama-3.3-70b-versatile) AI chat; Supabase schema with 3 tables, 3 composite unique indexes, and 10 RLS policies; per-route flask-limiter limits from 5 per 15 minutes to 300 per hour; 7 smoke tests.',
     ],
     links: [
       { label: 'Live Demo', href: 'https://watchnextai-orpin.vercel.app/' },
@@ -54,10 +54,10 @@ export const projects: Project[] = [
   },
   {
     title: 'Java JWT Authentication Service',
-    tags: ['Java 17', 'Spring Boot', 'Spring Security', 'JJWT', 'JUnit 5', 'Mockito'],
+    tags: ['Java 17', 'Spring Boot', 'Spring Security', 'JJWT', 'JUnit 5', 'Mockito', 'Testcontainers', 'Flyway'],
     details: [
-      'Stateless JWT REST API with BCrypt hashing, HS256 token issuance (JJWT 0.12.5), and a custom Spring Security OncePerRequestFilter; enforced user-enumeration resistance via uniform 401 for wrong-password and unknown-email.',
-      '17 automated tests across 3 files: 8 JwtUtil unit tests (token generation, claims, expiry, startup secret validation), 5 Mockito service tests, and 4 MockMvc integration tests covering the full HTTP contract.',
+      'Stateless JWT REST API with five endpoints (signup, login, refresh, logout, me): BCrypt hashing, HS256 access tokens (JJWT 0.12.5), rotating refresh tokens with reuse detection, Bucket4j rate limiting, and a custom OncePerRequestFilter; uniform 401 for wrong-password and unknown-email.',
+      '75 automated tests across 8 files (JUnit 5, Mockito, MockMvc, Testcontainers): 40 MockMvc integration tests over the HTTP contract, plus unit tests for JWT handling, the auth filter, refresh tokens, and the service layer. PostgreSQL with Flyway migrations in production, H2 in development, GitHub Actions CI.',
     ],
     links: [
       { label: 'View on GitHub', href: 'https://github.com/tirth6851/auth-service-java' },
@@ -67,9 +67,9 @@ export const projects: Project[] = [
     title: 'ComplexityLab',
     tags: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Clerk', 'Groq', 'Vitest'],
     details: [
-      'Full-stack Big-O code complexity analyzer for 7 languages (TypeScript, JavaScript, Python, Java, Go, Rust, C++) classifying 7 complexity classes (O(1) through O(2ⁿ)) with 18 built-in code templates and per-user history.',
+      'Full-stack Big-O code complexity analyzer for 7 languages (TypeScript, JavaScript, Python, Java, Go, Rust, C++) classifying 8 complexity classes (O(1) through O(n!)) with 35 built-in code templates and per-user history.',
       'Dual-engine analysis pipeline: Groq LLM (temperature 0, structured JSON) with automatic fallback to a deterministic heuristic engine detecting loop nesting, recursion branching, and memoization.',
-      '30-test suite (Vitest + Testing Library); Clerk v7 auth (Google OAuth only), Supabase PostgreSQL with RLS across 3 tables, 14 app routes.',
+      '59 Vitest test files with 570+ test cases (Testing Library); Clerk v7 auth (Google OAuth only), Supabase PostgreSQL with RLS enabled on 9 tables, 33 pages and 3 API routes; also an AI chat tutor with keyword retrieval and a Judge0 code playground.',
     ],
     links: [
       { label: 'Live Demo', href: 'https://complexity-lab-eight.vercel.app/' },
@@ -80,9 +80,9 @@ export const projects: Project[] = [
     title: 'SponsorScout AI',
     tags: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Groq', 'Framer Motion'],
     details: [
-      'Visa-aware job-matching platform with an 8-factor, 100-point scoring algorithm (authorization compatibility 30 pts, skills overlap 22 pts, sponsorship history 18 pts) classifying roles into Realistic/Stretch/Low-Fit tiers.',
-      'Multi-source ingestion pipeline from Adzuna, SerpApi (Google Jobs), and USAJobs; sponsorship signal detection across 33 phrases; listings normalized into Supabase PostgreSQL with RLS across 7 relational tables.',
-      'Groq LLM (llama-3.3-70b-versatile) for AI career strategy generation; Supabase Auth for user profiles and saved opportunities.',
+      'Visa-aware job-matching platform with an 8-factor scoring algorithm capped at 100 (authorization compatibility 30 pts, skills overlap 22 pts, sponsorship history 18 pts) classifying roles into Realistic/Stretch/Low-Fit tiers.',
+      'Multi-source ingestion pipeline from Adzuna, SerpApi (Google Jobs), and USAJobs; sponsorship signal detection across 31 phrases (16 risky, 15 positive); listings deduplicated and normalized into Supabase PostgreSQL with RLS across 10 tables.',
+      'Groq LLM (llama-3.3-70b-versatile) for AI career strategy generation with a deterministic fallback; Supabase Auth for user profiles and saved opportunities.',
     ],
     links: [
       { label: 'Live Demo', href: 'https://sponsorscout-ai.vercel.app/' },
