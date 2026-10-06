@@ -1,48 +1,39 @@
-import { lazy, Suspense } from 'react'
-import { LiquidGlassFilter } from '@/components/LiquidGlassFilter'
-import { ScrollProgressBar } from '@/components/ScrollProgressBar'
-import { BackToTop } from '@/components/BackToTop'
-import { Navbar } from '@/components/Navbar'
+import { useState } from 'react'
+import { architectures } from '@/data/architectures'
+import { SiteHeader } from '@/components/SiteHeader'
 import { Hero } from '@/sections/Hero'
+import { Systems } from '@/sections/Systems'
+import { Work } from '@/sections/Work'
 import { About } from '@/sections/About'
-import { Highlights } from '@/sections/Highlights'
-import { Projects } from '@/sections/Projects'
 import { Experience } from '@/sections/Experience'
-import { Skills } from '@/sections/Skills'
+import { Stack } from '@/sections/Stack'
 import { Contact } from '@/sections/Contact'
 import { Footer } from '@/sections/Footer'
 
-// three.js is heavy — load the shader background after the main bundle.
-const ShaderBackground = lazy(() =>
-  import('@/components/ShaderBackground').then((m) => ({ default: m.ShaderBackground })),
-)
-
 export default function App() {
+  const [graphId, setGraphId] = useState(architectures[0].id)
+
+  const viewArchitecture = (id: string) => {
+    setGraphId(id)
+    document.getElementById('systems')?.scrollIntoView()
+  }
+
   return (
     <>
-      <LiquidGlassFilter />
-      <Suspense fallback={null}>
-        <ShaderBackground />
-      </Suspense>
-      <ScrollProgressBar />
-      <Navbar />
-
-      <main>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <SiteHeader />
+      <main id="main">
         <Hero />
+        <Systems graphId={graphId} onGraphChange={setGraphId} />
+        <Work onViewArchitecture={viewArchitecture} />
         <About />
-        <Highlights />
-        <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-accent-secondary/15 to-transparent" />
-        <Projects />
-        <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-accent-secondary/15 to-transparent" />
         <Experience />
-        <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-accent-secondary/15 to-transparent" />
-        <Skills />
-        <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-accent-secondary/15 to-transparent" />
+        <Stack />
         <Contact />
       </main>
-
       <Footer />
-      <BackToTop />
     </>
   )
 }

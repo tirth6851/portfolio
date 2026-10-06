@@ -152,6 +152,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Next.js', tier: 'Familiar' },
       { name: 'React', tier: 'Familiar' },
       { name: 'Tailwind CSS', tier: 'Familiar' },
+      { name: 'Framer Motion', tier: 'Familiar' },
     ],
   },
   {
@@ -170,15 +171,26 @@ export const skillCategories: SkillCategory[] = [
       { name: 'JUnit 5', tier: 'Familiar' },
       { name: 'Mockito', tier: 'Familiar' },
       { name: 'Vitest', tier: 'Familiar' },
+      { name: 'Testing Library', tier: 'Familiar' },
       { name: 'pytest', tier: 'Familiar' },
+    ],
+  },
+  {
+    title: 'APIs & Services',
+    skills: [
+      { name: 'Groq API', tier: 'Familiar' },
+      { name: 'Clerk', tier: 'Familiar' },
+      { name: 'TMDB API', tier: 'Familiar' },
+      { name: 'Jikan API', tier: 'Familiar' },
     ],
   },
 ]
 
 export const navItems = [
+  { id: 'systems', label: 'Systems' },
+  { id: 'work', label: 'Work' },
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
+  { id: 'stack', label: 'Stack' },
   { id: 'contact', label: 'Contact' },
 ]
