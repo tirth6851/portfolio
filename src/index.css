@@ -28,6 +28,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   background: var(--color-bg);
+  scrollbar-gutter: stable;
 }
 
 @media (prefers-reduced-motion: no-preference) {

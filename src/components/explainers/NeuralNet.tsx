@@ -32,10 +32,14 @@ export function NeuralNet() {
     let h = 0
     const resize = () => {
       const r = canvas.getBoundingClientRect()
+      const pw = Math.max(1, Math.round(r.width * dpr))
+      const ph = Math.max(1, Math.round(r.height * dpr))
       w = r.width
       h = r.height
-      canvas.width = Math.max(1, Math.round(w * dpr))
-      canvas.height = Math.max(1, Math.round(h * dpr))
+      if (canvas.width !== pw || canvas.height !== ph) {
+        canvas.width = pw
+        canvas.height = ph
+      }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
     resize()

@@ -95,7 +95,7 @@ export function ExplainerModal({ graph, nodeId, onClose, returnFocusTo }: Props)
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="glass glow-border relative max-h-[94svh] w-full max-w-6xl overflow-y-auto bg-bg/70 p-5 shadow-[0_0_120px_rgba(77,224,160,0.18)] sm:p-8"
+        className="glass glow-border relative max-h-[94svh] w-full max-w-6xl overflow-y-auto overflow-x-hidden bg-bg/70 [scrollbar-color:rgba(255,255,255,0.22)_transparent] [scrollbar-gutter:stable] [scrollbar-width:thin] p-5 shadow-[0_0_120px_rgba(77,224,160,0.18)] sm:p-8"
         initial={{ opacity: 0, scale: 0.9, filter: 'blur(14px)' }}
         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
         exit={{ opacity: 0, scale: 0.96, filter: 'blur(8px)' }}
