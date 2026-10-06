@@ -32,7 +32,7 @@ export interface ConstellationSceneProps {
   onNodeOpen: (graphId: string, nodeId: string) => void
   /** Camera dollies to this node and dims the rest; null returns to the overview. */
   zoomTarget: ZoomTarget | null
-  /** Increment to run a request-trace over the current graph's edges, in declared order. */
+  /** Change to a positive value to run a trace over the current graph's non-fallback edges, in declared order; a non-positive value cancels it. */
   traceToken: number
   onTraceStep?: (edgeIndex: number) => void
   onTraceEnd?: () => void

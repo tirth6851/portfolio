@@ -99,7 +99,7 @@ export const projects: Project[] = [
     details: [
       'Full-stack media discovery platform: 27 JSON API routes plus 10 server-rendered pages over movies, TV, and anime (TMDB + Jikan v4); deployed on Vercel with Supabase Auth supporting Google OAuth, OTP, and MFA/TOTP.',
       'Content-based recommendation engine: two ThreadPoolExecutor stages (4 workers each) feed a weighted score of 40% frequency, 25% rating, 25% genre overlap, and 10% quality; search fans out across TMDB movies, TMDB TV, and Jikan in parallel.',
-      'Groq LLM (llama-3.3-70b-versatile) AI chat; Supabase schema with 3 tables, 3 composite unique indexes, and 10 RLS policies; per-route flask-limiter limits from 5 per 15 minutes to 300 per hour; 7 smoke tests.',
+      'Groq LLM (llama-3.3-70b-versatile) AI chat; Supabase schema with 3 tables, 3 composite unique indexes, and 10 RLS policies; per-route flask-limiter limits (for example 20 per hour on chat and 30 per minute on search) over a 300 per hour default; 7 smoke tests.',
     ],
     links: [
       { label: 'Live Demo', href: 'https://watchnextai-orpin.vercel.app/' },

@@ -208,3 +208,7 @@ Personal facts on the site (GPA 3.52, Dean's List, Mathematics minor, expected M
 | Java refresh token TTL 7 days | CONFIRMED | `application.properties` `app.refresh-token.ttl-ms=604800000` |
 | ComplexityLab analysis Groq call: temperature 0, timeout 20 s, model llama-3.3-70b-versatile | CONFIRMED | `frontend/lib/ai/groq-client.ts` L60 `temperature = 0`, L62 `timeoutMs = 20_000`, L11 default model |
 | ComplexityLab chat Groq call: temperature 0.7, timeout 30 s | CONFIRMED | same file L124, L126 |
+
+### 8c. Correction to the WatchNextAI rate-limit summary (2026-10-06)
+
+Section 1 and section 7 summarize the limits as "5 per 15 minutes up to 300 per hour". That is not a true range: 300 per hour is only the default, and some routes allow more per hour in absolute terms (`/api/autocomplete` 60 per minute, `/api/search` 30 per minute). The site copy now lists examples over the default instead of a range. Also: AI_Guardrail's lock is per session after 3 flagged turns (not an offender-level lock), and Blackbox Council's counterfactual perturbations run before the arbiter (section 1 architecture path, step 3).

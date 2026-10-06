@@ -139,7 +139,7 @@ export const explainers: Record<string, ExplainerSpec> = {
     policy: 'Row-level security is enabled on every table',
     facts: [
       { label: 'Tables', value: '9' },
-      { label: 'Access', value: 'Deny by default; the server uses a service-role client' },
+      { label: 'Access', value: 'The server reads and writes through a service-role client' },
     ],
     sources: [E3, E8],
   },
@@ -291,8 +291,8 @@ export const explainers: Record<string, ExplainerSpec> = {
       { label: 'Unknown email or wrong password: the same 401 "Invalid credentials"' },
       { label: 'Success: issue an access token and a refresh token' },
     ],
-    facts: [{ label: 'Why one error', value: 'Callers cannot tell which emails exist' }],
-    caveat: 'Timing equalization for unknown emails was not verified.',
+    facts: [{ label: 'Why one error', value: 'The response text does not reveal whether an email is registered' }],
+    caveat: 'Response timing for unknown emails was not verified, so this does not prove the service is free of enumeration leaks.',
     sources: [E2],
   },
   'jwt-auth:jwt': {
@@ -366,8 +366,8 @@ export const explainers: Record<string, ExplainerSpec> = {
       { label: 'Planner' },
       { label: 'Red team' },
       { label: 'Privacy' },
-      { label: 'Arbiter' },
       { label: 'Five controlled perturbations', note: 'reword, remove constraint, add constraint, injection, replace verb' },
+      { label: 'Arbiter' },
     ],
     facts: [{ label: 'Stability score', value: 'Uses only the reword and injection variants' }],
     sources: [N1],
@@ -535,7 +535,7 @@ export const projectChips: Record<string, { label: string; value: string }[]> = 
     { label: 'API routes', value: '4' },
     { label: 'declared tests', value: '63' },
     { label: 'PII types redacted', value: '5' },
-    { label: 'offender lock', value: '3 turns' },
+    { label: 'flagged turns lock a session', value: '3' },
   ],
   'jwt-auth': [
     { label: 'endpoints', value: '5' },

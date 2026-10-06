@@ -135,7 +135,7 @@ export const architectures: ArchGraph[] = [
     nodes: [
       { id: 'client', label: 'Browser', kind: 'client', detail: 'Jinja2 templates with vanilla JavaScript.', position: [-4.4, 0, 0] },
       { id: 'auth', label: 'Supabase Auth', kind: 'security', detail: 'The browser signs in directly: Google OAuth, email/password, OTP, and MFA/TOTP.', position: [-3, 1.8, -1.2] },
-      { id: 'api', label: 'Flask API', kind: 'api', detail: '27 JSON API routes and 10 server-rendered pages on Vercel. flask-limiter sets per-route limits from 5 per 15 minutes to 300 per hour.', position: [-2, -0.2, 0.2] },
+      { id: 'api', label: 'Flask API', kind: 'api', detail: '27 JSON API routes and 10 server-rendered pages on Vercel. flask-limiter sets per-route limits (for example 20 per hour on chat, 30 per minute on search) over a 300 per hour default.', position: [-2, -0.2, 0.2] },
       { id: 'pools', label: 'ThreadPool stages', kind: 'worker', detail: 'Two ThreadPoolExecutor stages (4 workers each) fetch genres, then recommendations; search fans out over 3 workers.', position: [0.4, 0.6, 0.8] },
       { id: 'sources', label: 'TMDB + Jikan v4', kind: 'external', detail: 'Movies and TV from TMDB; anime from Jikan v4 (MyAnimeList).', position: [2.6, 1.7, 0.2] },
       { id: 'recommender', label: 'Recommender', kind: 'service', detail: 'Weighted score: 40% frequency, 25% rating, 25% genre overlap, 10% quality; returns the top 24.', position: [2.6, -0.3, 0.6] },

@@ -11,6 +11,7 @@ import { PathList } from '@/components/PathList'
 import { SceneBoundary } from '@/components/SceneBoundary'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { detectWebGL } from '@/lib/webgl'
+import { setMotionPaused, useMotionPaused } from '@/lib/motion'
 
 // three.js stays in this lazy chunk and only loads once the stage is near the viewport.
 const ConstellationScene = lazy(() => import('@/scene/ConstellationScene'))
@@ -32,7 +33,7 @@ export function ProjectStage() {
   const reducedOS = useMediaQuery('(prefers-reduced-motion: reduce)')
   const narrow = useMediaQuery('(max-width: 639px)')
   const reducedMotion = useReducedMotion() ?? false
-  const [paused, setPaused] = useState(false)
+  const paused = useMotionPaused()
   const reduced = reducedOS || paused
 
   const [index, setIndex] = useState(0)
@@ -45,6 +46,7 @@ export function ProjectStage() {
   const [traceToken, setTraceToken] = useState(0)
   const [traceStep, setTraceStep] = useState<number | null>(null)
   const [tracing, setTracing] = useState(false)
+  const [opener, setOpener] = useState<HTMLElement | null>(null)
 
   const [webglOk] = useState(detectWebGL)
   const [sceneFailed, setSceneFailed] = useState(false)
@@ -59,15 +61,39 @@ export function ProjectStage() {
   const openTimer = useRef<number | undefined>(undefined)
   const traceTimers = useRef<number[]>([])
 
+  const openId = useRef(0)
+  const idCounter = useRef(0)
+
+  // Edges a normal request plays. Dashed fallback edges run only when the primary step fails.
+  const primaryEdges = graph.edges.map((e, i) => (e.fallback ? -1 : i)).filter((i) => i >= 0)
+
   const stopTrace = () => {
     traceTimers.current.forEach((t) => window.clearTimeout(t))
     traceTimers.current = []
     setTracing(false)
     setTraceStep(null)
+    // A non-positive token tells the 3D scene to cancel a running trace.
+    setTraceToken((t) => -(Math.abs(t) + 1))
+  }
+
+  const closeNow = () => {
+    openId.current = 0
+    window.clearTimeout(openTimer.current)
+    setOpen(null)
+    setZoomTarget(null)
+  }
+
+  const closeNode = () => {
+    if (openId.current !== 0 && (history.state as { stageOpen?: number } | null)?.stageOpen === openId.current) {
+      history.back() // the popstate handler below performs the close
+      return
+    }
+    closeNow()
   }
 
   const goTo = (i: number) => {
     if (i < 0 || i >= architectures.length) return
+    if (openId.current !== 0) closeNode() // cancel an explainer that is still opening
     stopTrace()
     setHighlightNodeId(null)
     setIndex(i)
@@ -77,17 +103,17 @@ export function ProjectStage() {
     stopTrace()
     setTracing(true)
     if (use3D) {
-      setTraceToken((t) => t + 1)
+      setTraceToken((t) => Math.abs(t) + 1)
       return
     }
-    graph.edges.forEach((_, i) => {
-      traceTimers.current.push(window.setTimeout(() => setTraceStep(i), i * TRACE_STEP_MS))
+    primaryEdges.forEach((edgeIndex, k) => {
+      traceTimers.current.push(window.setTimeout(() => setTraceStep(edgeIndex), k * TRACE_STEP_MS))
     })
     traceTimers.current.push(
       window.setTimeout(() => {
         setTracing(false)
         setTraceStep(null)
-      }, graph.edges.length * TRACE_STEP_MS + 500),
+      }, primaryEdges.length * TRACE_STEP_MS + 500),
     )
   }
 
@@ -95,29 +121,28 @@ export function ProjectStage() {
     const i = architectures.findIndex((g) => g.id === graphId)
     if (i < 0) return
     stopTrace()
+    const active = document.activeElement
+    setOpener(active instanceof HTMLElement && active !== document.body ? active : document.getElementById(`stage-tab-${graphId}`))
     setIndex(i)
     setZoomTarget({ graphId, nodeId })
-    history.pushState({ stageOpen: true }, '')
+    const id = ++idCounter.current
+    // One history entry per open explainer, even if a second tap arrives before the first finishes opening.
+    if (openId.current !== 0) history.replaceState({ stageOpen: id }, '')
+    else history.pushState({ stageOpen: id }, '')
+    openId.current = id
     window.clearTimeout(openTimer.current)
     openTimer.current = window.setTimeout(() => setOpen({ graphId, nodeId }), reducedMotion ? 0 : 650)
   }
 
-  const closeNode = () => {
-    if ((history.state as { stageOpen?: boolean } | null)?.stageOpen) {
-      history.back() // the popstate handler below performs the close
-      return
-    }
-    window.clearTimeout(openTimer.current)
-    setOpen(null)
-    setZoomTarget(null)
-  }
-
   useEffect(() => {
     const onPop = () => {
-      if ((history.state as { stageOpen?: boolean } | null)?.stageOpen) return
-      window.clearTimeout(openTimer.current)
-      setOpen(null)
-      setZoomTarget(null)
+      const marker = (history.state as { stageOpen?: number } | null)?.stageOpen
+      if (openId.current !== 0 && marker !== openId.current) {
+        openId.current = 0
+        window.clearTimeout(openTimer.current)
+        setOpen(null)
+        setZoomTarget(null)
+      }
     }
     window.addEventListener('popstate', onPop)
     return () => {
@@ -190,7 +215,7 @@ export function ProjectStage() {
                       setTraceStep(null)
                     }}
                     palette={scenePalette}
-                    reducedMotion={reduced}
+                    reducedMotion={reduced || open !== null}
                     quality={quality}
                     onQualityChange={setQuality}
                     onUnavailable={() => setSceneFailed(true)}
@@ -260,13 +285,13 @@ export function ProjectStage() {
                     onClick={tracing ? stopTrace : startTrace}
                     className="rounded-full bg-accent px-4 py-2 text-[#03130c] sm:px-5 sm:py-2.5 shadow-[0_0_28px_rgba(77,224,160,0.5)] transition hover:brightness-110"
                   >
-                    {tracing ? 'Stop' : 'Play request path'}
+                    {tracing ? 'Stop' : 'Trace the data flow'}
                   </button>
                   {use3D && !reducedOS && (
                     <button
                       type="button"
                       aria-pressed={paused}
-                      onClick={() => setPaused((v) => !v)}
+                      onClick={() => setMotionPaused(!paused)}
                       className="rounded-full border border-line-strong px-3.5 py-2 text-ink transition hover:border-accent hover:text-accent sm:px-4 sm:py-2.5"
                     >
                       {paused ? 'Play animation' : 'Pause animation'}
@@ -277,7 +302,7 @@ export function ProjectStage() {
                   {step && (
                     <>
                       <span className="mono-label mr-2">
-                        Step {(traceStep ?? 0) + 1} of {graph.edges.length}
+                        Step {primaryEdges.indexOf(traceStep ?? -1) + 1} of {primaryEdges.length}
                       </span>
                       {nameOf(step.from)} to {nameOf(step.to)}
                       {step.label ? `: ${step.label}` : ''}
@@ -373,7 +398,7 @@ export function ProjectStage() {
       </div>
 
       <AnimatePresence>
-        {open && openGraph && <ExplainerModal key={`${open.graphId}:${open.nodeId}`} graph={openGraph} nodeId={open.nodeId} onClose={closeNode} />}
+        {open && openGraph && <ExplainerModal key={`${open.graphId}:${open.nodeId}`} graph={openGraph} nodeId={open.nodeId} onClose={closeNode} returnFocusTo={opener} />}
       </AnimatePresence>
     </section>
   )

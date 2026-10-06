@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useReducedMotion } from 'motion/react'
 import { COLORS } from '@/theme'
+import { useMotionPaused } from '@/lib/motion'
 
 const LAYERS = [5, 8, 10, 10, 8, 5]
 const COLUMN_LABELS = ['tokens', 'embed', 'attention', 'attention', 'mlp', 'next token']
@@ -16,7 +17,9 @@ interface Pulse {
 /** Illustrative language-model network: signals hop layer to layer and light up nodes. */
 export function NeuralNet() {
   const ref = useRef<HTMLCanvasElement>(null)
-  const reduce = useReducedMotion()
+  const osReduced = useReducedMotion()
+  const paused = useMotionPaused()
+  const reduce = osReduced || paused
 
   useEffect(() => {
     const canvas = ref.current

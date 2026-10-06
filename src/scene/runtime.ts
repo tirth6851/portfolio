@@ -62,6 +62,8 @@ export function createScene(host: HTMLDivElement, initial: ConstellationScenePro
   function nextTraceStep() {
     if (!trace) return
     trace.edgeIndex++
+    // Fallback edges run only when the primary step fails, so a normal request never plays them.
+    while (trace.edgeIndex < graphs[trace.graphIndex].edges.length && graphs[trace.graphIndex].edges[trace.edgeIndex].fallback) trace.edgeIndex++
     trace.progress = 0
     traceRemaining = 700
     if (trace.edgeIndex >= graphs[trace.graphIndex].edges.length) {

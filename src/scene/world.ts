@@ -198,6 +198,11 @@ export function createWorld(graphs: ArchGraph[], palette: ScenePalette) {
           const graph = visuals[g]
           // Cull whole distant constellations while keeping the adjacent graphs built and ready.
           graph.root.visible = Math.abs(graph.root.position.x - camera.position.x) < 37
+          if (!graph.root.visible) {
+            // Keep the shared trail buffer cursor aligned without animating anything off-screen.
+            cursor += graph.edges.length * trailLength
+            continue
+          }
           for (const node of graph.nodes) {
             node.anchor.position.y = node.base.y + (moving ? Math.sin(time * 0.8 + node.phase) * 0.09 : 0)
             node.body.rotation.y = 0.35 + (moving ? Math.sin(time * 0.4 + node.phase) * 0.35 : 0)

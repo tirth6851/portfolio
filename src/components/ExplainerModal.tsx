@@ -4,6 +4,8 @@ import { motion } from 'motion/react'
 import type { ArchGraph, NodeKind } from '@/data/architectures'
 import { explainers, ILLUSTRATIVE, type ExplainerSpec } from '@/data/explainers'
 import { ExplainerVisual } from '@/components/explainers/ExplainerVisual'
+import { setMotionPaused, useMotionPaused } from '@/lib/motion'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const KIND_LABEL: Record<NodeKind, string> = {
   client: 'Client',
@@ -19,18 +21,21 @@ interface Props {
   graph: ArchGraph
   nodeId: string
   onClose: () => void
+  /** Element that opened the explainer; receives focus again on close. */
+  returnFocusTo: HTMLElement | null
 }
 
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-export function ExplainerModal({ graph, nodeId, onClose }: Props) {
+export function ExplainerModal({ graph, nodeId, onClose, returnFocusTo }: Props) {
+  const paused = useMotionPaused()
+  const osReduced = useMediaQuery('(prefers-reduced-motion: reduce)')
   const node = graph.nodes.find((n) => n.id === nodeId)
   const titleId = useId()
   const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const opener = document.activeElement as HTMLElement | null
     const root = document.getElementById('root')
     root?.setAttribute('inert', '')
     const prevOverflow = document.documentElement.style.overflow
@@ -39,9 +44,9 @@ export function ExplainerModal({ graph, nodeId, onClose }: Props) {
     return () => {
       root?.removeAttribute('inert')
       document.documentElement.style.overflow = prevOverflow
-      if (opener && document.contains(opener)) opener.focus({ preventScroll: true })
+      if (returnFocusTo && document.contains(returnFocusTo)) returnFocusTo.focus({ preventScroll: true })
     }
-  }, [])
+  }, [returnFocusTo])
 
   if (!node) return null
 
@@ -81,7 +86,7 @@ export function ExplainerModal({ graph, nodeId, onClose }: Props) {
       onKeyDown={onKeyDown}
     >
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(5,7,10,0.55),rgba(5,7,10,0.92))] backdrop-blur-sm"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(5,7,10,0.6),rgba(5,7,10,0.94))]"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -105,6 +110,17 @@ export function ExplainerModal({ graph, nodeId, onClose }: Props) {
               <span className="gradient-text">{node.label}</span>
             </h2>
           </div>
+          <div className="flex shrink-0 flex-col items-end gap-2 sm:flex-row sm:items-center">
+          {!osReduced && (
+            <button
+              type="button"
+              aria-pressed={paused}
+              onClick={() => setMotionPaused(!paused)}
+              className="mono-label rounded-full border border-line px-4 py-2 text-[0.66rem] text-ink-soft transition-colors hover:border-accent hover:text-accent"
+            >
+              {paused ? 'Play animation' : 'Pause animation'}
+            </button>
+          )}
           <button
             ref={closeRef}
             type="button"
@@ -113,14 +129,14 @@ export function ExplainerModal({ graph, nodeId, onClose }: Props) {
           >
             Close <span className="text-ink-soft">Esc</span>
           </button>
+          </div>
         </div>
 
         <p className="mt-4 max-w-3xl text-lg text-ink-soft">{node.detail}</p>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           <div>
-            <div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-line bg-black/30 p-4 sm:p-6">
-              <div className="aurora" aria-hidden="true" />
+            <div className="relative min-h-[300px] overflow-hidden rounded-2xl border border-line bg-[radial-gradient(ellipse_at_30%_20%,rgba(77,224,160,0.1),rgba(5,7,10,0.5)_60%)] p-4 sm:p-6">
               <div className="relative z-10 h-full">
                 <ExplainerVisual spec={spec} label={node.label} from={from} to={to} />
               </div>

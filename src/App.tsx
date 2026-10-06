@@ -1,5 +1,6 @@
 import { MotionConfig } from 'motion/react'
 import { SiteHeader } from '@/components/SiteHeader'
+import { CursorGlow } from '@/components/CursorGlow'
 import { Hero } from '@/sections/Hero'
 import { ProjectStage } from '@/sections/ProjectStage'
 import { AlsoBuilt } from '@/sections/AlsoBuilt'
@@ -15,6 +16,7 @@ export default function App() {
       <a href="#main" className="skip-link">
         Skip to content
       </a>
+      <CursorGlow />
       <SiteHeader />
       <main id="main">
         <Hero />

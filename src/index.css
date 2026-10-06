@@ -235,6 +235,16 @@ button:focus-visible,
   .stage-zoom[data-zoom='true'] {
     transition: none;
     transform: none;
+    filter: none;
+  }
+  .stage-zoom[data-zoom='true'] {
     filter: brightness(0.5);
   }
+}
+
+/* The page-wide pause switch freezes every CSS animation. */
+html[data-motion='paused'] *,
+html[data-motion='paused'] *::before,
+html[data-motion='paused'] *::after {
+  animation-play-state: paused !important;
 }
