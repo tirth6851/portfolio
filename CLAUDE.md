@@ -13,7 +13,7 @@ Use free resources by default. Anything paid or of unknown price (Higgsfield gen
 
 ## Content rules
 - Never invent employment, metrics, skills, GPA (3.52 per needUpdate.md/content.ts), or availability.
-- Unresolved personal facts (do not decide): current target term (Fall 2026 is stale as of 2026-10), which email to publish (`t.patel76@vikes.csohio.edu` vs `tirth2093@gmail.com`).
+- Decided by the owner (2026-10-06): target term is Summer 2027; published email is `t.patel76@vikes.csohio.edu`; canonical deploy target is Vercel (`https://portfolio-green-delta-11.vercel.app/`, vite `base: '/'`). Don't change these without asking.
 - Do not adopt "AI/ML Engineer" titling; evidence supports backend / full-stack.
 
 ## Design direction

@@ -27,8 +27,8 @@ export function About() {
             </p>
             <p>
               As a STEM Peer Teacher I explain hard problems simply every day, a skill that
-              transfers directly to writing clear, maintainable code. I'm looking for a software
-              engineering internship or co-op where I can ship real things from day one.
+              transfers directly to writing clear, maintainable code. I'm looking for a Summer 2027
+              software engineering internship or co-op where I can ship real things from day one.
             </p>
           </div>
           <dl className="mt-12 border-t border-ink">

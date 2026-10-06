@@ -26,6 +26,9 @@ export function Hero() {
             <p className="mono-label text-ink-soft">
               B.S. Computer Science · Cleveland State University
             </p>
+            <p className="mono-label mt-2 text-accent">
+              <span aria-hidden="true">● </span>Open to Summer 2027 internships and co-ops
+            </p>
           </Reveal>
           <KineticHeadline
             words={headline}
